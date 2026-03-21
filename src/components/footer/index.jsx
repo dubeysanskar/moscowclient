@@ -155,20 +155,6 @@ export default function Footer() {
                     </div>
                 </div>
             </footer>
-
-            {/* Marquee Strip */}
-            <div className="overflow-hidden" style={{ background: "#8E0935" }}>
-                <div className="flex animate-[marquee_20s_linear_infinite]" style={{ width: "max-content" }}>
-                    {[...Array(10)].map((_, i) => (
-                        <span key={i} className="flex items-center gap-4 px-6 py-2 text-sm tracking-[0.1em] uppercase whitespace-nowrap"
-                            style={{ color: "rgba(253,251,239,0.9)", fontFamily: "var(--font-lato)" }}>
-                            <span className="text-xs" style={{ color: "rgba(253,251,239,0.5)" }}>✦</span>
-                            Taha Airwaves — Where Talent Meets Reliability
-                        </span>
-                    ))}
-                </div>
-                <style>{`@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
-            </div>
         </>
     )
 }
