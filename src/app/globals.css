@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme inline {
+	--color-primary: #8E0935;
+	--color-secondary: #BC264B;
+	--color-neutral: #FDFBEF;
+	--color-dark: #1a0a10;
+
+	--font-cormorant-garamond: "Cormorant Garamond", serif;
+	--font-lato: "Lato", sans-serif;
+	--font-oswald: "Oswald", sans-serif;
+	--font-poppins: "Poppins", sans-serif;
+}
