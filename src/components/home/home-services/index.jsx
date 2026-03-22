@@ -54,21 +54,27 @@ export default function CardCarousel() {
 
                     {/* Header */}
                     <div className="flex items-center justify-between pb-4 mb-6 border-b border-gray-300">
-                        <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
+                        <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase" style={{ color: "#1a0a10" }}>
                             {data.title}
                         </h2>
 
                         <div className="flex gap-3">
                             <button
                                 onClick={() => swiperRef.current?.slidePrev()}
-                                className="p-2 border border-black/20 hover:bg-black hover:text-white transition cursor-pointer"
+                                className="p-2 transition cursor-pointer"
+                                style={{ border: "1px solid rgba(26,10,16,0.2)", color: "#1a0a10" }}
+                                onMouseEnter={e => { e.currentTarget.style.background = "#1a0a10"; e.currentTarget.style.color = "#FDFBEF" }}
+                                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1a0a10" }}
                             >
                                 <MdArrowBack size={20} />
                             </button>
 
                             <button
                                 onClick={() => swiperRef.current?.slideNext()}
-                                className="p-2 border border-black/20 hover:bg-black hover:text-white transition cursor-pointer"
+                                className="p-2 transition cursor-pointer"
+                                style={{ border: "1px solid rgba(26,10,16,0.2)", color: "#1a0a10" }}
+                                onMouseEnter={e => { e.currentTarget.style.background = "#1a0a10"; e.currentTarget.style.color = "#FDFBEF" }}
+                                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1a0a10" }}
                             >
                                 <MdArrowForward size={20} />
                             </button>
@@ -100,7 +106,7 @@ export default function CardCarousel() {
                                         {card.number}
                                     </span>
 
-                                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#BC264B]/20 to-[#8E0935]/10 flex items-center justify-center">
+                                    <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: "rgba(188,38,75,0.15)" }}>
                                         <div className="w-3 h-3 rounded-full bg-[#BC264B]" />
                                     </div>
 
@@ -125,7 +131,10 @@ export default function CardCarousel() {
                         </p>
 
                         <Link href="/services">
-                            <button className="px-6 py-3 font-poppins border border-black/30 hover:bg-[#1a0a10] hover:text-white transition cursor-pointer flex items-center gap-3">
+                            <button className="px-6 py-3 font-poppins transition cursor-pointer flex items-center gap-3"
+                                style={{ border: "1px solid rgba(26,10,16,0.3)", color: "#1a0a10" }}
+                                onMouseEnter={e => { e.currentTarget.style.background = "#1a0a10"; e.currentTarget.style.color = "#FDFBEF" }}
+                                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1a0a10" }}>
                                 View All Services
                                 <MdArrowOutward size={18} />
                             </button>

@@ -1,3 +1,5 @@
+'use client'
+
 import Container from "@/components/container";
 import Link from "next/link";
 import { MdArrowOutward } from "react-icons/md";
@@ -44,18 +46,18 @@ export default function WhyUs() {
             <Container>
                 <div className="space-y-10">
                     <div className="flex flex-col md:flex-row justify-between gap-8 border-b border-gray-300 pb-6">
-                        <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
+                        <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase" style={{ color: "#1a0a10" }}>
                             {data.title}
                         </h2>
                         <p className="text-sm md:text-base text-neutral-500 font-poppins max-w-150">
                             {data.description}
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 lg:gap-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 lg:gap-20" style={{ borderTop: "1px solid #d1d5db" }}>
                         <div className="grid grid-cols-1">
                             {data.part1.map((item, index) => (
-                                <div key={index} className="border-b border-gray-300 py-8">
-                                    <h3 className="text-lg md:text-2xl font-medium font-poppins">
+                                <div key={index} className="py-8" style={{ borderBottom: "1px solid #d1d5db" }}>
+                                    <h3 className="text-lg md:text-2xl font-medium font-poppins" style={{ color: "#1a0a10" }}>
                                         {item.title}
                                     </h3>
                                     <p className="text-sm text-gray-700 font-poppins mt-2 max-w-120">
@@ -90,7 +92,10 @@ export default function WhyUs() {
                                 
                                 <div>
                                     <Link href="/contact">
-                                        <button className="px-4 py-2 font-poppins border border-black/30 hover:bg-[#1a0a10] hover:text-white transition cursor-pointer flex items-center gap-3">
+                                        <button className="px-4 py-2 font-poppins transition cursor-pointer flex items-center gap-3"
+                                            style={{ border: "1px solid rgba(26,10,16,0.3)", color: "#1a0a10" }}
+                                            onMouseEnter={e => { e.currentTarget.style.background = "#1a0a10"; e.currentTarget.style.color = "#FDFBEF" }}
+                                            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1a0a10" }}>
                                             Get in touch
                                             <MdArrowOutward size={18} />
                                         </button>

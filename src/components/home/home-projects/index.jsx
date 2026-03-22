@@ -1,3 +1,5 @@
+'use client'
+
 import Container from "@/components/container";
 import Link from "next/link";
 import { MdArrowOutward } from "react-icons/md";
@@ -49,11 +51,11 @@ const services = [
 export default function ServicesShowcase() {
     return (
         <section className="px-2 md:px-4">
-            <div className="px-2 md:px-4 py-20 bg-cream/50 rounded-3xl">
+            <div className="px-2 md:px-4 py-20 rounded-3xl" style={{ background: "rgba(253,251,239,0.5)" }}>
                 <div className="mx-auto lg:max-w-340 h-full">
                     <div className="space-y-8">
-                        <div className="space-y-8 border-b border-gray-300 pb-8">
-                            <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
+                        <div className="space-y-8 pb-8" style={{ borderBottom: "1px solid #d1d5db" }}>
+                            <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase" style={{ color: "#1a0a10" }}>
                                 {data.title}
                             </h2>
                             <div className="flex flex-col md:flex-row justify-between gap-8">
@@ -62,7 +64,10 @@ export default function ServicesShowcase() {
                                 </p>
                                 <div className="flex items-end">
                                     <Link href="/services">
-                                        <button className="px-4 py-2 md:px-6 md:py-3 font-poppins border border-black/30 hover:bg-white bg-[#1a0a10] hover:text-black text-white transition cursor-pointer flex items-center gap-3">
+                                        <button className="px-4 py-2 md:px-6 md:py-3 font-poppins text-white transition cursor-pointer flex items-center gap-3"
+                                            style={{ background: "#1a0a10", border: "1px solid rgba(26,10,16,0.3)" }}
+                                            onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#1a0a10" }}
+                                            onMouseLeave={e => { e.currentTarget.style.background = "#1a0a10"; e.currentTarget.style.color = "#fff" }}>
                                             All Services
                                             <MdArrowOutward size={18} />
                                         </button>
@@ -77,15 +82,15 @@ export default function ServicesShowcase() {
                                         <span className="text-xs text-gray-400 tracking-widest font-mono">0{service.id}</span>
                                         <div className="w-2 h-2 rounded-full bg-[#BC264B] opacity-50 group-hover:opacity-100 transition-opacity" />
                                     </div>
-                                    <h3 className="text-xl md:text-2xl font-semibold font-lato text-gray-900 leading-tight">
+                                    <h3 className="text-xl md:text-2xl font-semibold font-lato leading-tight" style={{ color: "#111827" }}>
                                         {service.title}
                                     </h3>
-                                    <p className="text-sm font-poppins text-gray-500 leading-relaxed flex-1">
+                                    <p className="text-sm font-poppins leading-relaxed flex-1" style={{ color: "#6B7280" }}>
                                         {service.desc}
                                     </p>
                                     <div className="flex flex-wrap gap-2 mt-2">
                                         {service.tags.map((tag) => (
-                                            <span key={tag} className="px-3 py-1 rounded-full border border-gray-200 text-xs text-gray-500 font-mono font-medium">
+                                            <span key={tag} className="px-3 py-1 rounded-full text-xs font-mono font-medium" style={{ border: "1px solid #e5e7eb", color: "#6B7280" }}>
                                                 {tag}
                                             </span>
                                         ))}
@@ -95,7 +100,10 @@ export default function ServicesShowcase() {
                         </div>
                         <div className="flex items-end justify-center">
                             <Link href="/contact">
-                                <button className="px-4 py-2 md:px-6 md:py-3 font-poppins border border-black/30 hover:bg-white bg-[#1a0a10] hover:text-black text-white transition cursor-pointer flex items-center gap-3">
+                                <button className="px-4 py-2 md:px-6 md:py-3 font-poppins text-white transition cursor-pointer flex items-center gap-3"
+                                    style={{ background: "#1a0a10", border: "1px solid rgba(26,10,16,0.3)" }}
+                                    onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#1a0a10" }}
+                                    onMouseLeave={e => { e.currentTarget.style.background = "#1a0a10"; e.currentTarget.style.color = "#fff" }}>
                                     Hire Manpower
                                     <MdArrowOutward size={18} />
                                 </button>

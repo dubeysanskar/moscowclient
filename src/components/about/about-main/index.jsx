@@ -57,8 +57,8 @@ export default function AboutMain() {
 
             {/* Ambient orbs */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div style={{ position:"absolute", width:"520px", height:"520px", top:"-80px", right:"-120px", borderRadius:"50%", background:"radial-gradient(circle, rgba(188,38,75,0.15) 0%, transparent 70%)", filter:"blur(100px)" }} />
-                <div style={{ position:"absolute", width:"380px", height:"380px", top:"300px", left:"-100px", borderRadius:"50%", background:"radial-gradient(circle, rgba(142,9,53,0.12) 0%, transparent 70%)", filter:"blur(90px)" }} />
+                <div style={{ position:"absolute", width:"520px", height:"520px", top:"-80px", right:"-120px", borderRadius:"50%", background:"rgba(188,38,75,0.08)", filter:"blur(100px)" }} />
+                <div style={{ position:"absolute", width:"380px", height:"380px", top:"300px", left:"-100px", borderRadius:"50%", background:"rgba(142,9,53,0.06)", filter:"blur(90px)" }} />
             </div>
 
             {/* HERO */}
@@ -75,8 +75,8 @@ export default function AboutMain() {
                     </div>
                     <div className="max-w-md self-end pb-2">
                         <motion.p variants={fadeUp} custom={2} style={{ color: "#555" }} className="leading-relaxed font-poppins">
-                            Since 2005, Taha Airwaves Private Limited has been connecting India's skilled and semi-skilled workforce
-                            with global employers across Russia, CIS, GCC, and beyond — with full government licensing and compliance.
+                            Taha Airwaves Private Limited is a well-established manpower outsourcing consultancy based in New Delhi,
+                            connecting India's skilled and semi-skilled workforce with global employers across Russia, CIS, GCC, and beyond — with full government licensing and compliance.
                         </motion.p>
                     </div>
                 </div>
@@ -84,7 +84,7 @@ export default function AboutMain() {
 
             {/* Divider */}
             <AnimatedSection className="max-w-6xl mx-auto px-6 lg:px-12 mb-16 relative z-10">
-                <motion.div variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 1.1 } } }} className="origin-left h-px" style={{ background: "linear-gradient(to right, #BC264B44, #BC264B, transparent)" }} />
+                <motion.div variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 1.1 } } }} className="origin-left h-px" style={{ background: "rgba(188,38,75,0.4)" }} />
             </AnimatedSection>
 
             {/* STATS */}
@@ -141,13 +141,13 @@ export default function AboutMain() {
                     <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         {/* Left — license card */}
                         <div className="bg-[#1a0a10] rounded-3xl p-10 relative overflow-hidden">
-                            <div className="absolute -top-10 -right-10 w-[200px] h-[200px] rounded-full bg-[radial-gradient(circle,rgba(188,38,75,0.2)_0%,transparent_70%)] blur-[60px]" />
+                            <div className="absolute -top-10 -right-10 w-[200px] h-[200px] rounded-full blur-[60px]" style={{ background: "rgba(188,38,75,0.12)" }} />
                             <div className="relative z-10">
                                 <p className="text-xs tracking-[0.2em] uppercase font-lato font-bold text-[#BC264B] mb-6">Government Licensed Agency</p>
                                 <div className="space-y-4">
                                     <div className="border border-white/10 rounded-xl p-4">
                                         <p className="text-xs text-white/40 font-poppins mb-1">Agency Name</p>
-                                        <p className="text-lg font-poppins font-medium text-cream">Taha Airwaves Private Limited</p>
+                                        <p className="text-lg font-poppins font-medium" style={{ color: "#FDFBEF" }}>Taha Airwaves Private Limited</p>
                                     </div>
                                     <div className="border border-white/10 rounded-xl p-4">
                                         <p className="text-xs text-white/40 font-poppins mb-1">RA License Number</p>
@@ -157,10 +157,7 @@ export default function AboutMain() {
                                         <p className="text-xs text-white/40 font-poppins mb-1">Registered Office</p>
                                         <p className="text-sm font-poppins text-white/70">71A, 3rd Floor, Taimoor Nagar, New Friends Colony, New Delhi 110025</p>
                                     </div>
-                                    <div className="border border-white/10 rounded-xl p-4">
-                                        <p className="text-xs text-white/40 font-poppins mb-1">Established</p>
-                                        <p className="text-lg font-poppins font-medium text-cream">2005</p>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -176,14 +173,15 @@ export default function AboutMain() {
                             </motion.h3>
                             <motion.div custom={2} variants={fadeUp} initial="hidden" animate={visionInView ? "visible" : "hidden"} className="space-y-4 text-sm leading-relaxed" style={{ color: "#555" }}>
                                 <p>
-                                    Founded in 2005, Taha Airwaves started with a simple vision — to create reliable pathways for
-                                    Indian workers seeking opportunities abroad. Over two decades, we've grown into one of India's
-                                    most trusted overseas recruitment agencies.
+                                    We incepted our company with the objective to bridge the demand gap between the employers and employees.
+                                    As an accomplished placement and recruitment agency, we rely on delivering quality services of procuring
+                                    the right people for the right roles at the right time anywhere in India and abroad.
                                 </p>
                                 <p>
-                                    Today we deploy over 5000 workers across 11+ countries including Russia, UAE, Saudi Arabia,
-                                    Qatar, Kuwait, and beyond. Our government license, rigorous trade testing, and dedicated
-                                    deployment teams ensure every worker and employer trusts the Taha Airwaves name.
+                                    Our RA License (B-3260/DEL/COM/100/5/11259/2025) stands as proof of our compliance with Indian emigration laws
+                                    and our commitment to ethical recruitment practices. We offer a wide range of services from selecting,
+                                    interviewing, recruiting and imparting all types of training to the employees. Today we deploy workers
+                                    across 11+ countries including Russia, UAE, Saudi Arabia, Qatar, Kuwait, and beyond.
                                 </p>
                             </motion.div>
                         </div>

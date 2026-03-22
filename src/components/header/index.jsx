@@ -14,6 +14,7 @@ const navLinks = [
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Blog", href: "/blog" },
+    { label: "Contact Us", href: "/contact" },
 ]
 
 const socials = [
@@ -106,15 +107,15 @@ export default function Header() {
                                 ))}
                             </div>
 
-                            <Link href="/contact">
+                            <a href="https://wa.me/919315226961?text=Hi%2C%20I'm%20interested%20in%20your%20manpower%20services." target="_blank" rel="noopener noreferrer">
                                 <button className="flex items-center gap-2 px-5 py-2.5 rounded-full text-xs tracking-[0.14em] uppercase font-semibold transition-all duration-300 cursor-pointer"
-                                    style={{ background: "#8E0935", color: "#FDFBEF", fontFamily: "var(--font-lato)" }}
-                                    onMouseEnter={e => { e.currentTarget.style.background = "#BC264B" }}
-                                    onMouseLeave={e => { e.currentTarget.style.background = "#8E0935" }}>
-                                    Contact Us
-                                    <MdArrowOutward />
+                                    style={{ background: "#25D366", color: "#fff", fontFamily: "var(--font-lato)" }}
+                                    onMouseEnter={e => { e.currentTarget.style.background = "#1DA851" }}
+                                    onMouseLeave={e => { e.currentTarget.style.background = "#25D366" }}>
+                                    <FaWhatsapp />
+                                    WhatsApp Us
                                 </button>
-                            </Link>
+                            </a>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -171,12 +172,12 @@ export default function Header() {
                                 ))}
                             </div>
 
-                            <Link href="/contact" onClick={() => setIsOpen(false)}>
-                                <button className="w-full py-3 rounded-full text-sm tracking-[0.14em] uppercase font-semibold"
-                                    style={{ background: "#8E0935", color: "#FDFBEF", fontFamily: "var(--font-lato)" }}>
-                                    Contact Us
+                            <a href="https://wa.me/919315226961?text=Hi%2C%20I'm%20interested%20in%20your%20manpower%20services." target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                                <button className="w-full py-3 rounded-full text-sm tracking-[0.14em] uppercase font-semibold flex items-center justify-center gap-2"
+                                    style={{ background: "#25D366", color: "#fff", fontFamily: "var(--font-lato)" }}>
+                                    <FaWhatsapp /> WhatsApp Us
                                 </button>
-                            </Link>
+                            </a>
                         </div>
                     </motion.div>
                 )}

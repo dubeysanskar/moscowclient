@@ -22,17 +22,17 @@ export default function HomeAbout() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <div className="md:col-span-2">
-                        <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
+                        <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase" style={{ color: "#1a0a10" }}>
                             • About Us
                         </h2>
                     </div>
 
                     <div className="space-y-12 col-span-3">
                         <div className="space-y-6">
-                            <p className="text-xl md:text-3xl font-poppins font-medium">
+                            <p className="text-xl md:text-3xl font-poppins font-medium" style={{ color: "#1a0a10" }}>
                                 {data.paraone}
                             </p>
-                            <p className="text-sm md:text-base font-poppins">
+                            <p className="text-sm md:text-base font-poppins" style={{ color: "#6B7280" }}>
                                 {data.paratwo}
                             </p>
                         </div>
@@ -44,7 +44,7 @@ export default function HomeAbout() {
                                         Learn More
                                     </span>
                                     <MdArrowOutward className="text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"/>
-                                    <span className="absolute left-0 bottom-0 h-[2px] w-full bg-black scale-x-[0.3] origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+                                    <span className="absolute left-0 bottom-0 h-[2px] w-full scale-x-[0.3] origin-left transition-transform duration-300 group-hover:scale-x-100" style={{ background: "#1a0a10" }}></span>
                                 </button>
                             </Link>
 
@@ -54,7 +54,7 @@ export default function HomeAbout() {
                                         Get in touch
                                     </span>
                                     <MdArrowOutward className="text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"/>
-                                    <span className="absolute left-0 bottom-0 h-[2px] w-full bg-black scale-x-[0.3] origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+                                    <span className="absolute left-0 bottom-0 h-[2px] w-full scale-x-[0.3] origin-left transition-transform duration-300 group-hover:scale-x-100" style={{ background: "#1a0a10" }}></span>
                                 </button>
                             </Link>
                         </div>

@@ -61,7 +61,7 @@ export default function Hero() {
             </AnimatePresence>
 
             {/* Overlay */}
-            <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(26,10,16,0.7) 0%, rgba(26,10,16,0.85) 100%)" }} />
+            <div className="absolute inset-0" style={{ background: "rgba(26,10,16,0.78)" }} />
 
             {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-center max-w-[1400px] mx-auto px-6 lg:px-8">
@@ -138,8 +138,8 @@ export default function Hero() {
 
                 {/* Stats Bar */}
                 <div className="absolute bottom-0 left-0 right-0 px-6 lg:px-8" style={{ borderTop: "1px solid rgba(142,9,53,0.3)" }}>
-                    <div className="max-w-[1400px] mx-auto flex items-center justify-between py-5">
-                        <div className="flex items-center gap-8 lg:gap-14">
+                    <div className="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between py-4 sm:py-5 gap-4">
+                        <div className="flex flex-wrap items-center gap-5 sm:gap-8 lg:gap-14">
                             {stats.map((s, i) => (
                                 <div key={i} className="flex items-center gap-3">
                                     <span className="text-2xl lg:text-3xl font-bold" style={{ color: "#BC264B", fontFamily: "var(--font-oswald)" }}>

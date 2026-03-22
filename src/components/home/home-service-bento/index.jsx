@@ -50,7 +50,7 @@ export default function HomeServiceBento() {
                                 <div key={i} className="border border-white/10 rounded-xl p-5 hover:border-[#BC264B]/30 transition-colors">
                                     <div className="flex items-center gap-3 mb-2">
                                         <span className="text-[#BC264B] text-sm font-lato font-bold">0{i + 1}</span>
-                                        <div className="h-px flex-1 bg-gradient-to-r from-[#BC264B]/30 to-transparent" />
+                                        <div className="h-px flex-1" style={{ background: "rgba(188,38,75,0.3)" }} />
                                     </div>
                                     <h3 className="text-lg font-poppins font-medium text-cream mb-1">{item.title}</h3>
                                     <p className="text-sm font-poppins text-white/50">{item.desc}</p>
@@ -92,7 +92,8 @@ export default function HomeServiceBento() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="rounded-2xl w-full h-full bg-gradient-to-br from-[#BC264B] to-[#8E0935] p-6 flex flex-col justify-center text-white"
+                        className="rounded-2xl w-full h-full p-6 flex flex-col justify-center text-white"
+                        style={{ background: "#8E0935" }}
                     >
                         <div className="space-y-4">
                             <div>

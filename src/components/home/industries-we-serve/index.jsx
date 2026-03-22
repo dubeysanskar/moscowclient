@@ -71,8 +71,11 @@ export default function IndustriesWeServe() {
                             />
 
                             {/* Default overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10
-                                transition-all duration-500 group-hover:from-[rgba(142,9,53,0.9)] group-hover:via-[rgba(142,9,53,0.5)] group-hover:to-[rgba(142,9,53,0.2)]" />
+                            <div className="absolute inset-0 transition-all duration-500"
+                                style={{ background: "rgba(26,10,16,0.55)" }}
+                                onMouseEnter={e => e.currentTarget.style.background = "rgba(142,9,53,0.7)"}
+                                onMouseLeave={e => e.currentTarget.style.background = "rgba(26,10,16,0.55)"}
+                            />
 
                             {/* Content */}
                             <div className="absolute inset-0 flex flex-col justify-end p-5 lg:p-6 text-white z-10">

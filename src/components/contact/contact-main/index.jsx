@@ -3,45 +3,53 @@
 import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
 import { MdArrowOutward } from "react-icons/md"
-import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
+import { FiPhone, FiMail, FiMapPin, FiExternalLink } from "react-icons/fi"
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
 
 const OFFICES = [
     {
-        city: "New Delhi (Head Office)",
-        address: "71A, 3rd Floor, Taimoor Nagar, New Friends Colony, New Delhi 110025",
+        city: "India (Delhi) — Head Office",
+        address: "71A, 3rd Floor, Block A, Taimoor Nagar, New Friends Colony, New Delhi 110065",
         phone: "+91 93152 26961",
         email: "info@tahaairwaves.com",
-        mapUrl: "https://maps.google.com/?q=28.5671,77.2700",
+        website: "www.tahaairwaves.com",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.0!2d77.2708078!3d28.5721053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3d4eb682229%3A0xa52bff5d678144c5!2sTaha%20Airwaves!5e0!3m2!1sen!2sin!4v1",
+        mapLink: "https://maps.app.goo.gl/GvS2Xn4ZrGqcfmbS8",
     },
     {
-        city: "Noida (Branch Office)",
-        address: "Sector 62, Noida, Uttar Pradesh 201301",
-        phone: "+91 93152 26961",
-        email: "info@tahaairwaves.com",
-        mapUrl: "https://maps.google.com/?q=28.6270,77.3737",
+        city: "India (Noida)",
+        address: "Bhutani Alphathum, Tower C, 2nd Floor, A06, Sector 90, Noida, Uttar Pradesh 201304",
+        email: "marketing@tahaairwaves.com",
+        website: "www.tahaairwaves.com",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.8811434315994!2d77.4107801!3d28.513235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce9fcbe0273a1%3A0xd8ed754838e2f8a4!2sBhutani%20Alphathum!5e0!3m2!1sen!2sin!4v1774001112471!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/8hj6U2PwFGQviqBCA",
     },
     {
         city: "Jeddah, Saudi Arabia",
-        address: "Al Balad District, Jeddah, Saudi Arabia",
-        phone: "+966 XX XXX XXXX",
-        email: "jeddah@tahaairwaves.com",
-        mapUrl: "https://maps.google.com/?q=21.4858,39.1925",
+        address: "056, King Fahad Road, Al-Safa District, Jeddah",
+        phone: "+966 532 464 195",
+        email: "ksa@tahaairwaves.com",
+        website: "www.tahaairwaves.com",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118645.1611797207!2d39.117145217436034!3d21.58525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d11159b4f451%3A0x15f5f6e033478b8f!2sAl-Safa%2C%2BJeddah%2BSaudi%2BArabia!5e0!3m2!1sen!2sin!4v1742492931109!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/zH53vbogocDCBoAe6",
     },
     {
         city: "Moscow, Russia",
-        address: "Business District, Moscow, Russia",
-        phone: "+7 XXX XXX XXXX",
-        email: "moscow@tahaairwaves.com",
-        mapUrl: "https://maps.google.com/?q=55.7558,37.6173",
+        address: "Skolkovo Innovation Center, Malevicha Street, 2k4, 143026",
+        phone: "+7 985 074-88-28",
+        email: "info@tahaairwaves.ru",
+        website: "www.tahaairwaves.ru",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.1426425262143!2d37.3377322!3d55.7212732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54fc19d3da9ab%3A0xa53e316700ab8ad7!2zVGFoYSBBaXJ3YXZlcyBSdXNzaWEgLSDQrdC60YHQv9C10YDRgtGLINC_0L4g0L_QvtC00LHQvtGA0YMg0LjQvdC00LjQudGB0LrQuNGFINGA0LDQsdC_0YLQvdC40LrQvtCyINCyINCg0L7RgdGB0LjQuA!5e0!3m2!1sen!2sin!4v1774001324192!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/z8SxP7mCixzbLGqcA",
     },
     {
         city: "Dubai, UAE",
-        address: "Business Bay, Dubai, UAE",
-        phone: "+971 XX XXX XXXX",
-        email: "dubai@tahaairwaves.com",
-        mapUrl: "https://maps.google.com/?q=25.1872,55.2744",
+        address: "Jafza Sales Center, Building 15, Jafza 15, Sheikh Zayed Rd, Jebel Ali Freezone, Dubai",
+        email: "uae@tahaairwaves.com",
+        website: "www.tahaairwaves.com",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14457.747069172462!2d55.039148487158226!3d25.0532296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f1333f6c9d1f9%3A0x5ec239c20b4c3185!2sJebel%2BAli%2BPort!5e0!3m2!1sen!2sin!4v1742493054173!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/QTDPTA1U4btyfcBf7",
     },
 ]
 
@@ -66,19 +74,25 @@ export default function ContactMain() {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' })
     const [sending, setSending] = useState(false)
     const [sent, setSent] = useState(false)
+    const [error, setError] = useState('')
+    const [selectedOffice, setSelectedOffice] = useState(0)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setSending(true)
+        setError('')
         try {
-            await fetch('/api/contact', {
+            const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             })
+            if (!res.ok) throw new Error('Failed to send message')
             setSent(true)
             setFormData({ name: '', email: '', phone: '', service: '', message: '' })
-        } catch { }
+        } catch (err) {
+            setError('Failed to send message. Please try again or contact us directly.')
+        }
         setSending(false)
     }
 
@@ -136,6 +150,9 @@ export default function ContactMain() {
                                 onChange={e => setFormData({ ...formData, message: e.target.value })}
                                 className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none"
                                 style={{ border: "1px solid rgba(142,9,53,0.15)", fontFamily: "var(--font-poppins)", color: "#1a0a10" }} />
+                            {error && (
+                                <p className="text-sm" style={{ color: "#BC264B", fontFamily: "var(--font-poppins)" }}>{error}</p>
+                            )}
                             <button type="submit" disabled={sending}
                                 className="flex items-center gap-2 px-7 py-3.5 rounded-full text-sm tracking-[0.1em] uppercase font-semibold cursor-pointer transition-all duration-300 disabled:opacity-50"
                                 style={{ background: "#8E0935", color: "#FDFBEF", fontFamily: "var(--font-lato)" }}>
@@ -202,48 +219,94 @@ export default function ContactMain() {
                     </motion.div>
                 </div>
 
-                {/* Offices */}
+                {/* Offices with Embedded Maps */}
                 <div className="mb-12">
                     <h2 className="mb-8" style={{ fontFamily: "var(--font-cormorant-garamond)", fontSize: "2rem", fontWeight: 600, color: "#1a0a10" }}>
                         Our <span style={{ color: "#8E0935" }}>Offices</span>
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {OFFICES.map((office) => (
-                            <a key={office.city} href={office.mapUrl} target="_blank" rel="noopener noreferrer"
-                                className="group p-5 rounded-2xl transition-all duration-300 hover:shadow-lg"
-                                style={{ background: "#fff", border: "1px solid rgba(142,9,53,0.1)" }}>
-                                <div className="flex items-start gap-3">
-                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-                                        style={{ background: "rgba(142,9,53,0.08)" }}>
-                                        <FiMapPin style={{ color: "#8E0935" }} />
-                                    </div>
-                                    <div className="flex-1">
-                                        <h3 className="font-bold text-sm mb-1 group-hover:text-[#8E0935] transition-colors"
-                                            style={{ fontFamily: "var(--font-lato)", color: "#1a0a10" }}>
-                                            {office.city}
-                                        </h3>
-                                        <p className="text-xs leading-relaxed" style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
-                                            {office.address}
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
+
+                    {/* Office Tabs */}
+                    <div className="flex flex-wrap gap-3 mb-6">
+                        {OFFICES.map((office, i) => (
+                            <button
+                                key={office.city}
+                                onClick={() => setSelectedOffice(i)}
+                                className="px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer"
+                                style={{
+                                    background: selectedOffice === i ? "#8E0935" : "#fff",
+                                    color: selectedOffice === i ? "#FDFBEF" : "#1a0a10",
+                                    border: selectedOffice === i ? "1px solid #8E0935" : "1px solid rgba(142,9,53,0.15)",
+                                    fontFamily: "var(--font-lato)",
+                                }}
+                            >
+                                {office.city}
+                            </button>
                         ))}
                     </div>
-                </div>
 
-                {/* Google Maps */}
-                <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(142,9,53,0.1)" }}>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.5671231!2d77.2700!3d28.5671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM0JzAxLjYiTiA3N8KwMTYnMTIuMCJF!5e0!3m2!1sen!2sin!4v1"
-                        width="100%"
-                        height="350"
-                        style={{ border: 0 }}
-                        allowFullScreen=""
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Taha Airwaves Office Location"
-                    />
+                    {/* Selected Office Detail + Map */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        {/* Office Info Card */}
+                        <div className="p-6 rounded-2xl" style={{ background: "#fff", border: "1px solid rgba(142,9,53,0.1)" }}>
+                            <div className="flex items-start gap-3 mb-4">
+                                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                                    style={{ background: "rgba(142,9,53,0.08)" }}>
+                                    <FiMapPin style={{ color: "#8E0935" }} />
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="font-bold text-base mb-1"
+                                        style={{ fontFamily: "var(--font-lato)", color: "#8E0935" }}>
+                                        {OFFICES[selectedOffice].city}
+                                    </h3>
+                                    <p className="text-sm leading-relaxed" style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
+                                        {OFFICES[selectedOffice].address}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="space-y-3 pt-4" style={{ borderTop: "1px solid rgba(142,9,53,0.08)" }}>
+                                {OFFICES[selectedOffice].phone && (
+                                    <a href={`tel:${OFFICES[selectedOffice].phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
+                                        style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
+                                        <FiPhone className="flex-shrink-0" style={{ color: "#BC264B" }} />
+                                        {OFFICES[selectedOffice].phone}
+                                    </a>
+                                )}
+                                <a href={`mailto:${OFFICES[selectedOffice].email}`} className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
+                                    style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
+                                    <FiMail className="flex-shrink-0" style={{ color: "#BC264B" }} />
+                                    {OFFICES[selectedOffice].email}
+                                </a>
+                                {OFFICES[selectedOffice].website && (
+                                    <a href={`https://${OFFICES[selectedOffice].website}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
+                                        style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
+                                        <FiExternalLink className="flex-shrink-0" style={{ color: "#BC264B" }} />
+                                        {OFFICES[selectedOffice].website}
+                                    </a>
+                                )}
+                                {OFFICES[selectedOffice].mapLink && (
+                                    <a href={OFFICES[selectedOffice].mapLink} target="_blank" rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-300 hover:opacity-80"
+                                        style={{ background: "#8E0935", color: "#FDFBEF", fontFamily: "var(--font-lato)" }}>
+                                        <FiExternalLink /> View on Google Maps
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Embedded Map */}
+                        <div className="lg:col-span-2 rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(142,9,53,0.1)" }}>
+                            <iframe
+                                src={OFFICES[selectedOffice].mapEmbed}
+                                width="100%"
+                                height="350"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title={`${OFFICES[selectedOffice].city} Office Location`}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -51,10 +51,10 @@ export default function Footer() {
 
                 <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8 pt-16 pb-8">
                     {/* Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-10 pb-10" style={{ borderBottom: "1px solid rgba(142,9,53,0.2)" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 pb-10" style={{ borderBottom: "1px solid rgba(142,9,53,0.2)" }}>
 
                         {/* Brand */}
-                        <div className="col-span-2 md:col-span-4 lg:col-span-1">
+                        <div className="sm:col-span-2 md:col-span-3 lg:col-span-1">
                             <Link href="/">
                                 <Image src="/LOGO-WHITE.png" alt="Taha Airwaves" width={180} height={55} className="h-12 w-auto mb-4" />
                             </Link>
@@ -144,7 +144,7 @@ export default function Footer() {
                     </div>
 
                     {/* Bottom Bar */}
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-center sm:text-left">
                         <p className="text-xs" style={{ color: "rgba(253,251,239,0.35)", fontFamily: "var(--font-lato)" }}>
                             © {new Date().getFullYear()} Taha Airwaves Pvt Ltd. All Rights Reserved.
                         </p>
@@ -155,20 +155,6 @@ export default function Footer() {
                     </div>
                 </div>
             </footer>
-
-            {/* Marquee Strip */}
-            <div className="overflow-hidden" style={{ background: "#8E0935" }}>
-                <div className="flex animate-[marquee_20s_linear_infinite]" style={{ width: "max-content" }}>
-                    {[...Array(10)].map((_, i) => (
-                        <span key={i} className="flex items-center gap-4 px-6 py-2 text-sm tracking-[0.1em] uppercase whitespace-nowrap"
-                            style={{ color: "rgba(253,251,239,0.9)", fontFamily: "var(--font-lato)" }}>
-                            <span className="text-xs" style={{ color: "rgba(253,251,239,0.5)" }}>✦</span>
-                            Taha Airwaves — Where Talent Meets Reliability
-                        </span>
-                    ))}
-                </div>
-                <style>{`@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
-            </div>
         </>
     )
 }

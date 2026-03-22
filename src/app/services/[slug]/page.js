@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaCheckCircle, FaWhatsapp } from 'react-icons/fa';
+import { FaCheckCircle, FaWhatsapp, FaGlobeAsia } from 'react-icons/fa';
+import { MdVerified } from 'react-icons/md';
 import FaqAccordion from '@/components/faq-accordion';
 
 const servicesData = {
@@ -170,7 +171,7 @@ export default async function ServiceDetailPage({ params }) {
             {/* Hero */}
             <section className="relative" style={{ height: '50vh', minHeight: '350px' }}>
                 <Image src={service.images?.[0] || '/images/demo4.jpeg'} alt={service.title} fill className="object-cover" style={{ objectPosition: 'center 35%' }} priority />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(26,10,16,0.6) 0%, rgba(26,10,16,0.85) 100%)' }} />
+                <div className="absolute inset-0" style={{ background: 'rgba(26,10,16,0.78)' }} />
                 <div className="relative z-10 h-full flex flex-col justify-end max-w-[1100px] mx-auto px-6 pb-12">
                     <h1 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, color: '#FDFBEF', marginBottom: '12px' }}>{service.title}</h1>
                     <p style={{ fontFamily: 'var(--font-poppins)', fontSize: 'clamp(0.85rem, 1.2vw, 1rem)', color: 'rgba(253,251,239,0.7)', maxWidth: '600px' }}>{service.metaDesc}</p>
@@ -235,6 +236,61 @@ export default async function ServiceDetailPage({ params }) {
                                 <span key={ind} className="px-4 py-2 rounded-full text-sm font-medium" style={{ background: 'rgba(142,9,53,0.08)', color: '#8E0935', fontFamily: 'var(--font-lato)' }}>{ind}</span>
                             ))}
                         </div>
+                    </div>
+
+                    {/* Countries We Deploy To */}
+                    <div>
+                        <h2 style={{ fontFamily: 'var(--font-cormorant-garamond)', fontSize: '2rem', fontWeight: 600, color: '#1a0a10', marginBottom: '8px' }}>
+                            Countries We <span style={{ color: '#8E0935' }}>Deploy To</span>
+                        </h2>
+                        <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.9rem', color: '#6B7280', marginBottom: '24px' }}>
+                            Our verified workforce reaches employers across the Gulf, Middle East, Southeast Asia, and Europe
+                        </p>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                            {[
+                                { name: 'Saudi Arabia', flag: '🇸🇦' },
+                                { name: 'UAE', flag: '🇦🇪' },
+                                { name: 'Qatar', flag: '🇶🇦' },
+                                { name: 'Kuwait', flag: '🇰🇼' },
+                                { name: 'Oman', flag: '🇴🇲' },
+                                { name: 'Bahrain', flag: '🇧🇭' },
+                                { name: 'Jordan', flag: '🇯🇴' },
+                                { name: 'Egypt', flag: '🇪🇬' },
+                                { name: 'Russia', flag: '🇷🇺' },
+                                { name: 'Mauritius', flag: '🇲🇺' },
+                                { name: 'Malaysia', flag: '🇲🇾' },
+                            ].map(c => (
+                                <div key={c.name} className="flex items-center gap-2 p-3 rounded-xl" style={{ background: '#fff', border: '1px solid rgba(142,9,53,0.08)' }}>
+                                    <span className="text-xl">{c.flag}</span>
+                                    <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-lato)', color: '#1a0a10' }}>{c.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Key Highlights */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {[
+                            { number: '20+', label: 'Years of Experience', icon: <MdVerified style={{ color: '#8E0935' }} /> },
+                            { number: '5000+', label: 'Workers Deployed', icon: <FaGlobeAsia style={{ color: '#8E0935' }} /> },
+                            { number: '11+', label: 'Countries Served', icon: <FaGlobeAsia style={{ color: '#BC264B' }} /> },
+                            { number: '100%', label: 'Compliance Rate', icon: <MdVerified style={{ color: '#BC264B' }} /> },
+                        ].map((stat, i) => (
+                            <div key={i} className="text-center p-6 rounded-xl" style={{ background: '#fff', border: '1px solid rgba(142,9,53,0.1)' }}>
+                                <div className="text-3xl lg:text-4xl font-bold mb-1" style={{ color: '#8E0935', fontFamily: 'var(--font-oswald)' }}>{stat.number}</div>
+                                <div className="text-sm font-medium" style={{ color: '#6B7280', fontFamily: 'var(--font-lato)' }}>{stat.label}</div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Deployment Promise */}
+                    <div className="p-8 rounded-2xl" style={{ background: 'rgba(142,9,53,0.05)', border: '1px solid rgba(142,9,53,0.1)' }}>
+                        <h3 style={{ fontFamily: 'var(--font-lato)', fontSize: '1.2rem', fontWeight: 700, color: '#1a0a10', marginBottom: '12px' }}>
+                            Our Deployment Promise
+                        </h3>
+                        <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.95rem', color: '#374151', lineHeight: 1.8 }}>
+                            Every candidate we deploy — whether cleaners, drivers, engineers, or labourers — goes through our rigorous 5-stage verification process. We handle everything from sourcing and skill assessment to visa processing, medical clearance, and travel coordination. Our government licensing (RA License No. B-3260/DEL/COM/100/5/11259/2025) ensures 100% compliance with Indian emigration laws and destination-country regulations. Employers receive deployment-ready workers with complete documentation, reducing onboarding time and operational risk.
+                        </p>
                     </div>
 
                     {/* Process */}
