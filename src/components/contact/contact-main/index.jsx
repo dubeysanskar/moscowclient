@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion"
 import { MdArrowOutward } from "react-icons/md"
 import { FiPhone, FiMail, FiMapPin, FiExternalLink } from "react-icons/fi"
 import { FaWhatsapp, FaTelegramPlane, FaVk } from "react-icons/fa"
+import { useLanguage } from "@/context/language"
 
 const OFFICES = [
     {
@@ -48,6 +49,7 @@ const socials = [
 ]
 
 export default function ContactMain() {
+    const { t, lang } = useLanguage()
     const ref = useRef(null)
     const inView = useInView(ref, { once: true })
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' })
@@ -76,16 +78,21 @@ export default function ContactMain() {
     }
 
     return (
-        <section ref={ref} className="pt-32 pb-20" style={{ background: "#FDFBEF" }}>
+        <section ref={ref} className="pt-32 pb-20 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
+            {/* Left brand strip */}
+            <div className="absolute left-0 top-0 bottom-0 w-[3px]" style={{ background: "#8A0029" }} />
             <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
                 {/* Header */}
                 <div className="mb-14">
-                    <div className="w-14 h-1 rounded-full mb-6" style={{ background: "#8E0935" }} />
-                    <h1 style={{ fontFamily: "var(--font-cormorant-garamond)", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 600, color: "#1a0a10" }}>
-                        Get in <span className="italic" style={{ color: "#8E0935" }}>Touch</span>
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
+                        <span className="text-[10px] tracking-[0.2em] uppercase font-bold" style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>{t('contact')}</span>
+                    </div>
+                    <h1 style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 900, color: "#262626" }}>
+                        {lang === 'ru' ? <><span style={{ color: "#8A0029" }}>Свяжитесь</span> с нами</> : <>Get in <span style={{ color: "#8A0029" }}>Touch</span></>}
                     </h1>
                     <p className="mt-4 max-w-xl" style={{ fontFamily: "var(--font-poppins)", fontSize: "1rem", color: "#6B7280" }}>
-                        Whether you&apos;re an employer seeking manpower or looking for professional workforce solutions in Russia, we&apos;re here to help.
+                        {lang === 'ru' ? 'Независимо от того, являетесь ли вы работодателем или соискателем — мы здесь, чтобы помочь вам с кадровыми решениями для России и за рубежом.' : "Whether you're an employer seeking manpower or looking for professional workforce solutions in Russia, we're here to help."}
                     </p>
                 </div>
 
@@ -96,99 +103,88 @@ export default function ContactMain() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.6 }}
-                        className="lg:col-span-3 p-8 rounded-2xl"
-                        style={{ background: "#fff", border: "1px solid rgba(142,9,53,0.1)" }}
+                        className="lg:col-span-3 p-8 rounded"
+                        style={{ background: "#F7F7F7", border: "1px solid rgba(38,38,38,0.07)" }}
                     >
-                        <h2 className="mb-6" style={{ fontFamily: "var(--font-lato)", fontSize: "1.3rem", fontWeight: 700, color: "#1a0a10" }}>
-                            Send Us a Message
+                        <h2 className="mb-6" style={{ fontFamily: "var(--font-inter)", fontSize: "1.3rem", fontWeight: 900, color: "#262626" }}>
+                            {lang === 'ru' ? 'Отправить сообщение' : 'Send Us a Message'}
                         </h2>
                         <form onSubmit={handleSubmit} className="space-y-5">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <input type="text" placeholder="Your Name *" required value={formData.name}
+                                <input type="text" placeholder={t('formName') + ' *'} required value={formData.name}
                                     onChange={e => setFormData({ ...formData, name: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl text-sm outline-none"
-                                    style={{ border: "1px solid rgba(142,9,53,0.15)", fontFamily: "var(--font-poppins)", color: "#1a0a10" }} />
-                                <input type="email" placeholder="Your Email *" required value={formData.email}
+                                    className="w-full px-4 py-3 rounded text-sm outline-none"
+                                    style={{ border: "1px solid #e5e5e5", background: "#FFFFFF", fontFamily: "var(--font-poppins)", color: "#262626" }} />
+                                <input type="email" placeholder={t('formEmail') + ' *'} required value={formData.email}
                                     onChange={e => setFormData({ ...formData, email: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl text-sm outline-none"
-                                    style={{ border: "1px solid rgba(142,9,53,0.15)", fontFamily: "var(--font-poppins)", color: "#1a0a10" }} />
+                                    className="w-full px-4 py-3 rounded text-sm outline-none"
+                                    style={{ border: "1px solid #e5e5e5", background: "#FFFFFF", fontFamily: "var(--font-poppins)", color: "#262626" }} />
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <input type="tel" placeholder="Phone Number" value={formData.phone}
+                                <input type="tel" placeholder={t('formPhone')} value={formData.phone}
                                     onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl text-sm outline-none"
-                                    style={{ border: "1px solid rgba(142,9,53,0.15)", fontFamily: "var(--font-poppins)", color: "#1a0a10" }} />
+                                    className="w-full px-4 py-3 rounded text-sm outline-none"
+                                    style={{ border: "1px solid #e5e5e5", background: "#FFFFFF", fontFamily: "var(--font-poppins)", color: "#262626" }} />
                                 <select value={formData.service} onChange={e => setFormData({ ...formData, service: e.target.value })}
-                                    className="w-full px-4 py-3 rounded-xl text-sm outline-none"
-                                    style={{ border: "1px solid rgba(142,9,53,0.15)", fontFamily: "var(--font-poppins)", color: formData.service ? "#1a0a10" : "#9CA3AF" }}>
-                                    <option value="">Select Service</option>
+                                    className="w-full px-4 py-3 rounded text-sm outline-none"
+                                    style={{ border: "1px solid #e5e5e5", background: "#FFFFFF", fontFamily: "var(--font-poppins)", color: formData.service ? "#262626" : "#9CA3AF" }}>
+                                    <option value="">{lang === 'ru' ? 'Выберите услугу' : 'Select Service'}</option>
                                     {SERVICES_LIST.map(s => <option key={s} value={s}>{s}</option>)}
                                 </select>
                             </div>
-                            <textarea placeholder="Your Message *" required rows={5} value={formData.message}
+                            <textarea placeholder={(lang === 'ru' ? 'Ваше сообщение' : 'Your Message') + ' *'} required rows={5} value={formData.message}
                                 onChange={e => setFormData({ ...formData, message: e.target.value })}
-                                className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none"
-                                style={{ border: "1px solid rgba(142,9,53,0.15)", fontFamily: "var(--font-poppins)", color: "#1a0a10" }} />
+                                className="w-full px-4 py-3 rounded text-sm outline-none resize-none"
+                                style={{ border: "1px solid #e5e5e5", background: "#FFFFFF", fontFamily: "var(--font-poppins)", color: "#262626" }} />
                             {error && (
-                                <p className="text-sm" style={{ color: "#BC264B", fontFamily: "var(--font-poppins)" }}>{error}</p>
+                                <p className="text-sm" style={{ color: "#D32F2F", fontFamily: "var(--font-poppins)" }}>{error}</p>
                             )}
                             <button type="submit" disabled={sending}
-                                className="flex items-center gap-2 px-7 py-3.5 rounded-full text-sm tracking-[0.1em] uppercase font-semibold cursor-pointer transition-all duration-300 disabled:opacity-50"
-                                style={{ background: "#8E0935", color: "#FDFBEF", fontFamily: "var(--font-lato)" }}>
-                                {sent ? "Message Sent ✓" : sending ? "Sending..." : "Send Message"} <MdArrowOutward />
+                                className="flex items-center gap-2 px-7 py-3.5 rounded text-sm font-bold cursor-pointer transition-all duration-300 disabled:opacity-50 hover:opacity-90"
+                                style={{ background: "#8A0029", color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
+                                {sent ? (lang === 'ru' ? '✓ Отправлено' : '✓ Sent') : sending ? '...' : t('formSubmit')} <MdArrowOutward size={14} />
                             </button>
                         </form>
                     </motion.div>
 
-                    {/* Contact Info — White card instead of dark */}
+                    {/* Contact Info */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="lg:col-span-2 space-y-6"
+                        className="lg:col-span-2 space-y-5"
                     >
-                        <div className="p-6 rounded-2xl" style={{ background: "#FFFFFF", border: "1px solid rgba(142,9,53,0.1)" }}>
-                            <h3 className="mb-4" style={{ fontFamily: "var(--font-lato)", fontSize: "1.1rem", fontWeight: 700, color: "#1a0a10" }}>
-                                Direct Contact
+                        <div className="p-6 rounded" style={{ background: "#F7F7F7", border: "1px solid rgba(38,38,38,0.07)" }}>
+                            <h3 className="mb-4" style={{ fontFamily: "var(--font-inter)", fontSize: "1rem", fontWeight: 900, color: "#262626" }}>
+                                {lang === 'ru' ? 'Прямой контакт' : 'Direct Contact'}
                             </h3>
                             <div className="space-y-4">
-                                <a href="tel:+919315226961" className="flex items-center gap-3 group">
-                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(142,9,53,0.08)" }}>
-                                        <FiPhone style={{ color: "#8E0935" }} />
-                                    </div>
-                                    <div>
-                                        <p className="text-xs uppercase tracking-widest" style={{ color: "#9CA3AF", fontFamily: "var(--font-lato)" }}>Phone</p>
-                                        <p className="text-sm font-medium" style={{ color: "#1a0a10", fontFamily: "var(--font-poppins)" }}>+91 93152 26961</p>
-                                    </div>
-                                </a>
-                                <a href="mailto:info@tahaairwaves.com" className="flex items-center gap-3 group">
-                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(142,9,53,0.08)" }}>
-                                        <FiMail style={{ color: "#8E0935" }} />
-                                    </div>
-                                    <div>
-                                        <p className="text-xs uppercase tracking-widest" style={{ color: "#9CA3AF", fontFamily: "var(--font-lato)" }}>Email</p>
-                                        <p className="text-sm font-medium" style={{ color: "#1a0a10", fontFamily: "var(--font-poppins)" }}>info@tahaairwaves.com</p>
-                                    </div>
-                                </a>
-                                <a href="https://wa.me/919315226961" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
-                                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(142,9,53,0.08)" }}>
-                                        <FaWhatsapp style={{ color: "#8E0935" }} />
-                                    </div>
-                                    <div>
-                                        <p className="text-xs uppercase tracking-widest" style={{ color: "#9CA3AF", fontFamily: "var(--font-lato)" }}>WhatsApp</p>
-                                        <p className="text-sm font-medium" style={{ color: "#1a0a10", fontFamily: "var(--font-poppins)" }}>+91 93152 26961</p>
-                                    </div>
-                                </a>
+                                {[{ icon: FiPhone, label: lang === 'ru' ? 'Телефон' : 'Phone', val: '+91 93152 26961', href: 'tel:+919315226961' }, { icon: FiMail, label: 'Email', val: 'info@tahaairwaves.com', href: 'mailto:info@tahaairwaves.com' }, { icon: FaWhatsapp, label: 'WhatsApp', val: '+91 93152 26961', href: 'https://wa.me/919315226961' }].map((c, i) => {
+                                    const Icon = c.icon
+                                    return (
+                                        <a key={i} href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="flex items-center gap-3 group">
+                                            <div className="w-9 h-9 rounded flex items-center justify-center flex-shrink-0" style={{ background: "rgba(138,0,41,0.09)" }}>
+                                                <Icon style={{ color: "#8A0029" }} size={14} />
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] uppercase tracking-widest" style={{ color: "#9CA3AF", fontFamily: "var(--font-inter)" }}>{c.label}</p>
+                                                <p className="text-sm font-semibold transition-colors group-hover:text-[#8A0029]" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>{c.val}</p>
+                                            </div>
+                                        </a>
+                                    )
+                                })}
                             </div>
                         </div>
 
                         {/* Social — VK, Telegram, WhatsApp */}
-                        <div className="p-6 rounded-2xl" style={{ background: "#fff", border: "1px solid rgba(142,9,53,0.1)" }}>
-                            <h3 className="mb-4" style={{ fontFamily: "var(--font-lato)", fontSize: "1rem", fontWeight: 700, color: "#1a0a10" }}>Follow Us</h3>
-                            <div className="flex gap-3">
+                        <div className="p-6 rounded" style={{ background: "#F7F7F7", border: "1px solid rgba(38,38,38,0.07)" }}>
+                            <h3 className="mb-4" style={{ fontFamily: "var(--font-inter)", fontSize: "1rem", fontWeight: 900, color: "#262626" }}>
+                                {lang === 'ru' ? 'Наши соцсети' : 'Follow Us'}
+                            </h3>
+                            <div className="flex gap-2">
                                 {socials.map(s => (
                                     <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                                        className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-sm transition-all duration-300 hover:scale-110"
+                                        className="w-9 h-9 rounded flex items-center justify-center text-white transition-all duration-300 hover:opacity-90 hover:scale-105"
                                         style={{ background: s.bg }} aria-label={s.label}>
                                         {s.icon}
                                     </a>
@@ -200,8 +196,8 @@ export default function ContactMain() {
 
                 {/* Offices with Embedded Maps — Russia-focused (removed Jeddah/Dubai) */}
                 <div className="mb-12">
-                    <h2 className="mb-8" style={{ fontFamily: "var(--font-cormorant-garamond)", fontSize: "2rem", fontWeight: 600, color: "#1a0a10" }}>
-                        Our <span style={{ color: "#8E0935" }}>Offices</span>
+                    <h2 className="mb-8 font-black" style={{ fontFamily: "var(--font-inter)", fontSize: "2rem", color: "#262626" }}>
+                        {lang === 'ru' ? 'Наши' : 'Our'} <span style={{ color: "#8A0029" }}>{lang === 'ru' ? 'офисы' : 'Offices'}</span>
                     </h2>
 
                     {/* Office Tabs */}
@@ -210,12 +206,12 @@ export default function ContactMain() {
                             <button
                                 key={office.city}
                                 onClick={() => setSelectedOffice(i)}
-                                className="px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer"
+                                className="px-4 py-2.5 rounded text-sm font-bold transition-all duration-300 cursor-pointer"
                                 style={{
-                                    background: selectedOffice === i ? "#8E0935" : "#fff",
-                                    color: selectedOffice === i ? "#FDFBEF" : "#1a0a10",
-                                    border: selectedOffice === i ? "1px solid #8E0935" : "1px solid rgba(142,9,53,0.15)",
-                                    fontFamily: "var(--font-lato)",
+                                    background: selectedOffice === i ? "#8A0029" : "#FFFFFF",
+                                    color: selectedOffice === i ? "#FFFFFF" : "#262626",
+                                    border: selectedOffice === i ? "1px solid #8A0029" : "1px solid rgba(38,38,38,0.12)",
+                                    fontFamily: "var(--font-inter)",
                                 }}
                             >
                                 {office.city}
@@ -226,15 +222,15 @@ export default function ContactMain() {
                     {/* Selected Office Detail + Map */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Office Info Card */}
-                        <div className="p-6 rounded-2xl" style={{ background: "#fff", border: "1px solid rgba(142,9,53,0.1)" }}>
+                        <div className="p-6 rounded" style={{ background: "#F7F7F7", border: "1px solid rgba(38,38,38,0.07)" }}>
                             <div className="flex items-start gap-3 mb-4">
-                                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-                                    style={{ background: "rgba(142,9,53,0.08)" }}>
-                                    <FiMapPin style={{ color: "#8E0935" }} />
+                                <div className="w-9 h-9 rounded flex items-center justify-center flex-shrink-0 mt-0.5"
+                                    style={{ background: "rgba(138,0,41,0.09)" }}>
+                                    <FiMapPin style={{ color: "#8A0029" }} size={14} />
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="font-bold text-base mb-1"
-                                        style={{ fontFamily: "var(--font-lato)", color: "#8E0935" }}>
+                                    <h3 className="font-black text-base mb-1"
+                                        style={{ fontFamily: "var(--font-inter)", color: "#8A0029" }}>
                                         {OFFICES[selectedOffice].city}
                                     </h3>
                                     <p className="text-sm leading-relaxed" style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
@@ -242,38 +238,38 @@ export default function ContactMain() {
                                     </p>
                                 </div>
                             </div>
-                            <div className="space-y-3 pt-4" style={{ borderTop: "1px solid rgba(142,9,53,0.08)" }}>
+                            <div className="space-y-3 pt-4" style={{ borderTop: "1px solid rgba(38,38,38,0.07)" }}>
                                 {OFFICES[selectedOffice].phone && (
-                                    <a href={`tel:${OFFICES[selectedOffice].phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
-                                        style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
-                                        <FiPhone className="flex-shrink-0" style={{ color: "#BC264B" }} />
+                                    <a href={`tel:${OFFICES[selectedOffice].phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm hover:text-[#8A0029] transition-colors"
+                                        style={{ color: "#374151", fontFamily: "var(--font-inter)" }}>
+                                        <FiPhone className="flex-shrink-0" style={{ color: "#D32F2F" }} size={13} />
                                         {OFFICES[selectedOffice].phone}
                                     </a>
                                 )}
-                                <a href={`mailto:${OFFICES[selectedOffice].email}`} className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
-                                    style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
-                                    <FiMail className="flex-shrink-0" style={{ color: "#BC264B" }} />
+                                <a href={`mailto:${OFFICES[selectedOffice].email}`} className="flex items-center gap-2 text-sm hover:text-[#8A0029] transition-colors"
+                                    style={{ color: "#374151", fontFamily: "var(--font-inter)" }}>
+                                    <FiMail className="flex-shrink-0" style={{ color: "#D32F2F" }} size={13} />
                                     {OFFICES[selectedOffice].email}
                                 </a>
                                 {OFFICES[selectedOffice].website && (
-                                    <a href={`https://${OFFICES[selectedOffice].website}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-[#8E0935] transition-colors"
-                                        style={{ color: "#374151", fontFamily: "var(--font-poppins)" }}>
-                                        <FiExternalLink className="flex-shrink-0" style={{ color: "#BC264B" }} />
+                                    <a href={`https://${OFFICES[selectedOffice].website}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-[#8A0029] transition-colors"
+                                        style={{ color: "#374151", fontFamily: "var(--font-inter)" }}>
+                                        <FiExternalLink className="flex-shrink-0" style={{ color: "#D32F2F" }} size={13} />
                                         {OFFICES[selectedOffice].website}
                                     </a>
                                 )}
                                 {OFFICES[selectedOffice].mapLink && (
                                     <a href={OFFICES[selectedOffice].mapLink} target="_blank" rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-300 hover:opacity-80"
-                                        style={{ background: "#8E0935", color: "#FDFBEF", fontFamily: "var(--font-lato)" }}>
-                                        <FiExternalLink /> View on Google Maps
+                                        className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:opacity-80"
+                                        style={{ background: "#8A0029", color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
+                                        <FiExternalLink size={12} /> {lang === 'ru' ? 'Открыть в Google Maps' : 'View on Google Maps'}
                                     </a>
                                 )}
                             </div>
                         </div>
 
                         {/* Embedded Map */}
-                        <div className="lg:col-span-2 rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(142,9,53,0.1)" }}>
+                        <div className="lg:col-span-2 rounded overflow-hidden" style={{ border: "1px solid rgba(38,38,38,0.07)" }}>
                             <iframe
                                 src={OFFICES[selectedOffice].mapEmbed}
                                 width="100%"

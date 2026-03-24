@@ -3,97 +3,91 @@
 import { useRef } from "react"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
+import { useLanguage } from "@/context/language"
 
-const industries = [
-    { label: "Construction", image: "/images/demo4.jpeg", desc: "Skilled workers, masons, and site supervisors" },
-    { label: "Hospitality", image: "/images/hospitality.png", desc: "Hotel staff, cleaners, and hospitality professionals" },
-    { label: "Logistics", image: "/images/demo5.jpeg", desc: "Warehouse staff, material handlers, and supply chain workers" },
-    { label: "Healthcare", image: "/images/healthcare.png", desc: "Healthcare support staff and medical assistants" },
-    { label: "Manufacturing", image: "/images/demo7.jpeg", desc: "Factory workers, machine operators, and QC inspectors" },
-    { label: "Facility Management", image: "/images/facility-management.png", desc: "Maintenance staff, janitors, and facility operators" },
-    { label: "Oil & Gas", image: "/images/oil-gas.png", desc: "Drilling crew, pipeline workers, and refinery operators" },
-    { label: "IT & Telecom", image: "/images/it-telecom.png", desc: "IT support staff, network technicians, and telecom engineers" },
-    { label: "Retail & FMCG", image: "/images/retail-fmcg.png", desc: "Store associates, merchandisers, and sales executives" },
+const industriesData = [
+    { labelKey: "indConstruction", descKey: "indConstructionDesc", image: "/images/demo4.jpeg" },
+    { labelKey: "indHospitality", descKey: "indHospitalityDesc", image: "/images/hospitality.png" },
+    { labelKey: "indLogistics", descKey: "indLogisticsDesc", image: "/images/demo5.jpeg" },
+    { labelKey: "indHealthcare", descKey: "indHealthcareDesc", image: "/images/healthcare.png" },
+    { labelKey: "indManufacturing", descKey: "indManufacturingDesc", image: "/images/demo7.jpeg" },
+    { labelKey: "indFacility", descKey: "indFacilityDesc", image: "/images/facility-management.png" },
+    { labelKey: "indOilGas", descKey: "indOilGasDesc", image: "/images/oil-gas.png" },
+    { labelKey: "indIT", descKey: "indITDesc", image: "/images/it-telecom.png" },
 ]
 
-const fadeUp = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: (i = 0) => ({
-        opacity: 1, y: 0, scale: 1,
-        transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
-    }),
-}
-
 export default function IndustriesWeServe() {
+    const { t } = useLanguage()
     const ref = useRef(null)
-    const inView = useInView(ref, { once: true, margin: "-80px" })
+    const inView = useInView(ref, { once: true, margin: "-60px" })
 
     return (
-        <section ref={ref} className="relative py-20 lg:py-28 overflow-hidden" style={{ background: "#FDFBEF" }}>
-            <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+        <section ref={ref} className="py-20 lg:py-28 relative overflow-hidden" style={{ background: "#262626" }}>
+            {/* Grid bg */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04 }} aria-hidden="true">
+                <defs>
+                    <pattern id="ig" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.4" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#ig)" />
+            </svg>
+
+            <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8">
                 {/* Header */}
-                <div className="text-center mb-14">
-                    <div className="w-14 h-1 mx-auto rounded-full mb-6" style={{ background: "#8E0935" }} />
-                    <h2 className="mb-3" style={{
-                        fontFamily: "var(--font-cormorant-garamond)",
-                        fontSize: "clamp(2rem, 4vw, 3.5rem)",
-                        fontWeight: 600,
-                        color: "#1a0a10",
-                    }}>
-                        Industries We <span className="italic" style={{ color: "#8E0935" }}>Serve</span>
-                    </h2>
-                    <p className="max-w-2xl mx-auto" style={{
-                        fontFamily: "var(--font-poppins)",
-                        fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)",
-                        color: "#6B7280",
-                    }}>
-                        Specialized workforce solutions across high-demand sectors in Russia
+                <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 mb-12 pb-8"
+                    style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                    <div>
+                        <div className="flex items-center gap-3 mb-3">
+                            <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
+                            <span className="text-[11px] tracking-[0.2em] uppercase font-bold"
+                                style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>Industries</span>
+                        </div>
+                        <h2 className="font-black leading-tight"
+                            style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF" }}>
+                            {t('industriesTitle')} <span style={{ color: "#8A0029" }}>{t('industriesTitleAccent')}</span>
+                        </h2>
+                    </div>
+                    <p className="max-w-xs text-sm leading-relaxed"
+                        style={{ fontFamily: "var(--font-poppins)", color: "rgba(255,255,255,0.3)" }}>
+                        {t('industriesSubtitle')}
                     </p>
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
-                    {industries.map((ind, i) => (
+                {/* 4-column image grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {industriesData.map((ind, i) => (
                         <motion.div
-                            key={ind.label}
-                            custom={i}
-                            variants={fadeUp}
-                            initial="hidden"
-                            animate={inView ? "visible" : "hidden"}
-                            className="group relative rounded-2xl overflow-hidden cursor-pointer"
-                            style={{ minHeight: "clamp(180px, 30vw, 260px)" }}
+                            key={ind.labelKey}
+                            initial={{ opacity: 0, scale: 0.97 }}
+                            animate={inView ? { opacity: 1, scale: 1 } : {}}
+                            transition={{ delay: i * 0.07, duration: 0.45 }}
+                            className="group relative rounded overflow-hidden cursor-pointer"
+                            style={{ minHeight: "clamp(160px, 22vw, 230px)" }}
                         >
                             <Image
-                                src={ind.image}
-                                alt={ind.label}
-                                fill
+                                src={ind.image} alt={t(ind.labelKey)} fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
-
-                            {/* Default overlay */}
-                            <div className="absolute inset-0 transition-all duration-500"
-                                style={{ background: "rgba(26,10,16,0.55)" }}
-                                onMouseEnter={e => e.currentTarget.style.background = "rgba(142,9,53,0.7)"}
-                                onMouseLeave={e => e.currentTarget.style.background = "rgba(26,10,16,0.55)"}
+                            {/* Overlay — solid, no gradient */}
+                            <div className="absolute inset-0 transition-colors duration-400"
+                                style={{ background: "rgba(38,38,38,0.6)" }}
+                                onMouseEnter={e => e.currentTarget.style.background = "rgba(138,0,41,0.75)"}
+                                onMouseLeave={e => e.currentTarget.style.background = "rgba(38,38,38,0.6)"}
                             />
-
-                            {/* Content */}
-                            <div className="absolute inset-0 flex flex-col justify-end p-5 lg:p-6 text-white z-10">
-                                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 transition-transform duration-300 group-hover:-translate-y-2"
-                                    style={{ fontFamily: "var(--font-lato)" }}>
-                                    {ind.label}
+                            {/* Labels */}
+                            <div className="absolute inset-0 flex flex-col justify-end p-4 z-10">
+                                {/* Red indicator bar */}
+                                <div className="w-6 h-[2px] mb-2 transition-all duration-400 group-hover:w-12"
+                                    style={{ background: "#D32F2F" }} />
+                                <h3 className="text-sm lg:text-base font-black uppercase tracking-wide"
+                                    style={{ fontFamily: "var(--font-inter)", color: "#FFFFFF" }}>
+                                    {t(ind.labelKey)}
                                 </h3>
-                                <p className="text-sm text-white/80 sm:opacity-0 sm:translate-y-4
-                                    sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-500 delay-75"
-                                    style={{ fontFamily: "var(--font-poppins)" }}>
-                                    {ind.desc}
+                                <p className="text-xs mt-1 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-350"
+                                    style={{ color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-poppins)" }}>
+                                    {t(ind.descKey)}
                                 </p>
-                            </div>
-
-                            {/* Hover ring */}
-                            <div className="absolute top-4 right-4 w-8 h-8 rounded-full border-2 border-white/0
-                                group-hover:border-white/40 transition-all duration-500 flex items-center justify-center">
-                                <div className="w-2 h-2 rounded-full bg-white/0 group-hover:bg-white/80 transition-all duration-500" />
                             </div>
                         </motion.div>
                     ))}

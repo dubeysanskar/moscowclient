@@ -2,7 +2,7 @@
 
 > **Standard Operating Procedure & Complete Context Document**
 > This document provides full context for any developer or AI tool working on this project.
-> Last updated: March 24, 2026 (Session 3 — Round 2 Overhaul)
+> Last updated: March 24, 2026 (Session 5 — Full Brand Overhaul + Sub-pages)
 
 ---
 
@@ -21,40 +21,40 @@ This website is a **Russia-market focused** deployment of Taha Airwaves, serving
 
 ### 1.1 Key Principles
 
-1. **Russia-first**: All content (except About Us) must focus exclusively on the Russian market
-2. **About Us = Global only**: Company history, achievements, and global presence
-3. **Professional wording**: Never use "skilled labour" or similar terms that could affect company profile. Use "workforce solutions", "recruitment", "deployment", "manpower services"
-4. **White/Light theme**: Clean, professional, white background throughout. NO dark/black section boxes (except footer)
-5. **No gradients**: Flat solid colors only (client requirement)
-6. **Bigger fonts**: Content should be highly visible and readable
-7. **Russian by default**: Website defaults to Russian language. Toggle available for English.
-8. **Red logo ALWAYS**: Use `LOGO.png` (red) everywhere — never white or black logo
+1. **Russia-first**: All content on Services and Blog pages focuses exclusively on the Russian market
+2. **About Us + Contact = Global**: Company history, global offices (India HQ, Russia, UAE/GCC), and achievements
+3. **Professional wording**: Use "workforce solutions", "recruitment", "deployment", "manpower services" — never "skilled labour"
+4. **Brand-strict UI**: Inter font everywhere. Zero gradients. Solid brand palette only (see §2.1)
+5. **No cursive/Cormorant fonts**: Inter (sans-serif) is the ONLY approved typeface. Never reintroduce cormorant-garamond or any italic serif
+6. **Russian by default**: Website defaults to Russian language. Toggle available for English
+7. **Red logo ALWAYS**: Use `LOGO.png` (red) everywhere — never white or black logo
+8. **Language completeness**: Every new text element MUST have both RU and EN entries in `src/context/language.jsx`
 
 ---
 
 ## 2. BRAND & DESIGN SYSTEM
 
-### 2.1 Color Palette — CRITICAL
+### 2.1 Official Color Palette — CRITICAL
 
-> ⚠️ **ABSOLUTE RULE: NO GRADIENTS.** All backgrounds MUST be flat solid colors. The only acceptable gradient-like effects are subtle image overlays for text readability.
+> ⚠️ **ABSOLUTE RULE: NO GRADIENTS ANYWHERE.** Flat solid colors only. No gradient overlays, gradient text, or gradient borders — ever.
 
-| Name | Hex Code | CSS Variable | Where to Use |
+| Color Name | Hex Code | RGB | Where to Use |
 |---|---|---|---|
-| **Primary (Viva Magenta)** | `#8E0935` | `--color-primary` | Buttons, CTAs, primary accents, section dividers, active states, mega menu bg |
-| **Secondary (Burgundy)** | `#BC264B` | `--color-secondary` | Hover states, secondary accents, category labels |
-| **Neutral (Cloud Dancer)** | `#FDFBEF` | `--color-neutral` | Alternate section backgrounds, card backgrounds |
-| **Dark** | `#1a0a10` | `--color-dark` | Footer background, **navbar background**, body text color |
-| **White** | `#FFFFFF` | — | Primary page background, card backgrounds |
+| **Deep Maroon / Wine Red** | `#8A0029` | 138, 0, 41 | Logo, main headings, CTA buttons, brand accents, icon boxes, section bars |
+| **Bright Red Accent** | `#D32F2F` | 211, 47, 47 | Hover state accents, numbered badges, secondary icons, highlights |
+| **Dark Gray** | `#262626` | 38, 38, 38 | Dark sections, navbar, footer bg, body text, paragraphs |
+| **Soft Light Gray** | `#F7F7F7` | 247, 247, 247 | Alternate section bg, card surfaces, form wrappers |
+| **Pure White** | `#FFFFFF` | 255, 255, 255 | Primary page bg, form fields, clean sections |
 
 **Usage pattern:**
 - Page background: `#FFFFFF` (white)
-- Alternate sections: `#FDFBEF` (Cloud Dancer)
-- **Navbar**: `#1a0a10` (black) — NOT red, NOT white
-- Footer: `#1a0a10` (dark) with white text
-- Buttons: Primary = `bg: #8E0935, text: white`, hover = `bg: #BC264B`
-- WhatsApp button: Light pink `#BC264B` (brand-derived, not green)
-- Social media icons: White in footer, outlined in navbar
-- **Logo**: Always red `LOGO.png` — in header AND footer
+- Alternate sections: `#F7F7F7` (Soft Light Gray)
+- **Navbar**: `#262626` (Dark Gray)
+- Footer: `#262626` with `#8A0029` top strip, white text
+- Buttons: `bg: #8A0029, text: #FFFFFF`, hover = `opacity: 0.9`
+- Icon boxes/badges: Alternate `#8A0029` / `#D32F2F`
+- Section accent bars: `#8A0029` (3px left strip or top strip)
+- Social icons: White in footer; brand-outlined in header
 
 ### 2.2 Typography
 

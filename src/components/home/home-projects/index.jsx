@@ -1,114 +1,131 @@
 'use client'
 
-import Container from "@/components/container";
-import Link from "next/link";
-import { MdArrowOutward } from "react-icons/md";
+import Container from "@/components/container"
+import Link from "next/link"
+import { MdArrowOutward } from "react-icons/md"
+import { motion } from "framer-motion"
+import { useLanguage } from "@/context/language"
 
-const data = {
-    title: "• Taha Airwaves Services",
-    desc: "Comprehensive Manpower Solutions — Skilled and Semi-Skilled Workforce for Global Deployment.",
-}
-
-const services = [
+const SERVICES = [
     {
-        id: 1,
-        title: "All Types of Cleaners",
-        desc: "Professionally trained housekeeping and cleaning staff for hotels, hospitals, commercial complexes, and residential facilities.",
-        tags: ["Housekeeping", "Commercial", "Industrial", "Residential"],
+        id: "01", slug: "cleaners",
+        titleKey: "pSvc1Title", descKey: "pSvc1Desc",
+        tags: ["Уборка / Housekeeping", "Коммерческий / Commercial", "Промышленный / Industrial"],
     },
     {
-        id: 2,
-        title: "All Types of Drivers",
-        desc: "Licensed drivers for light and heavy vehicles — taxis, delivery trucks, construction equipment, and specialized transport vehicles.",
-        tags: ["Light Vehicle", "Heavy Vehicle", "Commercial", "Specialized"],
+        id: "02", slug: "all-types-of-drivers",
+        titleKey: "pSvc2Title", descKey: "pSvc2Desc",
+        tags: ["Лёгкий транспорт / Light Vehicle", "Тяжёлый транспорт / Heavy Vehicle", "Специализированный / Specialized"],
     },
     {
-        id: 3,
-        title: "General Labour",
-        desc: "Reliable and physically fit general labourers for construction sites, warehouses, factories, and infrastructure projects across Russia and CIS.",
-        tags: ["Construction", "Warehouse", "Infrastructure", "Industrial"],
+        id: "03", slug: "general-labour",
+        titleKey: "pSvc3Title", descKey: "pSvc3Desc",
+        tags: ["Строительство / Construction", "Склад / Warehouse", "Инфраструктура / Infrastructure"],
     },
     {
-        id: 4,
-        title: "Factory Helpers",
-        desc: "Trained factory assistants for manufacturing, assembly lines, packaging, quality control, and production support operations.",
-        tags: ["Manufacturing", "Assembly", "Packaging", "QC"],
+        id: "04", slug: "factory-helpers",
+        titleKey: "pSvc4Title", descKey: "pSvc4Desc",
+        tags: ["Производство / Manufacturing", "Сборка / Assembly", "Контроль качества / QC"],
     },
     {
-        id: 5,
-        title: "Loading & Unloading",
-        desc: "Experienced cargo handlers and logistics workers for ports, warehouses, freight terminals, and distribution centres.",
-        tags: ["Cargo", "Logistics", "Ports", "Distribution"],
+        id: "05", slug: "emigration-immigration-clearance",
+        titleKey: "pSvc5Title", descKey: "pSvc5Desc",
+        tags: ["Виза / Visa", "Документы / Docs", "Соответствие / Compliance"],
     },
     {
-        id: 6,
-        title: "Employee Outsourcing",
-        desc: "Complete HR outsourcing — temporary and permanent staffing solutions with payroll management and compliance handled end-to-end.",
-        tags: ["Staffing", "HR", "Payroll", "Compliance"],
+        id: "06", slug: "employee-outsourcing-solutions",
+        titleKey: "pSvc6Title", descKey: "pSvc6Desc",
+        tags: ["Аутсорсинг / Staffing", "Расчёт зарплат / Payroll", "HR", "Соответствие / Compliance"],
     },
-];
+]
 
 export default function ServicesShowcase() {
+    const { t } = useLanguage()
+
     return (
-        <section className="px-2 md:px-4">
-            <div className="px-2 md:px-4 py-20 rounded-3xl" style={{ background: "rgba(253,251,239,0.5)" }}>
-                <div className="mx-auto lg:max-w-340 h-full">
-                    <div className="space-y-8">
-                        <div className="space-y-8 pb-8" style={{ borderBottom: "1px solid #d1d5db" }}>
-                            <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase" style={{ color: "#1a0a10" }}>
-                                {data.title}
-                            </h2>
-                            <div className="flex flex-col md:flex-row justify-between gap-8">
-                                <p className="text-xl md:text-4xl text-neutral-800 font-medium font-poppins max-w-150 leading-normal">
-                                    {data.desc}
-                                </p>
-                                <div className="flex items-end">
-                                    <Link href="/services">
-                                        <button className="px-4 py-2 md:px-6 md:py-3 font-poppins text-white transition cursor-pointer flex items-center gap-3"
-                                            style={{ background: "#1a0a10", border: "1px solid rgba(26,10,16,0.3)" }}
-                                            onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#1a0a10" }}
-                                            onMouseLeave={e => { e.currentTarget.style.background = "#1a0a10"; e.currentTarget.style.color = "#fff" }}>
-                                            All Services
-                                            <MdArrowOutward size={18} />
-                                        </button>
-                                    </Link>
-                                </div>
+        <section className="py-6 px-2 lg:px-6">
+            <div className="rounded" style={{ background: "#F7F7F7", border: "1px solid rgba(38,38,38,0.07)" }}>
+                <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-14">
+                    {/* Header */}
+                    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 pb-10 mb-10"
+                        style={{ borderBottom: "1px solid rgba(38,38,38,0.08)" }}>
+                        <div>
+                            <div className="flex items-center gap-3 mb-3">
+                                <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
+                                <span className="text-[10px] tracking-[0.2em] uppercase font-bold"
+                                    style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
+                                    {t('ourServices')}
+                                </span>
                             </div>
+                            <h2 className="font-black leading-tight max-w-lg"
+                                style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", color: "#262626" }}>
+                                {t('sspTitle')}
+                            </h2>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                            {services.map((service) => (
-                                <div key={service.id} className="bg-white rounded-2xl p-6 md:p-8 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300 group">
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs text-gray-400 tracking-widest font-mono">0{service.id}</span>
-                                        <div className="w-2 h-2 rounded-full bg-[#BC264B] opacity-50 group-hover:opacity-100 transition-opacity" />
-                                    </div>
-                                    <h3 className="text-xl md:text-2xl font-semibold font-lato leading-tight" style={{ color: "#111827" }}>
-                                        {service.title}
-                                    </h3>
-                                    <p className="text-sm font-poppins leading-relaxed flex-1" style={{ color: "#6B7280" }}>
-                                        {service.desc}
-                                    </p>
-                                    <div className="flex flex-wrap gap-2 mt-2">
-                                        {service.tags.map((tag) => (
-                                            <span key={tag} className="px-3 py-1 rounded-full text-xs font-mono font-medium" style={{ border: "1px solid #e5e7eb", color: "#6B7280" }}>
-                                                {tag}
+                        <Link href="/services">
+                            <button className="flex items-center gap-2 px-6 py-3 rounded text-sm font-bold cursor-pointer whitespace-nowrap transition-opacity hover:opacity-90"
+                                style={{ background: "#8A0029", color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
+                                {t('viewAllServices')} <MdArrowOutward size={14} />
+                            </button>
+                        </Link>
+                    </div>
+
+                    {/* Service cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {SERVICES.map((svc, i) => (
+                            <motion.div
+                                key={svc.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.08, duration: 0.45 }}
+                            >
+                                <Link href={`/services/${svc.slug}`}>
+                                    <div className="group h-full flex flex-col p-7 rounded transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer"
+                                        style={{ background: "#FFFFFF", border: "1px solid rgba(38,38,38,0.07)" }}>
+                                        {/* Top hover accent */}
+                                        <div className="mb-5 flex items-center justify-between">
+                                            <span className="text-[11px] tracking-[0.2em] font-bold"
+                                                style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>
+                                                {svc.id}
                                             </span>
-                                        ))}
+                                            <div className="w-2 h-2 rounded-full transition-all duration-300 group-hover:scale-125"
+                                                style={{ background: "#D32F2F" }} />
+                                        </div>
+
+                                        <h3 className="text-base font-black mb-3 transition-colors duration-300 group-hover:text-[#8A0029]"
+                                            style={{ fontFamily: "var(--font-inter)", color: "#262626" }}>
+                                            {t(svc.titleKey)}
+                                        </h3>
+                                        <p className="text-xs leading-relaxed flex-1 mb-4"
+                                            style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
+                                            {t(svc.descKey)}
+                                        </p>
+
+                                        {/* Tags */}
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {svc.tags.map((tag) => (
+                                                <span key={tag}
+                                                    className="text-[10px] font-medium px-2 py-0.5 rounded-sm"
+                                                    style={{ background: "rgba(138,0,41,0.07)", color: "#8A0029", fontFamily: "var(--font-inter)" }}>
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="flex items-end justify-center">
-                            <Link href="/contact">
-                                <button className="px-4 py-2 md:px-6 md:py-3 font-poppins text-white transition cursor-pointer flex items-center gap-3"
-                                    style={{ background: "#1a0a10", border: "1px solid rgba(26,10,16,0.3)" }}
-                                    onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#1a0a10" }}
-                                    onMouseLeave={e => { e.currentTarget.style.background = "#1a0a10"; e.currentTarget.style.color = "#fff" }}>
-                                    Hire Manpower
-                                    <MdArrowOutward size={18} />
-                                </button>
-                            </Link>
-                        </div>
+                                </Link>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Bottom CTA */}
+                    <div className="flex justify-center mt-10">
+                        <Link href="/contact">
+                            <button className="flex items-center gap-2 px-8 py-3.5 rounded text-sm font-bold cursor-pointer border transition-all duration-200 hover:bg-[#262626] hover:text-white hover:border-[#262626]"
+                                style={{ background: "transparent", color: "#262626", border: "1px solid rgba(38,38,38,0.25)", fontFamily: "var(--font-inter)" }}>
+                                {t('hireManpower')} <MdArrowOutward size={14} />
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

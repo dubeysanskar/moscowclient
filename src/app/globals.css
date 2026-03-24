@@ -1,14 +1,31 @@
 @import "tailwindcss";
 
 @theme inline {
-	--color-primary: #8E0935;
-	--color-secondary: #BC264B;
-	--color-neutral: #FDFBEF;
-	--color-dark: #1a0a10;
-	--color-cream: #FDFBEF;
+	/* === TAHA AIRWAVES BRAND PALETTE === */
+	--color-primary: #8A0029;       /* Deep Maroon / Wine Red */
+	--color-accent: #D32F2F;        /* Bright Red Accent */
+	--color-dark: #262626;          /* Dark Gray — body text */
+	--color-light: #F7F7F7;         /* Soft Light Gray — section bg */
+	--color-white: #FFFFFF;         /* Pure White */
 
-	--font-cormorant-garamond: "Cormorant Garamond", serif;
+	/* Fonts */
+	--font-inter: "Inter", sans-serif;
 	--font-lato: "Lato", sans-serif;
-	--font-oswald: "Oswald", sans-serif;
 	--font-poppins: "Poppins", sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #FFFFFF;
+	color: #262626;
+	font-family: "Inter", sans-serif;
+}
+
+/* Remove ALL browser outline defaults — add custom focus */
+:focus-visible {
+	outline: 2px solid #8A0029;
+	outline-offset: 2px;
 }

@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, Lato, Oswald, Poppins } from "next/font/google";
+import { Inter, Lato, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -6,8 +6,8 @@ import LenisProvider from "@/components/lenis-provider";
 import Chatbot from "@/components/chatbot";
 import Providers from "@/components/providers";
 
-const cormorantGaramond = Cormorant_Garamond({
-    variable: "--font-cormorant-garamond",
+const inter = Inter({
+    variable: "--font-inter",
     subsets: ["latin", "cyrillic"],
 });
 
@@ -15,12 +15,6 @@ const lato = Lato({
 	variable: "--font-lato",
 	weight: ["100","300", "400", "700", "900"],
 	subsets: ["latin", "latin-ext"],
-});
-
-export const oswald = Oswald({
-	variable: "--font-oswald",
-	subsets: ["latin"],
-	weight: ["200", "300", "400", "500", "600", "700"],
 });
 
 export const poppins = Poppins({
@@ -33,28 +27,25 @@ export const metadata = {
     metadataBase: new URL("https://tahaairwaves.ru"),
 
     title: {
-        default: "Taha Airwaves | Global Manpower Recruitment & Deployment to Russia & CIS",
+        default: "Taha Airwaves | Manpower Recruitment & Deployment to Russia",
         template: "%s | Taha Airwaves"
     },
 
     description:
-        "Taha Airwaves is a government-licensed overseas manpower recruitment agency specializing in deploying skilled and semi-skilled workforce from India to Russia, CIS, GCC, and global markets. End-to-end recruitment, visa processing, and deployment services.",
+        "Taha Airwaves is a government-licensed overseas manpower recruitment agency specializing in deploying skilled and semi-skilled workforce from India to Russia. End-to-end recruitment, visa processing, and deployment services.",
 
     keywords: [
         "Taha Airwaves",
         "manpower recruitment Russia",
         "overseas recruitment agency India",
         "workforce deployment Russia",
-        "skilled manpower supply",
         "Indian workers Russia",
-        "GCC manpower recruitment",
         "visa processing services",
         "bulk manpower hiring",
         "overseas employment agency",
         "construction workers Russia",
         "hospitality manpower",
         "factory workers deployment",
-        "employee outsourcing India",
         "recruitment agency New Delhi"
     ],
 
@@ -63,28 +54,28 @@ export const metadata = {
     publisher: "Taha Airwaves Private Limited",
 
     openGraph: {
-        title: "Taha Airwaves | Global Manpower Recruitment & Deployment",
+        title: "Taha Airwaves | Manpower Recruitment & Deployment to Russia",
         description:
-            "Government-licensed manpower recruitment agency deploying verified, skilled Indian workforce to Russia, CIS, GCC, and beyond. Comprehensive recruitment, visa processing, and deployment services.",
+            "Government-licensed manpower recruitment agency deploying verified Indian workforce to Russia.",
         url: "https://tahaairwaves.ru",
         siteName: "Taha Airwaves",
-        locale: "en_US",
+        locale: "ru_RU",
         type: "website",
         images: [
             {
                 url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Taha Airwaves — Global Manpower Recruitment & Deployment"
+                alt: "Taha Airwaves — Manpower Recruitment & Deployment to Russia"
             }
         ]
     },
 
     twitter: {
         card: "summary_large_image",
-        title: "Taha Airwaves | Global Manpower Recruitment & Deployment",
+        title: "Taha Airwaves | Manpower Recruitment & Deployment to Russia",
         description:
-            "Government-licensed overseas recruitment agency deploying skilled Indian workforce to Russia, CIS, GCC, and global markets.",
+            "Government-licensed overseas recruitment agency deploying Indian workforce to Russia.",
         images: ["/og-image.jpg"]
     },
 
@@ -117,7 +108,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="ru">
 			<body
-				className={`${cormorantGaramond.variable} ${lato.variable} ${oswald.variable} ${poppins.variable} antialiased`}
+				className={`${inter.variable} ${lato.variable} ${poppins.variable} antialiased`}
 			>
 				<Providers>
 					<Header />

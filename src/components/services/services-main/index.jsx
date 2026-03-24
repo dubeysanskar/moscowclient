@@ -1,99 +1,118 @@
 'use client'
 
-import Container from "@/components/container";
-import Link from "next/link";
-import Image from "next/image";
-import { MdArrowOutward } from "react-icons/md";
-import { motion } from "framer-motion";
+import Container from "@/components/container"
+import Link from "next/link"
+import Image from "next/image"
+import { MdArrowOutward } from "react-icons/md"
+import { motion } from "framer-motion"
+import { useLanguage } from "@/context/language"
 
 const SERVICES = [
-    { slug: "cleaners", title: "Cleaners", desc: "Professional cleaning staff for hospitality, healthcare, construction, and corporate environments.", image: "/service-and-blog/Cleaners.jpeg" },
-    { slug: "all-types-of-drivers", title: "All Types of Drivers", desc: "Light, heavy, bus, construction vehicle, and executive chauffeur manpower supply.", image: "/service-and-blog/drivers.jpeg" },
-    { slug: "general-labour", title: "General Labour", desc: "Task-ready labour for construction, warehousing, factories, and industrial site operations.", image: "/service-and-blog/General-labours.jpeg" },
-    { slug: "loading-unloading-workers", title: "Loading & Unloading Workers", desc: "Cargo handlers, dock workers, palletizers, and material movers for logistics and supply chain.", image: "/service-and-blog/Loading-unloading-workers.jpeg" },
-    { slug: "factory-helpers", title: "Factory Helpers", desc: "Production line helpers, machine operation assistants, and plant maintenance support.", image: "/service-and-blog/Factory-helpers.jpeg" },
-    { slug: "barista", title: "Barista Workers", desc: "Trained baristas for cafés, hotels, resorts, events, and corporate food courts.", image: "/service-and-blog/Barista-workers.jpeg" },
-    { slug: "packing-workers", title: "Packing Workers", desc: "Packing, sorting, labeling, quality control, and container packing workforce.", image: "/service-and-blog/Packers-workers.jpeg" },
-    { slug: "emigration-immigration-clearance", title: "Emigration & Immigration Clearance", desc: "POE registration, visa processing, contract validation, and regulatory compliance.", image: "/service-and-blog/Immigration-clearance.jpeg" },
-    { slug: "document-attestation-services", title: "Document Attestation", desc: "State, MEA, and embassy attestation for educational, professional, and commercial documents.", image: "/service-and-blog/Document-attestation.jpeg" },
-    { slug: "hajj-umrah-travel-services", title: "Hajj & Umrah Travel", desc: "Complete pilgrimage coordination — visa, accommodation, transport, and guided support.", image: "/service-and-blog/Hajj-umrah-travell-service.jpeg" },
-    { slug: "employee-outsourcing-solutions", title: "Employee Outsourcing", desc: "Contract staffing, temporary workforce, permanent placement, and payroll management.", image: "/service-and-blog/employe-outsourcing-.jpeg" },
-];
-
-const reveal = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i = 0) => ({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }
-    })
-}
+    { slug: "cleaners", titleKey: "pSvc1Title", descKey: "pSvc1Desc", image: "/service-and-blog/Cleaners.jpeg" },
+    { slug: "all-types-of-drivers", titleKey: "pSvc2Title", descKey: "pSvc2Desc", image: "/service-and-blog/drivers.jpeg" },
+    { slug: "general-labour", titleKey: "pSvc3Title", descKey: "pSvc3Desc", image: "/service-and-blog/General-labours.jpeg" },
+    { slug: "loading-unloading-workers", titleKey: "loadingTitle", descKey: "loadingDesc", image: "/service-and-blog/Loading-unloading-workers.jpeg" },
+    { slug: "factory-helpers", titleKey: "pSvc4Title", descKey: "pSvc4Desc", image: "/service-and-blog/Factory-helpers.jpeg" },
+    { slug: "barista", titleKey: "baristaTitle", descKey: "baristaDesc", image: "/service-and-blog/Barista-workers.jpeg" },
+    { slug: "packing-workers", titleKey: "packersTitle", descKey: "packersDesc", image: "/service-and-blog/Packers-workers.jpeg" },
+    { slug: "emigration-immigration-clearance", titleKey: "pSvc5Title", descKey: "pSvc5Desc", image: "/service-and-blog/Immigration-clearance.jpeg" },
+    { slug: "document-attestation-services", titleKey: "docAttestTitle", descKey: "docAttestDesc", image: "/service-and-blog/Document-attestation.jpeg" },
+    { slug: "skilled-labourers-technicians", titleKey: "svcTechnicians", descKey: "techDesc", image: "/service-and-blog/Factory-helpers.jpeg" },
+    { slug: "employee-outsourcing-solutions", titleKey: "pSvc6Title", descKey: "pSvc6Desc", image: "/service-and-blog/employe-outsourcing-.jpeg" },
+]
 
 export default function ServicesMain() {
-    return (
-        <section className="py-28" style={{ background: "#FDFBEF" }}>
-            <Container>
-                <div className="pt-20 space-y-12 relative z-10">
-                    {/* Header */}
-                    <div className="space-y-4 mb-8">
-                        <div className="w-14 h-1 rounded-full" style={{ background: "#8E0935" }} />
-                        <h1 style={{
-                            fontFamily: "var(--font-cormorant-garamond)",
-                            fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                            fontWeight: 600,
-                            color: "#1a0a10",
-                        }}>
-                            Our Manpower <span className="italic" style={{ color: "#8E0935" }}>Services</span>
-                        </h1>
-                        <p className="max-w-xl" style={{
-                            fontFamily: "var(--font-poppins)",
-                            fontSize: "clamp(0.9rem, 1.2vw, 1.05rem)",
-                            color: "#6B7280",
-                        }}>
-                            Comprehensive workforce solutions tailored for global employers — from skilled recruitment and trade testing to visa processing and deployment.
-                        </p>
-                    </div>
+    const { t, lang } = useLanguage()
 
-                    {/* Grid */}
+    return (
+        <section className="pt-28 pb-20 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
+            {/* Left brand strip */}
+            <div className="absolute left-0 top-0 bottom-0 w-[3px]" style={{ background: "#8A0029" }} />
+
+            {/* SVG bg pattern */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.022 }} aria-hidden="true">
+                <defs>
+                    <pattern id="sp" width="48" height="48" patternUnits="userSpaceOnUse">
+                        <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#262626" strokeWidth="0.5" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#sp)" />
+            </svg>
+
+            <Container>
+                <div className="relative z-10">
+                    {/* Header */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="mb-14"
+                    >
+                        <div className="flex items-center gap-3 mb-3">
+                            <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
+                            <span className="text-[11px] tracking-[0.2em] uppercase font-bold"
+                                style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
+                                {t('ourServices')}
+                            </span>
+                        </div>
+                        <h1 className="font-black leading-tight mb-4"
+                            style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "#262626" }}>
+                            {t('pageServicesTitle')} <span style={{ color: "#8A0029" }}>— Russia</span>
+                        </h1>
+                        <p className="max-w-xl text-base leading-relaxed"
+                            style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
+                            {t('pageServicesSubtitle')}
+                        </p>
+                    </motion.div>
+
+                    {/* Services grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         {SERVICES.map((svc, i) => (
                             <motion.div
                                 key={svc.slug}
-                                custom={i}
-                                variants={reveal}
-                                initial="hidden"
-                                whileInView="visible"
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
+                                transition={{ delay: i * 0.07, duration: 0.45 }}
                             >
                                 <Link href={`/services/${svc.slug}`}>
-                                    <div className="group rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg cursor-pointer"
-                                        style={{ background: "#fff", border: "1px solid rgba(142,9,53,0.1)" }}>
+                                    <div className="group rounded overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-lg cursor-pointer"
+                                        style={{ background: "#F7F7F7", border: "1px solid rgba(38,38,38,0.07)" }}>
                                         {/* Image */}
                                         <div className="relative w-full overflow-hidden" style={{ height: "200px" }}>
-                                            <Image
-                                                src={svc.image}
-                                                alt={svc.title}
-                                                fill
-                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                            <Image src={svc.image} alt={t(svc.titleKey)} fill
+                                                className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                                            {/* Solid overlay hover */}
+                                            <div className="absolute inset-0 transition-colors duration-300"
+                                                style={{ background: "rgba(38,38,38,0.1)" }}
+                                                onMouseEnter={e => e.currentTarget.style.background = "rgba(138,0,41,0.25)"}
+                                                onMouseLeave={e => e.currentTarget.style.background = "rgba(38,38,38,0.1)"}
                                             />
-                                            <div className="absolute inset-0 transition-all duration-500"
-                                                style={{ background: "rgba(26,10,16,0.15)" }}
-                                            />
+                                            {/* ID tag */}
+                                            <div className="absolute top-3 left-3 px-2 py-1 text-[10px] font-black"
+                                                style={{ background: "#8A0029", color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
+                                                {String(i + 1).padStart(2, '0')}
+                                            </div>
                                         </div>
                                         {/* Content */}
-                                        <div className="p-6 flex flex-col gap-3 flex-1">
-                                            <div className="flex items-center justify-between">
-                                                <h3 className="text-lg font-bold group-hover:text-[#8E0935] transition-colors" style={{ fontFamily: "var(--font-lato)", color: "#1a0a10" }}>
-                                                    {svc.title}
+                                        <div className="p-6 flex flex-col gap-3 flex-1" style={{ background: "#FFFFFF" }}>
+                                            <div className="flex items-start justify-between">
+                                                <h3 className="text-sm font-black uppercase tracking-wide transition-colors duration-300 group-hover:text-[#8A0029] flex-1 pr-2"
+                                                    style={{ fontFamily: "var(--font-inter)", color: "#262626" }}>
+                                                    {t(svc.titleKey)}
                                                 </h3>
-                                                <MdArrowOutward className="text-[#BC264B] text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                                                <MdArrowOutward size={16} className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                                    style={{ color: "#8A0029" }} />
                                             </div>
-                                            <p className="text-sm leading-relaxed flex-1" style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
-                                                {svc.desc}
+                                            <p className="text-xs leading-relaxed flex-1"
+                                                style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
+                                                {t(svc.descKey)}
                                             </p>
-                                            <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#BC264B]" style={{ fontFamily: "var(--font-lato)" }}>
-                                                Learn More →
-                                            </span>
+                                            <div className="flex items-center gap-2 text-[11px] font-bold"
+                                                style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>
+                                                <div className="h-px w-6" style={{ background: "#8A0029" }} />
+                                                {t('learnMore')}
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
@@ -103,5 +122,5 @@ export default function ServicesMain() {
                 </div>
             </Container>
         </section>
-    );
+    )
 }

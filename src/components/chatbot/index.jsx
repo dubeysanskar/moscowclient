@@ -3,13 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiMessageCircle, FiX, FiSend } from 'react-icons/fi'
-
-const quickReplies = [
-    'What services do you offer?',
-    'How fast is deployment?',
-    'Which countries do you serve?',
-    'I want to hire workers',
-]
+import { useLanguage } from '@/context/language'
 
 function renderMarkdown(text) {
     if (!text) return ''
@@ -24,40 +18,62 @@ function renderMarkdown(text) {
 }
 
 export default function Chatbot() {
+    const { t, lang } = useLanguage()
     const [isOpen, setIsOpen] = useState(false)
-    const [messages, setMessages] = useState([
-        { role: 'assistant', content: "Hello! I'm the Taha Airwaves assistant. How can I help you today? Whether you're an employer looking for manpower or a job seeker, I'm here to guide you." },
-    ])
+    const [messages, setMessages] = useState(null) // init lazily after lang ready
     const [input, setInput] = useState('')
     const [loading, setLoading] = useState(false)
     const endRef = useRef(null)
 
+    // Reset messages when language changes
+    useEffect(() => {
+        setMessages([{ role: 'assistant', content: t('chatWelcome') }])
+    }, [lang]) // eslint-disable-line
+
     useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages])
+
+    const quickReplies = [t('chatQuick1'), t('chatQuick2'), t('chatQuick3'), t('chatQuick4')]
 
     const send = async (text) => {
         const msg = text || input.trim()
-        if (!msg) return
+        if (!msg || !messages) return
         setInput('')
-        setMessages(prev => [...prev, { role: 'user', content: msg }])
+        const newMessages = [...messages, { role: 'user', content: msg }]
+        setMessages(newMessages)
         setLoading(true)
         try {
             const res = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ messages: [...messages, { role: 'user', content: msg }] }),
+                body: JSON.stringify({ messages: newMessages, lang }),
             })
             const data = await res.json()
-            setMessages(prev => [...prev, { role: 'assistant', content: data.reply || "Sorry, I couldn't process that. Please call +91 93152 26961." }])
+            setMessages(prev => [...prev, { role: 'assistant', content: data.reply || (lang === 'ru' ? 'Пожалуйста, позвоните: +91 93152 26961' : "Sorry, please call +91 93152 26961.") }])
         } catch {
-            setMessages(prev => [...prev, { role: 'assistant', content: "I'm having trouble connecting. Please reach us at +91 93152 26961 or info@tahaairwaves.com." }])
+            setMessages(prev => [...prev, { role: 'assistant', content: lang === 'ru' ? 'Проблема с подключением. Позвоните: +91 93152 26961' : "Connection error. Please contact us at +91 93152 26961." }])
         } finally {
             setLoading(false)
         }
     }
 
+    if (!messages) return null
+
     return (
         <>
-            {/* Toggle */}
+            {/* Tooltip */}
+            {!isOpen && (
+                <motion.div
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="fixed bottom-8 right-20 z-50 px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer shadow-md whitespace-nowrap"
+                    style={{ background: '#1a0a10', color: '#FDFBEF', fontFamily: 'var(--font-inter)' }}
+                    onClick={() => setIsOpen(true)}
+                >
+                    {t('chatTooltip')}
+                </motion.div>
+            )}
+
+            {/* Toggle Button */}
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
                 whileHover={{ scale: 1.08 }}
@@ -67,22 +83,10 @@ export default function Chatbot() {
                 aria-label={isOpen ? 'Close chat' : 'Open chat'}
             >
                 {isOpen ? <FiX /> : <FiMessageCircle />}
-                {!isOpen && <span className="absolute inset-0 rounded-full animate-ping opacity-25" style={{ background: '#BC264B' }} />}
+                {!isOpen && <span className="absolute inset-0 rounded-full animate-ping opacity-20" style={{ background: '#BC264B' }} />}
             </motion.button>
 
-            {!isOpen && (
-                <motion.div
-                    initial={{ opacity: 0, x: 10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="fixed bottom-8 right-22 z-50 px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer shadow-md"
-                    style={{ background: '#1a0a10', color: '#FDFBEF', fontFamily: 'var(--font-lato)' }}
-                    onClick={() => setIsOpen(true)}
-                >
-                    Ask Taha AI
-                </motion.div>
-            )}
-
-            {/* Panel */}
+            {/* Chat Panel */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -97,8 +101,8 @@ export default function Chatbot() {
                         <div className="p-4 flex items-center gap-3" style={{ background: '#8E0935' }}>
                             <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
                             <div className="flex-1">
-                                <div className="text-sm font-bold" style={{ color: '#FDFBEF', fontFamily: 'var(--font-lato)' }}>Taha Airwaves</div>
-                                <div className="text-xs" style={{ color: 'rgba(253,251,239,0.6)', fontFamily: 'var(--font-poppins)' }}>AI Assistant • Online</div>
+                                <div className="text-sm font-bold" style={{ color: '#FDFBEF', fontFamily: 'var(--font-inter)' }}>Taha Airwaves</div>
+                                <div className="text-xs" style={{ color: 'rgba(253,251,239,0.6)', fontFamily: 'var(--font-inter)' }}>{t('chatOnline')}</div>
                             </div>
                             <button onClick={() => setIsOpen(false)} className="text-white/60 hover:text-white cursor-pointer"><FiX /></button>
                         </div>
@@ -137,7 +141,7 @@ export default function Chatbot() {
                                 {quickReplies.map(qr => (
                                     <button key={qr} onClick={() => send(qr)}
                                         className="text-xs px-3 py-1.5 rounded-full cursor-pointer transition-colors hover:bg-[#8E0935] hover:text-white"
-                                        style={{ background: 'rgba(142,9,53,0.08)', color: '#8E0935', fontFamily: 'var(--font-lato)' }}>
+                                        style={{ background: 'rgba(142,9,53,0.07)', color: '#8E0935', fontFamily: 'var(--font-inter)' }}>
                                         {qr}
                                     </button>
                                 ))}
@@ -145,12 +149,12 @@ export default function Chatbot() {
                         )}
 
                         {/* Input */}
-                        <div className="p-3 flex gap-2" style={{ borderTop: '1px solid rgba(142,9,53,0.1)' }}>
+                        <div className="p-3 flex gap-2" style={{ borderTop: '1px solid rgba(142,9,53,0.08)' }}>
                             <input
                                 value={input}
                                 onChange={e => setInput(e.target.value)}
                                 onKeyDown={e => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), send())}
-                                placeholder="Type a message..."
+                                placeholder={t('chatPlaceholder')}
                                 disabled={loading}
                                 className="flex-1 px-4 py-2.5 rounded-full text-sm outline-none"
                                 style={{ background: '#fff', border: '1px solid rgba(142,9,53,0.1)', fontFamily: 'var(--font-poppins)', color: '#1a0a10' }}

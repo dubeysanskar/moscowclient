@@ -281,3 +281,72 @@ npx next build → Exit code: 0 ✅ (all pages generated)
 | `public/images/hero-russia-1.png` | New | Construction hero bg |
 | `public/images/hero-russia-2.png` | New | Factory hero bg |
 | `public/images/hero-russia-3.png` | New | Hospitality hero bg |
+
+---
+
+## SESSION 4 — Brand Overhaul (March 24, 2026)
+
+**Purpose**: Complete design overhaul after client dissatisfaction with UI/UX (cursive fonts, gradients, old color palette). New official Taha Airwaves brand palette implemented.
+
+### Brand palette replaced (entire codebase)
+
+| Old (removed) | New (official) |
+|---|---|
+| `#8E0935` Viva Magenta | `#8A0029` Deep Maroon / Wine Red |
+| `#BC264B` Burgundy | `#D32F2F` Bright Red Accent |
+| `#1a0a10` Dark | `#262626` Dark Gray |
+| `#FDFBEF` Cloud Dancer | `#F7F7F7` Soft Light Gray |
+| Cormorant Garamond (serif/cursive) | **Inter** (sans-serif) — only typeface |
+| All gradients | Removed entirely — flat solid colors only |
+
+### Files modified in Session 4
+
+| File | Change |
+|---|---|
+| `src/app/globals.css` | CSS variables replaced with official brand palette |
+| `src/components/header/index.jsx` | Sticky `#262626` navbar, Inter font, active underline `#8A0029` |
+| `src/components/home/hero/index.jsx` | Stacked giant type, solid overlay, white form card with `#8A0029` header, SVG dot grid, icon stat row |
+| `src/components/home/home-about/index.jsx` | Brand palette, `#8A0029` stat card header, Russia-focused |
+| `src/components/home/our-strength/index.jsx` | `#262626` bg, `#8A0029`/`#D32F2F` metric accents |
+| `src/components/home/what-we-do/index.jsx` | `#F7F7F7` bg, white cards, brand-red accents |
+| `src/components/home/how-it-works/index.jsx` | `#FFFFFF` bg, `#262626` icon boxes, numbered badges |
+| `src/components/home/industries-we-serve/index.jsx` | `#262626` bg, solid overlays (no gradients), hover red indicator |
+| `src/components/home/why-us/index.jsx` | `#F7F7F7` bg, border-left hover cards |
+| `src/components/home/countries-we-serve/index.jsx` | `#8A0029` pipeline card, bilingual content |
+| `src/components/home/blog-preview/index.jsx` | `#F7F7F7` bg, bilingual RU/EN titles |
+| `src/components/home/cta/index.jsx` | `#262626` container, `#8A0029` top strip, SVG decorations |
+| `src/components/footer/index.jsx` | `#262626` bg, `#8A0029` top strip + column headers |
+| `src/context/language.jsx` | Added 100+ new RU/EN translation keys for all components |
+
+---
+
+## SESSION 5 — Home Remaining Sections + All Sub-Pages (March 24, 2026)
+
+**Purpose**: Rewrite all remaining old-theme home sections and all 4 sub-pages with the official brand palette, Inter font, and full bilingual RU/EN language support.
+
+### Home sections rewritten
+
+| Component | Key changes |
+|---|---|
+| `home-services/index.jsx` (CardCarousel) | `#262626` dark slide cards, `#8A0029` icon boxes, `#D32F2F` labels, language-aware |
+| `home-projects/index.jsx` (ServicesShowcase) | `#F7F7F7` wrapper, white cards, bilingual RU/EN tags, `#8A0029` ID labels |
+| `home-service-bento/index.jsx` | Dark process card (steps), `#F7F7F7` CTA card, solid `#8A0029` stats card |
+| `testimonial/index.jsx` | Fully bilingual (separate RU/EN text + roles per testimonial), 3 Russia-focused clients |
+| `partners/index.jsx` | `#F7F7F7` bg, white bordered logo tiles, solid fade edges (no gradient), stats pill |
+
+### Sub-pages rewritten
+
+| Page | File | Changes |
+|---|---|---|
+| `/about` | `about-main/index.jsx` | Global scope (India HQ + Russia + UAE/GCC), Inter font, stats grid, values cards, dark global presence card with license info, language-aware |
+| `/services` | `services-main/index.jsx` | Brand colors, image cards with `#8A0029` ID tags, solid overlays, all 11 services, language-aware titles |
+| `/blog` | `blog-main/index.jsx` | `#FFFFFF` bg, white hover cards with `#8A0029` top strip, bilingual title/excerpt via `post.title_ru`/`post.excerpt_ru`, category pills |
+| `/contact` | `contact-main/index.jsx` | Brand palette throughout (Inter, `#8A0029`, `#D32F2F`), language-aware headings/labels/form placeholders in RU/EN, all office map logic preserved |
+
+### Translation keys added (Session 4+5 combined: ~160 keys)
+New keys added to `src/context/language.jsx`: `csvc1Title–5`, `bentoTitle`, `bentoStep1–4`, `sspTitle`, `pSvc1–6Title/Desc`, `hireManpower`, `viewAllServices`, `aboutStatLabel1–4`, `missionTitle/Desc`, `visionTitle/Desc`, `promiseTitle/Desc`, `ourServices`, `loadingTitle/Desc`, `baristaTitle/Desc`, `packersTitle/Desc`, `docAttestTitle/Desc`, `techDesc`, `formName/Email/Phone/Submit`, `partnersTitle/TitleAccent/Subtitle`, `testimonialsTitle/TitleAccent/Subtitle` — all in both RU and EN.
+
+### Build status
+- Session 4 build: ✅ Exit code 0
+- Session 5 build: ✅ Exit code 0
+

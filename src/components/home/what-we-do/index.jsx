@@ -1,110 +1,100 @@
 'use client'
 
-import Container from "@/components/container";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { FiArrowRight } from "react-icons/fi";
-import { useLanguage } from "@/context/language";
-
-const RecruitIcon = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M2 12h20" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-        <circle cx="12" cy="8" r="2" fill="currentColor" opacity="0.3" />
-        <path d="M9 14c0-1.5 1.3-2 3-2s3 .5 3 2" />
-    </svg>
-)
-
-const BulkHireIcon = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-        <circle cx="9" cy="7" r="3" />
-        <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
-        <circle cx="17" cy="7" r="2" opacity="0.5" />
-        <path d="M21 21v-1.5a3 3 0 0 0-2-2.8" opacity="0.5" />
-    </svg>
-)
-
-const VisaIcon = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-        <rect x="3" y="4" width="18" height="16" rx="2" />
-        <path d="M7 8h4" />
-        <path d="M7 12h6" />
-        <path d="M7 16h3" />
-        <path d="M15.5 14l1 1 2-2" />
-    </svg>
-)
-
-const DeployIcon = () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-        <path d="M21 16v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
-        <path d="M12 3l4 7H8l4-7z" fill="currentColor" opacity="0.15" />
-        <path d="M3 16l2 5h14l2-5" />
-        <circle cx="12" cy="19" r="1" />
-    </svg>
-)
+import Container from "@/components/container"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { FiArrowRight, FiGlobe, FiUsers, FiFileText, FiTruck } from "react-icons/fi"
+import { useLanguage } from "@/context/language"
 
 export default function WhatWeDo() {
     const { t } = useLanguage()
 
     const services = [
-        { icon: <RecruitIcon />, title: t('svc1Title'), desc: t('svc1Desc') },
-        { icon: <BulkHireIcon />, title: t('svc2Title'), desc: t('svc2Desc') },
-        { icon: <VisaIcon />, title: t('svc3Title'), desc: t('svc3Desc') },
-        { icon: <DeployIcon />, title: t('svc4Title'), desc: t('svc4Desc') },
+        { icon: FiGlobe, title: t('svc1Title'), desc: t('svc1Desc'), num: "01", accent: "#8A0029" },
+        { icon: FiUsers, title: t('svc2Title'), desc: t('svc2Desc'), num: "02", accent: "#D32F2F" },
+        { icon: FiFileText, title: t('svc3Title'), desc: t('svc3Desc'), num: "03", accent: "#8A0029" },
+        { icon: FiTruck, title: t('svc4Title'), desc: t('svc4Desc'), num: "04", accent: "#D32F2F" },
     ]
 
     return (
-        <section className="py-20 lg:py-28" style={{ background: "#FDFBEF" }}>
-            <Container>
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                >
-                    {/* Header */}
-                    <div className="text-center mb-14">
-                        <div className="w-14 h-1 mx-auto rounded-full mb-6" style={{ background: "#8E0935" }} />
-                        <h2 style={{ fontFamily: "var(--font-cormorant-garamond)", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 600, color: "#1a0a10" }}>
-                            {t('whatTitle')} <span className="italic" style={{ color: "#8E0935" }}>{t('whatTitleAccent')}</span>
-                        </h2>
-                        <p className="max-w-2xl mx-auto mt-4" style={{ fontFamily: "var(--font-poppins)", fontSize: "1.05rem", color: "#6B7280" }}>
-                            {t('whatSubtitle')}
-                        </p>
-                    </div>
+        <section className="py-20 lg:py-28 relative overflow-hidden" style={{ background: "#F7F7F7" }}>
+            {/* SVG dot grid */}
+            <svg className="absolute top-10 right-10 hidden lg:block" width="90" height="90" viewBox="0 0 90 90" fill="none" aria-hidden="true">
+                {Array.from({ length: 25 }, (_, i) => (
+                    <circle key={i} cx={(i % 5) * 18 + 9} cy={Math.floor(i / 5) * 18 + 9} r="1.8" fill="rgba(138,0,41,0.1)" />
+                ))}
+            </svg>
 
-                    {/* Services Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {services.map((svc, i) => (
+            <Container>
+                {/* Header */}
+                <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 mb-14 pb-8"
+                    style={{ borderBottom: "1px solid rgba(38,38,38,0.08)" }}>
+                    <div className="lg:flex-1">
+                        <div className="flex items-center gap-3 mb-3">
+                            <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
+                            <span className="text-[11px] tracking-[0.2em] uppercase font-bold"
+                                style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>Services</span>
+                        </div>
+                        <h2 className="font-black tracking-tight leading-tight"
+                            style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "#262626" }}>
+                            {t('whatTitle')} <span style={{ color: "#8A0029" }}>{t('whatTitleAccent')}</span>
+                        </h2>
+                    </div>
+                    <p className="lg:max-w-sm text-sm leading-relaxed"
+                        style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
+                        {t('whatSubtitle')}
+                    </p>
+                </div>
+
+                {/* Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {services.map((svc, i) => {
+                        const Icon = svc.icon
+                        return (
                             <motion.div
                                 key={i}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 24 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                                className="group rounded-2xl p-7 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl cursor-pointer"
-                                style={{ background: "#FFFFFF", border: "1px solid rgba(142,9,53,0.08)" }}
+                                className="group relative rounded overflow-hidden cursor-pointer"
+                                style={{ background: "#FFFFFF", border: "1px solid rgba(38,38,38,0.08)" }}
                             >
-                                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 text-xl text-white transition-all duration-500 group-hover:scale-110"
-                                    style={{ background: "#8E0935" }}>
-                                    {svc.icon}
+                                {/* Hover top border */}
+                                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                    style={{ background: svc.accent }} />
+
+                                <div className="p-7">
+                                    {/* Number */}
+                                    <div className="text-4xl font-black mb-5 leading-none"
+                                        style={{ color: "rgba(38,38,38,0.06)", fontFamily: "var(--font-inter)" }}>
+                                        {svc.num}
+                                    </div>
+
+                                    {/* Icon */}
+                                    <div className="w-11 h-11 rounded flex items-center justify-center mb-5"
+                                        style={{ background: svc.accent }}>
+                                        <Icon size={18} color="#FFFFFF" />
+                                    </div>
+
+                                    <h3 className="text-sm font-black mb-2.5 uppercase tracking-wide transition-colors duration-300 group-hover:text-[#8A0029]"
+                                        style={{ fontFamily: "var(--font-inter)", color: "#262626" }}>
+                                        {svc.title}
+                                    </h3>
+                                    <p className="text-xs leading-relaxed mb-5"
+                                        style={{ color: "#9CA3AF", fontFamily: "var(--font-poppins)" }}>
+                                        {svc.desc}
+                                    </p>
+                                    <Link href="/services"
+                                        className="inline-flex items-center gap-1.5 text-xs font-bold transition-all duration-300 group-hover:gap-3"
+                                        style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>
+                                        {t('learnMore')} <FiArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+                                    </Link>
                                 </div>
-                                <h3 className="text-lg lg:text-xl font-bold mb-3 transition-colors duration-300 group-hover:text-[#8E0935]"
-                                    style={{ fontFamily: "var(--font-lato)", color: "#1a0a10" }}>
-                                    {svc.title}
-                                </h3>
-                                <p className="text-sm leading-relaxed mb-5" style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
-                                    {svc.desc}
-                                </p>
-                                <Link href="/services" className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 group-hover:gap-3"
-                                    style={{ color: "#8E0935" }}>
-                                    {t('learnMore')} <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-                                </Link>
                             </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+                        )
+                    })}
+                </div>
             </Container>
         </section>
     )

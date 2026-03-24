@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from "react"
-import Image from "next/image"
+import { useLanguage } from "@/context/language"
 
 const partners = [
     { src: "/images/partners/1.png", alt: "CAFS" },
@@ -27,6 +27,7 @@ const partners = [
 ]
 
 export default function Partners() {
+    const { t } = useLanguage()
     const allPartners = [...partners, ...partners, ...partners]
 
     useEffect(() => {
@@ -37,7 +38,7 @@ export default function Partners() {
                 100% { transform: translateX(-33.333%); }
             }
             .taha-marquee-track {
-                animation: taha-marquee 40s linear infinite !important;
+                animation: taha-marquee 45s linear infinite !important;
                 will-change: transform;
             }
             .taha-marquee-track:hover {
@@ -49,47 +50,61 @@ export default function Partners() {
     }, [])
 
     return (
-        <section className="relative py-16 lg:py-20 overflow-hidden" style={{ background: "#FDFBEF" }}>
+        <section className="relative py-16 lg:py-20 overflow-hidden" style={{ background: "#F7F7F7" }}>
+            {/* Left brand accent strip */}
+            <div className="absolute left-0 top-0 bottom-0 w-[3px]" style={{ background: "#8A0029" }} />
+
+            {/* Header */}
             <div className="max-w-[1400px] mx-auto px-6 lg:px-8 mb-10">
-                <div className="text-center">
-                    <div className="w-14 h-1 mx-auto rounded-full mb-6" style={{ background: "#8E0935" }} />
-                    <h2 style={{
-                        fontFamily: "var(--font-cormorant-garamond)",
-                        fontSize: "clamp(2rem, 4vw, 3.5rem)",
-                        fontWeight: 600,
-                        color: "#1a0a10",
-                    }}>
-                        Meet Our <span className="italic" style={{ color: "#8E0935" }}>Partners</span>
-                    </h2>
-                    <p className="max-w-2xl mx-auto mt-4" style={{
-                        fontFamily: "var(--font-poppins)",
-                        fontSize: "1rem",
-                        color: "#6B7280",
-                    }}>
-                        Trusted by leading companies and organizations across the Gulf region
-                    </p>
+                <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 pb-8"
+                    style={{ borderBottom: "1px solid rgba(38,38,38,0.08)" }}>
+                    <div>
+                        <div className="flex items-center gap-3 mb-3">
+                            <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-bold"
+                                style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
+                                Partners
+                            </span>
+                        </div>
+                        <h2 className="font-black tracking-tight"
+                            style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#262626" }}>
+                            {t('partnersTitle')} <span style={{ color: "#8A0029" }}>{t('partnersTitleAccent')}</span>
+                        </h2>
+                        <p className="mt-2 text-sm" style={{ fontFamily: "var(--font-poppins)", color: "#9CA3AF" }}>
+                            {t('partnersSubtitle')}
+                        </p>
+                    </div>
+                    {/* Stats pill */}
+                    <div className="flex items-center gap-5 px-6 py-4 rounded"
+                        style={{ background: "#FFFFFF", border: "1px solid rgba(38,38,38,0.08)" }}>
+                        <div className="text-center">
+                            <p className="text-2xl font-black" style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>20+</p>
+                            <p className="text-[10px] font-medium" style={{ color: "#9CA3AF", fontFamily: "var(--font-inter)" }}>Companies</p>
+                        </div>
+                        <div className="w-px h-8" style={{ background: "rgba(38,38,38,0.1)" }} />
+                        <div className="text-center">
+                            <p className="text-2xl font-black" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>🌍</p>
+                            <p className="text-[10px] font-medium" style={{ color: "#9CA3AF", fontFamily: "var(--font-inter)" }}>Global</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             {/* Marquee */}
             <div className="relative overflow-hidden">
-                <div className="absolute left-0 top-0 bottom-0 w-24 z-10"
-                    style={{ background: "linear-gradient(90deg, #FDFBEF 0%, transparent 100%)" }} />
-                <div className="absolute right-0 top-0 bottom-0 w-24 z-10"
-                    style={{ background: "linear-gradient(-90deg, #FDFBEF 0%, transparent 100%)" }} />
+                {/* Fade edges — solid colors, NO gradients */}
+                <div className="absolute left-0 top-0 bottom-0 w-16 z-10" style={{ background: "#F7F7F7" }} />
+                <div className="absolute right-0 top-0 bottom-0 w-16 z-10" style={{ background: "#F7F7F7" }} />
 
-                <div className="taha-marquee-track flex items-center gap-12" style={{ width: "max-content" }}>
+                <div className="taha-marquee-track flex items-center gap-10" style={{ width: "max-content" }}>
                     {allPartners.map((p, i) => (
                         <div key={i}
-                            className="flex-shrink-0 w-36 h-20 lg:w-44 lg:h-24 flex items-center justify-center p-3 transition-all duration-300 hover:scale-110 grayscale hover:grayscale-0"
-                            style={{ cursor: "pointer" }}>
-                            <img
-                                src={p.src}
-                                alt={p.alt}
+                            className="flex-shrink-0 w-32 h-16 lg:w-40 lg:h-20 flex items-center justify-center p-3 rounded transition-all duration-300 hover:scale-105 grayscale hover:grayscale-0"
+                            style={{ background: "#FFFFFF", border: "1px solid rgba(38,38,38,0.06)", cursor: "pointer" }}>
+                            <img src={p.src} alt={p.alt}
                                 className="object-contain"
-                                style={{ mixBlendMode: "multiply", maxHeight: "56px", width: "auto", maxWidth: "140px" }}
-                                loading="lazy"
-                            />
+                                style={{ maxHeight: "48px", width: "auto", maxWidth: "120px" }}
+                                loading="lazy" />
                         </div>
                     ))}
                 </div>

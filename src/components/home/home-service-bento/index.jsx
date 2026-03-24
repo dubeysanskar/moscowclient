@@ -1,113 +1,136 @@
 'use client'
 
-import Container from "@/components/container";
-import Link from "next/link";
-import { MdArrowOutward } from "react-icons/md";
-import { motion } from "framer-motion";
-
-const data = {
-    learn_more_card: {
-        desc1: "Comprehensive manpower solutions bridging India's talent with global demand",
-        desc2: "From sourcing to deployment — we handle the complete recruitment lifecycle",
-    }
-}
-
-const reveal = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.6, ease: "easeOut" }
-    }
-}
-
-const WHAT_WE_DO = [
-    { title: "Source & Screen", desc: "Verified candidates from India's largest talent pool" },
-    { title: "Trade Test", desc: "Rigorous skill assessments and background verification" },
-    { title: "Visa & Docs", desc: "End-to-end visa processing and compliance" },
-    { title: "Deploy", desc: "Pre-departure orientation and travel coordination" },
-]
+import Container from "@/components/container"
+import Link from "next/link"
+import { MdArrowOutward } from "react-icons/md"
+import { FiShield, FiSearch, FiFileText, FiSend } from "react-icons/fi"
+import { motion } from "framer-motion"
+import { useLanguage } from "@/context/language"
 
 export default function HomeServiceBento() {
+    const { t } = useLanguage()
+
+    const steps = [
+        { icon: FiSearch, num: "01", titleKey: "bentoStep1", descKey: "bentoStep1Desc" },
+        { icon: FiShield, num: "02", titleKey: "bentoStep2", descKey: "bentoStep2Desc" },
+        { icon: FiFileText, num: "03", titleKey: "bentoStep3", descKey: "bentoStep3Desc" },
+        { icon: FiSend, num: "04", titleKey: "bentoStep4", descKey: "bentoStep4Desc" },
+    ]
+
     return (
-        <section className="py-14">
+        <section className="py-10" style={{ background: "#FFFFFF" }}>
             <Container>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
-                    {/* Large — What We Do */}
+                    {/* Large card — process steps */}
                     <motion.div
-                        variants={reveal}
-                        initial="hidden"
-                        whileInView="visible"
+                        initial={{ opacity: 0, x: -24 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="col-span-1 md:col-span-2 md:row-span-2 bg-[#1a0a10] rounded-2xl p-8 md:p-12 flex flex-col justify-center"
+                        transition={{ duration: 0.55 }}
+                        className="lg:col-span-2 relative rounded"
+                        style={{ background: "#262626" }}
                     >
-                        <h2 className="text-3xl md:text-5xl font-cormorant-garamond font-semibold text-cream mb-8 uppercase">
-                            What We <span className="italic text-[#BC264B]">Do</span>
-                        </h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            {WHAT_WE_DO.map((item, i) => (
-                                <div key={i} className="border border-white/10 rounded-xl p-5 hover:border-[#BC264B]/30 transition-colors">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <span className="text-[#BC264B] text-sm font-lato font-bold">0{i + 1}</span>
-                                        <div className="h-px flex-1" style={{ background: "rgba(188,38,75,0.3)" }} />
-                                    </div>
-                                    <h3 className="text-lg font-poppins font-medium text-cream mb-1">{item.title}</h3>
-                                    <p className="text-sm font-poppins text-white/50">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
+                        {/* Red top accent */}
+                        <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t" style={{ background: "#8A0029" }} />
 
-                    {/* CTA Card */}
-                    <motion.div
-                        variants={reveal}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.15 }}
-                        className="w-full h-max bg-cream/50 rounded-2xl p-4 md:p-6 flex flex-col gap-6"
-                    >
-                        <Link href="/services">
-                            <button className="px-6 py-3 font-poppins rounded-full border-2 border-black/30 hover:bg-[#1a0a10] hover:text-white transition cursor-pointer flex items-center gap-3">
-                                Learn More
-                                <MdArrowOutward size={18} />
-                            </button>
-                        </Link>
-
-                        <div className="space-y-2 md:space-y-4 px-1">
-                            <p className="text-sm md:text-base font-poppins">
-                                {data.learn_more_card.desc1}
-                            </p>
-                            <p className="text-lg md:text-2xl font-medium font-poppins">
-                                {data.learn_more_card.desc2}
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    {/* Stats Card */}
-                    <motion.div
-                        variants={reveal}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="rounded-2xl w-full h-full p-6 flex flex-col justify-center text-white"
-                        style={{ background: "#8E0935" }}
-                    >
-                        <div className="space-y-4">
-                            <div>
-                                <p className="text-4xl font-lato font-bold">5000+</p>
-                                <p className="text-sm text-white/70 font-poppins">Workers Successfully Deployed</p>
+                        <div className="p-10 lg:p-12">
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
+                                <span className="text-[10px] tracking-[0.2em] uppercase font-bold"
+                                    style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>Process</span>
                             </div>
-                            <div className="h-px bg-white/20" />
-                            <div>
-                                <p className="text-4xl font-lato font-bold">11+</p>
-                                <p className="text-sm text-white/70 font-poppins">Countries Served Globally</p>
+                            <h2 className="font-black mb-8"
+                                style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(1.6rem, 3vw, 2.2rem)", color: "#FFFFFF" }}>
+                                {t('bentoTitle')}
+                            </h2>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {steps.map((step, i) => {
+                                    const Icon = step.icon
+                                    return (
+                                        <div key={i} className="group p-5 rounded border transition-all duration-300 hover:border-[#8A0029] cursor-default"
+                                            style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.03)" }}>
+                                            <div className="flex items-center gap-3 mb-3">
+                                                <div className="w-8 h-8 rounded flex items-center justify-center"
+                                                    style={{ background: i % 2 === 0 ? "#8A0029" : "#D32F2F" }}>
+                                                    <Icon size={14} color="#FFFFFF" />
+                                                </div>
+                                                <span className="text-[11px] font-bold"
+                                                    style={{ color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-inter)" }}>
+                                                    {step.num}
+                                                </span>
+                                            </div>
+                                            <h4 className="font-black text-sm mb-1.5 group-hover:text-[#D32F2F] transition-colors"
+                                                style={{ fontFamily: "var(--font-inter)", color: "#FFFFFF" }}>
+                                                {t(step.titleKey)}
+                                            </h4>
+                                            <p className="text-xs leading-relaxed"
+                                                style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-poppins)" }}>
+                                                {t(step.descKey)}
+                                            </p>
+                                        </div>
+                                    )
+                                })}
                             </div>
                         </div>
                     </motion.div>
 
+                    {/* Right column — CTA + stats */}
+                    <div className="flex flex-col gap-4">
+                        {/* CTA card */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 24 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.55, delay: 0.1 }}
+                            className="rounded p-8 flex flex-col gap-5"
+                            style={{ background: "#F7F7F7", border: "1px solid rgba(38,38,38,0.08)" }}
+                        >
+                            <div>
+                                <p className="text-sm font-medium leading-relaxed mb-4"
+                                    style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
+                                    {t('bentoCTA1')}
+                                </p>
+                                <p className="text-base font-bold leading-snug"
+                                    style={{ fontFamily: "var(--font-inter)", color: "#262626" }}>
+                                    {t('bentoCTA2')}
+                                </p>
+                            </div>
+                            <Link href="/services">
+                                <button className="flex items-center gap-2 px-5 py-2.5 rounded text-xs font-bold cursor-pointer transition-opacity hover:opacity-90"
+                                    style={{ background: "#8A0029", color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
+                                    {t('learnMore')} <MdArrowOutward size={13} />
+                                </button>
+                            </Link>
+                        </motion.div>
+
+                        {/* Stats card */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 24 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.55, delay: 0.2 }}
+                            className="rounded p-8 flex-1 flex flex-col justify-center gap-6"
+                            style={{ background: "#8A0029" }}
+                        >
+                            {/* Dot decoration */}
+                            <svg className="opacity-15 mb-1" width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+                                {Array.from({ length: 9 }, (_, i) => (
+                                    <circle key={i} cx={(i % 3) * 22 + 11} cy={Math.floor(i / 3) * 22 + 11} r="3" fill="white" />
+                                ))}
+                            </svg>
+                            <div>
+                                <p className="text-5xl font-black mb-1" style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>500+</p>
+                                <p className="text-sm text-white/60" style={{ fontFamily: "var(--font-poppins)" }}>{t('heroStat1Label')}</p>
+                            </div>
+                            <div className="h-px" style={{ background: "rgba(255,255,255,0.15)" }} />
+                            <div>
+                                <p className="text-5xl font-black mb-1" style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>20+</p>
+                                <p className="text-sm text-white/60" style={{ fontFamily: "var(--font-poppins)" }}>{t('heroStat3Label')}</p>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </Container>
         </section>

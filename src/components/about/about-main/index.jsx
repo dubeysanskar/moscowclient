@@ -1,187 +1,185 @@
 'use client'
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import Container from "@/components/container";
+import { motion } from "framer-motion"
+import { useRef } from "react"
+import Container from "@/components/container"
+import { useLanguage } from "@/context/language"
+import { FiShield, FiGlobe, FiUsers, FiAward } from "react-icons/fi"
 
-const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i = 0) => ({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.8, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] },
-    }),
-};
-
-const STATS = [
-    { value: "500+", label: "Workers in Russia" },
-    { value: "20+", label: "Years Experience" },
-    { value: "50+", label: "Partner Companies" },
-    { value: "100%", label: "Compliance Rate" },
+const GLOBAL_STATS = [
+    { valueKey: "500+", labelKey: "aboutStatLabel1", accent: "#8A0029" },
+    { valueKey: "20+", labelKey: "aboutStatLabel2", accent: "#D32F2F" },
+    { valueKey: "50+", labelKey: "aboutStatLabel3", accent: "#8A0029" },
+    { valueKey: "100%", labelKey: "aboutStatLabel4", accent: "#D32F2F" },
 ]
 
 const VALUES = [
-    {
-        title: "Our Mission",
-        desc: "To bridge the gap between India's vast talent pool and Russia's employment demands by providing reliable, compliant, and efficient manpower recruitment services that empower workers and satisfy employers.",
-        accent: "#BC264B",
-    },
-    {
-        title: "Our Vision",
-        desc: "To be the most trusted overseas manpower recruitment agency for the Russian market, recognized for quality, transparency, and end-to-end workforce deployment — delivering verified professionals from India to Russia.",
-        accent: "#8E0935",
-    },
-    {
-        title: "Our Promise",
-        desc: "Government-licensed, trade-tested, and fully documented workforce — delivered on time, every time. No shortcuts, no compromises. Every worker we deploy represents our reputation.",
-        accent: "#BC264B",
-    },
+    { icon: FiGlobe, titleKey: "missionTitle", descKey: "missionDesc" },
+    { icon: FiAward, titleKey: "visionTitle", descKey: "visionDesc" },
+    { icon: FiShield, titleKey: "promiseTitle", descKey: "promiseDesc" },
 ]
 
-function AnimatedSection({ children, className = "" }) {
-    const ref = useRef(null);
-    const inView = useInView(ref, { once: true, margin: "-80px" });
-    return (
-        <motion.div ref={ref} initial="hidden" animate={inView ? "visible" : "hidden"} className={className}>
-            {children}
-        </motion.div>
-    );
-}
+const GLOBAL_PRESENCE = [
+    { country: "India (HQ)", flag: "🇮🇳", details: ["New Delhi HQ", "Noida Office", "MEA Licensed", "Since 2005"] },
+    { country: "Russia", flag: "🇷🇺", details: ["Moscow Office", "500+ Deployed", "Since 2022", "All Sectors"] },
+    { country: "UAE / GCC", flag: "🇦🇪", details: ["Dubai Markets", "GCC Experience", "Compliant", "Trusted"] },
+]
 
 export default function AboutMain() {
-    const visionRef = useRef(null);
-    const visionInView = useInView(visionRef, { once: true, margin: "-80px" });
+    const { t, lang } = useLanguage()
 
     return (
-        <section style={{ background: "#FDFBEF" }} className="font-sans pt-36 pb-20 relative overflow-hidden">
+        <section style={{ background: "#FFFFFF" }} className="pt-28 pb-20 relative overflow-hidden">
+            {/* Left brand strip */}
+            <div className="absolute left-0 top-0 bottom-0 w-[3px]" style={{ background: "#8A0029" }} />
 
-            {/* HERO */}
-            <AnimatedSection className="max-w-6xl mx-auto px-6 lg:px-12 mb-16 relative z-10">
-                <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16">
-                    <div className="max-w-2xl">
-                        <motion.p variants={fadeUp} custom={0} className="text-xs tracking-[0.28em] uppercase font-medium mb-4" style={{ color: "#BC264B" }}>
-                            About Taha Airwaves
-                        </motion.p>
-                        <motion.h2 variants={fadeUp} custom={1} className="text-4xl lg:text-6xl font-semibold leading-[1.1] tracking-tight" style={{ fontFamily: "var(--font-cormorant-garamond)", color: "#1a0a10" }}>
-                            Empowering Workforce<br />
-                            <span className="italic font-normal" style={{ color: "#BC264B" }}>Deployment to Russia.</span>
-                        </motion.h2>
-                    </div>
-                    <div className="max-w-md self-end pb-2">
-                        <motion.p variants={fadeUp} custom={2} style={{ color: "#555" }} className="leading-relaxed font-poppins">
-                            Taha Airwaves Private Limited is a government-licensed manpower outsourcing consultancy based in New Delhi,
-                            connecting India&apos;s professional workforce with Russian employers — with full compliance and dedicated Moscow operations since 2022.
-                        </motion.p>
-                    </div>
-                </div>
-            </AnimatedSection>
+            {/* SVG bg grid */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.025 }} aria-hidden="true">
+                <defs>
+                    <pattern id="ag" width="48" height="48" patternUnits="userSpaceOnUse">
+                        <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#262626" strokeWidth="0.5" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#ag)" />
+            </svg>
 
-            {/* Divider */}
-            <AnimatedSection className="max-w-6xl mx-auto px-6 lg:px-12 mb-16 relative z-10">
-                <motion.div variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1, transition: { duration: 1.1 } } }} className="origin-left h-px" style={{ background: "rgba(188,38,75,0.4)" }} />
-            </AnimatedSection>
-
-            {/* STATS */}
-            <div className="max-w-6xl mx-auto px-6 lg:px-12 mb-20 relative z-10">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {STATS.map((stat, i) => (
+            <Container>
+                <div className="relative z-10 space-y-20">
+                    {/* Hero header */}
+                    <div className="max-w-4xl">
                         <motion.div
-                            key={stat.label}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className="text-center rounded-2xl p-8"
-                            style={{ background: "#fff", border: "1px solid rgba(142,9,53,0.1)" }}
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
                         >
-                            <p className="text-4xl md:text-5xl font-lato font-bold" style={{ color: '#8E0935' }}>{stat.value}</p>
-                            <p className="text-sm text-gray-500 font-poppins mt-2">{stat.label}</p>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-
-            {/* VALUES — White cards instead of dark boxes */}
-            <div className="max-w-6xl mx-auto px-6 lg:px-12 mb-20 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {VALUES.map((value, i) => (
-                        <motion.div
-                            key={value.title}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.15 }}
-                            className="rounded-2xl p-8"
-                            style={{ background: "#FFFFFF", border: "1px solid rgba(142,9,53,0.1)" }}
-                        >
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="w-2 h-2 rounded-full" style={{ background: value.accent }} />
-                                <span className="text-xs tracking-[0.2em] uppercase font-lato font-bold" style={{ color: value.accent }}>
-                                    {value.title}
+                            <div className="flex items-center gap-3 mb-5">
+                                <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
+                                <span className="text-[11px] tracking-[0.2em] uppercase font-bold"
+                                    style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
+                                    {t('aboutTitle')}
                                 </span>
                             </div>
-                            <p className="text-sm font-poppins leading-relaxed" style={{ color: "#555" }}>
-                                {value.desc}
+                            <h1 className="font-black leading-[1.05] tracking-tight mb-6"
+                                style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2.8rem, 6vw, 5rem)", color: "#262626" }}>
+                                {lang === 'ru' ? (
+                                    <>Распределение кадров<br /><span style={{ color: "#8A0029" }}>по всему миру</span></>
+                                ) : (
+                                    <>Global Workforce<br /><span style={{ color: "#8A0029" }}>Deployment Experts</span></>
+                                )}
+                            </h1>
+                            <p className="text-base max-w-2xl leading-relaxed"
+                                style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
+                                {lang === 'ru'
+                                    ? "Taha Airwaves Private Limited — государственное лицензированное агентство по подбору персонала, базирующееся в Нью-Дели. С 2005 года мы помогаем работодателям по всему миру находить квалифицированных специалистов — особенно на российском рынке, где мы работаем с 2022 года."
+                                    : "Taha Airwaves Private Limited is a government-licensed manpower recruitment consultancy based in New Delhi, India. Since 2005, we have been connecting India's professional workforce with global employers — with a special focus on Russia since 2022, and extensive experience across the GCC and beyond."}
                             </p>
                         </motion.div>
-                    ))}
-                </div>
-            </div>
+                    </div>
 
-            {/* COMPANY INFO */}
-            <div ref={visionRef} className="relative z-10">
-                <div style={{ background: "#FFFFFF" }} className="py-24 px-6 lg:px-12 relative overflow-hidden">
+                    {/* Stats */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {GLOBAL_STATS.map((s, i) => (
+                            <motion.div key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="group p-7 rounded text-center"
+                                style={{ background: "#F7F7F7", border: "1px solid rgba(38,38,38,0.08)" }}>
+                                <p className="text-5xl font-black mb-2 transition-colors duration-300"
+                                    style={{ color: s.accent, fontFamily: "var(--font-inter)" }}>{s.valueKey}</p>
+                                <p className="text-[11px] uppercase tracking-wide font-bold"
+                                    style={{ color: "#9CA3AF", fontFamily: "var(--font-inter)" }}>{t(s.labelKey)}</p>
+                            </motion.div>
+                        ))}
+                    </div>
 
-                    <div style={{ position:"absolute", width:"700px", height:"700px", borderRadius:"50%", border:"1px solid rgba(188,38,75,0.08)", top:"50%", right:"-200px", transform:"translateY(-50%)", pointerEvents:"none" }} />
+                    {/* Values */}
+                    <div>
+                        <div className="flex items-center gap-3 mb-8">
+                            <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
+                            <span className="text-[10px] tracking-[0.2em] uppercase font-bold"
+                                style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
+                                {lang === 'ru' ? 'Наши принципы' : 'Our Principles'}
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            {VALUES.map((v, i) => {
+                                const Icon = v.icon
+                                return (
+                                    <motion.div key={i}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className="group relative p-8 rounded"
+                                        style={{ background: "#FFFFFF", border: "1px solid rgba(38,38,38,0.08)" }}>
+                                        <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity"
+                                            style={{ background: "#8A0029" }} />
+                                        <div className="w-11 h-11 rounded flex items-center justify-center mb-5"
+                                            style={{ background: i % 2 === 0 ? "#8A0029" : "#D32F2F" }}>
+                                            <Icon size={18} color="#FFFFFF" />
+                                        </div>
+                                        <h3 className="font-black text-sm uppercase tracking-wide mb-3 transition-colors group-hover:text-[#8A0029]"
+                                            style={{ fontFamily: "var(--font-inter)", color: "#262626" }}>
+                                            {t(v.titleKey)}
+                                        </h3>
+                                        <p className="text-sm leading-relaxed"
+                                            style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
+                                            {t(v.descKey)}
+                                        </p>
+                                    </motion.div>
+                                )
+                            })}
+                        </div>
+                    </div>
 
-                    <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        {/* Left — license card — White card */}
-                        <div className="rounded-3xl p-10 relative overflow-hidden" style={{ background: "#FDFBEF", border: "1px solid rgba(142,9,53,0.12)" }}>
-                            <div className="relative z-10">
-                                <p className="text-xs tracking-[0.2em] uppercase font-lato font-bold text-[#BC264B] mb-6">Government Licensed Agency</p>
-                                <div className="space-y-4">
-                                    <div className="rounded-xl p-4" style={{ border: "1px solid rgba(142,9,53,0.1)" }}>
-                                        <p className="text-xs font-poppins mb-1" style={{ color: "#9CA3AF" }}>Agency Name</p>
-                                        <p className="text-lg font-poppins font-medium" style={{ color: "#1a0a10" }}>Taha Airwaves Private Limited</p>
+                    {/* Global presence */}
+                    <div className="rounded overflow-hidden" style={{ background: "#262626" }}>
+                        <div className="px-10 py-5" style={{ background: "#8A0029" }}>
+                            <h2 className="font-black text-xl lg:text-2xl"
+                                style={{ fontFamily: "var(--font-inter)", color: "#FFFFFF" }}>
+                                {lang === 'ru' ? 'Глобальное присутствие' : 'Global Presence'}
+                            </h2>
+                        </div>
+                        <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {GLOBAL_PRESENCE.map((p, i) => (
+                                <div key={i} className="space-y-3">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <span className="text-3xl">{p.flag}</span>
+                                        <h4 className="font-black"
+                                            style={{ fontFamily: "var(--font-inter)", color: "#FFFFFF" }}>{p.country}</h4>
                                     </div>
-                                    <div className="rounded-xl p-4" style={{ border: "1px solid rgba(142,9,53,0.1)" }}>
-                                        <p className="text-xs font-poppins mb-1" style={{ color: "#9CA3AF" }}>RA License Number</p>
-                                        <p className="text-lg font-lato font-bold text-[#8E0935]">B-3260/DEL/COM/100/5/11259/2025</p>
-                                    </div>
-                                    <div className="rounded-xl p-4" style={{ border: "1px solid rgba(142,9,53,0.1)" }}>
-                                        <p className="text-xs font-poppins mb-1" style={{ color: "#9CA3AF" }}>Registered Office</p>
-                                        <p className="text-sm font-poppins" style={{ color: "#555" }}>71A, 3rd Floor, Taimoor Nagar, New Friends Colony, New Delhi 110025</p>
-                                    </div>
+                                    {p.details.map((d) => (
+                                        <div key={d} className="flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#D32F2F" }} />
+                                            <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-inter)" }}>{d}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                            </div>
+                            ))}
                         </div>
 
-                        {/* Right — text */}
-                        <div className="flex flex-col gap-6">
-                            <motion.p custom={0} variants={fadeUp} initial="hidden" animate={visionInView ? "visible" : "hidden"} className="text-xs tracking-[0.28em] uppercase font-medium" style={{ color: "#BC264B" }}>
-                                Our Story
-                            </motion.p>
-                            <motion.h3 custom={1} variants={fadeUp} initial="hidden" animate={visionInView ? "visible" : "hidden"} className="text-4xl lg:text-5xl font-semibold leading-[1.15] tracking-tight" style={{ fontFamily: "var(--font-cormorant-garamond)", color: "#1a0a10" }}>
-                                Built on Trust,
-                                <span className="italic font-normal" style={{ color: "#BC264B" }}> Driven by Expertise.</span>
-                            </motion.h3>
-                            <motion.div custom={2} variants={fadeUp} initial="hidden" animate={visionInView ? "visible" : "hidden"} className="space-y-4 text-sm leading-relaxed" style={{ color: "#555" }}>
-                                <p>
-                                    We incepted our company with the objective to bridge the demand gap between the employers and employees.
-                                    As an accomplished placement and recruitment agency, we rely on delivering quality services of procuring
-                                    the right people for the right roles at the right time.
-                                </p>
-                                <p>
-                                    Our RA License (B-3260/DEL/COM/100/5/11259/2025) stands as proof of our compliance with Indian emigration laws
-                                    and our commitment to ethical recruitment practices. With dedicated Russia operations since 2022 and a Moscow office,
-                                    we specialize in deploying verified Indian workforce to the Russian market across construction, hospitality, manufacturing, and logistics sectors.
-                                </p>
-                            </motion.div>
+                        {/* License info */}
+                        <div className="px-10 py-8" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                {[
+                                    { label: lang === 'ru' ? 'Название компании' : 'Company', value: 'Taha Airwaves Private Limited' },
+                                    { label: lang === 'ru' ? 'Лицензия RA' : 'RA License', value: 'B-3260/DEL/COM/100/5/11259/2025' },
+                                    { label: lang === 'ru' ? 'Главный офис' : 'Head Office', value: '71A, 3rd Floor, New Friends Colony, New Delhi 110025' },
+                                ].map((item, i) => (
+                                    <div key={i}>
+                                        <p className="text-[10px] uppercase tracking-widest mb-1.5"
+                                            style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>{item.label}</p>
+                                        <p className="text-sm font-semibold"
+                                            style={{ color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-inter)" }}>{item.value}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </Container>
         </section>
-    );
+    )
 }

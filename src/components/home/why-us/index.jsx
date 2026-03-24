@@ -1,109 +1,145 @@
 'use client'
 
-import Container from "@/components/container";
-import Link from "next/link";
-import { MdArrowOutward } from "react-icons/md";
-
-const data = {
-    title: "• Why Choose Us",
-    description: "Government-licensed, verified workforce deployment with end-to-end recruitment, visa processing, and compliance — trusted by employers across Russia.",
-    part1: [
-        {
-            title: "Government Licensed",
-            desc: "Fully licensed by the Ministry of External Affairs, India. RA License No. B-3260/DEL/COM/100/5/11259/2025 — ensuring 100% legal and compliant recruitment.",
-            projects: "RA B-3260"
-        },
-        {
-            title: "Verified Workforce",
-            desc: "Every candidate undergoes rigorous trade testing, verification, and background checks before deployment — guaranteeing quality manpower to Russian employers.",
-            projects: "500+ in Russia"
-        },
-        {
-            title: "Russia Expertise",
-            desc: "Dedicated Moscow office with a specialized team for the Russian market since 2022. Deep understanding of Russian employment regulations and industry requirements.",
-            projects: "Since 2022"
-        }
-    ],
-    part2: {
-        title: "Decades of Trust in Workforce Deployment for Russia",
-        desc: "With 20+ years in the overseas manpower industry and a dedicated Russia operations team since 2022, Taha Airwaves has built a reputation for reliability, speed, and compliance in the Russian market. From sourcing the right candidates to ensuring smooth deployment and documentation, we handle every detail so employers can focus on their projects.",
-        stats: [
-            {
-                number: "500+",
-                label: "Workers in Russia"
-            },
-            {
-                number: "20+",
-                label: "Years Experience"
-            }
-        ]
-    }
-}
+import Container from "@/components/container"
+import Link from "next/link"
+import { MdArrowOutward } from "react-icons/md"
+import { motion } from "framer-motion"
+import { useLanguage } from "@/context/language"
 
 export default function WhyUs() {
+    const { t } = useLanguage()
+
+    const items = [
+        { title: t('whyItem1Title'), desc: t('whyItem1Desc'), tag: "RA B-3260" },
+        { title: t('whyItem2Title'), desc: t('whyItem2Desc'), tag: "500+ in Russia" },
+        { title: t('whyItem3Title'), desc: t('whyItem3Desc'), tag: "Since 2022" },
+    ]
+
     return (
-        <section className="pt-28 pb-20" style={{ background: "#FFFFFF" }}>
+        <section className="py-20 lg:py-28 relative overflow-hidden" style={{ background: "#F7F7F7" }}>
+            {/* Dot decoration */}
+            <svg className="absolute bottom-8 left-8 hidden lg:block" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                {Array.from({ length: 16 }, (_, i) => (
+                    <circle key={i} cx={(i % 4) * 20 + 10} cy={Math.floor(i / 4) * 20 + 10} r="2" fill="rgba(138,0,41,0.12)" />
+                ))}
+            </svg>
+
             <Container>
-                <div className="space-y-10">
-                    <div className="flex flex-col md:flex-row justify-between gap-8 border-b border-gray-300 pb-6">
-                        <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase" style={{ color: "#1a0a10" }}>
-                            {data.title}
+                {/* Section header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.55 }}
+                    className="mb-12"
+                >
+                    <div className="flex items-center gap-3 mb-3">
+                        <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
+                        <span className="text-[11px] tracking-[0.2em] uppercase font-bold"
+                            style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>Why Us</span>
+                    </div>
+                    <div className="flex flex-col lg:flex-row gap-8">
+                        <h2 className="font-black leading-tight lg:w-1/2"
+                            style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "#262626" }}>
+                            {t('whyTitle')}
                         </h2>
-                        <p className="text-sm md:text-base text-neutral-500 font-poppins max-w-150">
-                            {data.description}
+                        <p className="lg:w-1/2 text-sm leading-relaxed pt-1"
+                            style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
+                            {t('whyDesc')}
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 lg:gap-20" style={{ borderTop: "1px solid #d1d5db" }}>
-                        <div className="grid grid-cols-1">
-                            {data.part1.map((item, index) => (
-                                <div key={index} className="py-8" style={{ borderBottom: "1px solid #d1d5db" }}>
-                                    <h3 className="text-lg md:text-2xl font-medium font-poppins" style={{ color: "#1a0a10" }}>
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-sm text-gray-700 font-poppins mt-2 max-w-120">
-                                        {item.desc}
-                                    </p>
-                                    <p className="font-medium text-right mt-4 text-[#BC264B]">
-                                        {item.projects}
-                                    </p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {/* Left — reason cards */}
+                    <div className="space-y-px">
+                        {items.map((item, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1, duration: 0.5 }}
+                                className="group relative p-7 transition-all duration-300 hover:bg-white"
+                                style={{ borderLeft: "3px solid transparent", background: "transparent" }}
+                                onMouseEnter={e => {
+                                    e.currentTarget.style.borderLeftColor = "#8A0029"
+                                }}
+                                onMouseLeave={e => {
+                                    e.currentTarget.style.borderLeftColor = "transparent"
+                                }}
+                            >
+                                <div className="flex items-start justify-between gap-4">
+                                    <div className="flex-1">
+                                        <h3 className="text-base font-black mb-2 transition-colors duration-300 group-hover:text-[#8A0029]"
+                                            style={{ fontFamily: "var(--font-inter)", color: "#262626" }}>
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-sm leading-relaxed"
+                                            style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
+                                            {item.desc}
+                                        </p>
+                                    </div>
+                                    <span className="flex-shrink-0 text-[11px] font-bold px-2 py-1 rounded-sm whitespace-nowrap"
+                                        style={{ background: "rgba(138,0,41,0.08)", color: "#8A0029", fontFamily: "var(--font-inter)" }}>
+                                        {item.tag}
+                                    </span>
                                 </div>
-                            ))}
-                        </div>
-                        <div className="bg-gray-100 relative flex items-center justify-center p-12 md:p-20">
-                            <div className="absolute top-0 left-0 size-14 md:size-24 bg-white [clip-path:polygon(0_0,0_100%,100%_0)]" />
-                            
-                            <div className="space-y-8">
-                                <h3 className="text-xl md:text-4xl font-medium font-poppins">
-                                    {data.part2.title}
-                                </h3>
-                                <p className="text-sm md:text-base text-gray-700 font-poppins">
-                                    {data.part2.desc}
-                                </p>
-                                <div className="grid grid-cols-2 gap-4">
-                                    {data.part2.stats.map((stat, index) => (
-                                        <div key={index} className="space-y-2">
-                                            <p className="text-3xl md:text-5xl text-[#BC264B] font-lato font-bold">{stat.number}</p>
-                                            <p className="text-xs md:text-sm text-gray-700 font-medium font-poppins">
-                                                {stat.label}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
-                                
-                                <div>
-                                    <Link href="/contact">
-                                        <button className="px-4 py-2 font-poppins transition cursor-pointer flex items-center gap-3"
-                                            style={{ border: "1px solid rgba(26,10,16,0.3)", color: "#1a0a10" }}
-                                            onMouseEnter={e => { e.currentTarget.style.background = "#8E0935"; e.currentTarget.style.color = "#FDFBEF"; e.currentTarget.style.borderColor = "#8E0935" }}
-                                            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1a0a10"; e.currentTarget.style.borderColor = "rgba(26,10,16,0.3)" }}>
-                                            Get in touch
-                                            <MdArrowOutward size={18} />
-                                        </button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
+                            </motion.div>
+                        ))}
                     </div>
+
+                    {/* Right — dark info card */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="relative rounded overflow-hidden p-10 lg:p-12"
+                        style={{ background: "#262626" }}
+                    >
+                        {/* Top accent strip */}
+                        <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "#8A0029" }} />
+
+                        {/* Decorative SVG circles */}
+                        <svg className="absolute top-4 right-4 opacity-10" width="100" height="100" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                            <circle cx="100" cy="0" r="80" stroke="#D32F2F" strokeWidth="1" strokeDasharray="6 5" />
+                            <circle cx="100" cy="0" r="50" stroke="#D32F2F" strokeWidth="1" />
+                        </svg>
+
+                        <div className="relative z-10 space-y-7">
+                            <h3 className="text-xl lg:text-2xl font-black leading-snug"
+                                style={{ fontFamily: "var(--font-inter)", color: "#FFFFFF" }}>
+                                {t('whyPart2Title')}
+                            </h3>
+                            <p className="text-sm leading-relaxed"
+                                style={{ fontFamily: "var(--font-poppins)", color: "rgba(255,255,255,0.4)" }}>
+                                {t('whyPart2Desc')}
+                            </p>
+                            <div className="grid grid-cols-2 gap-4">
+                                {[
+                                    { num: t('whyStat1Number'), label: t('whyStat1Label'), color: "#D32F2F" },
+                                    { num: t('whyStat2Number'), label: t('whyStat2Label'), color: "#FFFFFF" },
+                                ].map((s, i) => (
+                                    <div key={i} className="p-4 rounded-sm" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                                        <div className="text-4xl font-black mb-1" style={{ color: s.color, fontFamily: "var(--font-inter)" }}>
+                                            {s.num}
+                                        </div>
+                                        <div className="text-[11px] font-medium tracking-wide uppercase"
+                                            style={{ color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-inter)" }}>
+                                            {s.label}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <Link href="/contact">
+                                <button className="flex items-center gap-2 px-6 py-3 rounded text-sm font-bold cursor-pointer transition-opacity duration-200 hover:opacity-90"
+                                    style={{ background: "#8A0029", color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
+                                    {t('getInTouch')} <MdArrowOutward size={14} />
+                                </button>
+                            </Link>
+                        </div>
+                    </motion.div>
                 </div>
             </Container>
         </section>
