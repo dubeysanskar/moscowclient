@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme inline {
-	/* === TAHA AIRWAVES BRAND PALETTE === */
-	--color-primary: #8A0029;       /* Deep Maroon / Wine Red */
-	--color-accent: #D32F2F;        /* Bright Red Accent */
-	--color-dark: #262626;          /* Dark Gray — body text */
-	--color-light: #F7F7F7;         /* Soft Light Gray — section bg */
-	--color-white: #FFFFFF;         /* Pure White */
+	/* === TAHA AIRWAVES BRAND PALETTE (from Brand Book) === */
+	--color-primary: #8E0935;       /* Viva Magenta — Primary */
+	--color-accent: #BC264B;        /* Secondary Burgundy */
+	--color-dark: #1A1A1A;          /* Premium Dark */
+	--color-light: #FDFBEF;         /* Cloud Dancer — Background */
+	--color-white: #FDFBEF;         /* Cloud Dancer replaces pure white */
 
 	/* Fonts */
 	--font-inter: "Inter", sans-serif;
@@ -19,13 +19,68 @@
 }
 
 body {
-	background: #FFFFFF;
-	color: #262626;
+	background: #FDFBEF;
+	color: #1A1A1A;
 	font-family: "Inter", sans-serif;
 }
 
 /* Remove ALL browser outline defaults — add custom focus */
 :focus-visible {
-	outline: 2px solid #8A0029;
+	outline: 2px solid #8E0935;
 	outline-offset: 2px;
+}
+
+/* === SHUTTER ANIMATION — Hero reveal === */
+@keyframes shutterLeft {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(-100%); }
+}
+@keyframes shutterRight {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(100%); }
+}
+
+.shutter-panel-left {
+	animation: shutterLeft 1.2s cubic-bezier(0.76, 0, 0.24, 1) 0.5s forwards;
+}
+.shutter-panel-right {
+	animation: shutterRight 1.2s cubic-bezier(0.76, 0, 0.24, 1) 0.5s forwards;
+}
+
+/* === SCROLL REVEAL utilities === */
+@keyframes fadeSlideUp {
+	from { opacity: 0; transform: translateY(40px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeSlideLeft {
+	from { opacity: 0; transform: translateX(-40px); }
+	to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeSlideRight {
+	from { opacity: 0; transform: translateX(40px); }
+	to { opacity: 1; transform: translateX(0); }
+}
+
+/* === SVG WAVE section separators === */
+.wave-separator {
+	width: 100%;
+	line-height: 0;
+	overflow: hidden;
+}
+.wave-separator svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/* === Smooth scrollbar === */
+html {
+	scroll-behavior: smooth;
+}
+
+/* === Image lazy-load placeholder === */
+.img-lazy-wrapper {
+	position: relative;
+	overflow: hidden;
+	background: rgba(142, 9, 53, 0.03);
 }

@@ -1,95 +1,84 @@
 'use client'
 
 import Container from "@/components/container"
-import { motion } from "framer-motion"
-import { FiClipboard, FiSearch, FiFileText, FiSend } from "react-icons/fi"
 import { useLanguage } from "@/context/language"
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal"
+import { DotGrid, FlowLine, CornerOrnament, GeometricFrame } from "@/components/decorators/SVGDecorations"
 
 export default function HowItWorks() {
     const { t } = useLanguage()
 
     const steps = [
-        { num: '01', icon: FiClipboard, title: t('step1Title'), desc: t('step1Desc'), accent: "#8A0029" },
-        { num: '02', icon: FiSearch, title: t('step2Title'), desc: t('step2Desc'), accent: "#D32F2F" },
-        { num: '03', icon: FiFileText, title: t('step3Title'), desc: t('step3Desc'), accent: "#8A0029" },
-        { num: '04', icon: FiSend, title: t('step4Title'), desc: t('step4Desc'), accent: "#D32F2F" },
+        { num: "01", titleKey: "step1Title", descKey: "step1Desc" },
+        { num: "02", titleKey: "step2Title", descKey: "step2Desc" },
+        { num: "03", titleKey: "step3Title", descKey: "step3Desc" },
+        { num: "04", titleKey: "step4Title", descKey: "step4Desc" },
     ]
 
     return (
-        <section className="py-20 lg:py-28 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
-            {/* Crosshatch SVG bg */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.018 }} aria-hidden="true">
-                <defs>
-                    <pattern id="ch" width="28" height="28" patternUnits="userSpaceOnUse">
-                        <line x1="0" y1="0" x2="28" y2="28" stroke="#8A0029" strokeWidth="1" />
-                        <line x1="28" y1="0" x2="0" y2="28" stroke="#8A0029" strokeWidth="1" />
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#ch)" />
-            </svg>
+        <section className="py-20 lg:py-28 relative overflow-hidden" style={{ background: "#FDFBEF" }}>
+            {/* SVG Decorations */}
+            <div className="absolute left-0 top-0 bottom-0 w-[3px] hidden lg:block" style={{ background: "#8E0935" }} />
+            <DotGrid rows={4} cols={4} color="#8E0935" opacity={0.04} spacing={20} className="absolute top-12 right-10 hidden lg:block" />
+            <GeometricFrame size={90} color="#8E0935" opacity={0.04} className="absolute bottom-16 right-14 hidden lg:block" />
+            <CornerOrnament size={40} color="#BC264B" position="top-right" className="absolute top-6 right-6 opacity-15 hidden lg:block" />
+            <CornerOrnament size={40} color="#BC264B" position="bottom-left" className="absolute bottom-6 left-6 opacity-15 hidden lg:block" />
 
             <Container>
                 {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.55 }}
-                    className="text-center mb-16"
-                >
-                    <div className="flex items-center justify-center gap-3 mb-4">
-                        <div className="w-10 h-px" style={{ background: "rgba(138,0,41,0.25)" }} />
-                        <div className="w-8 h-[2px]" style={{ background: "#8A0029" }} />
-                        <div className="w-10 h-px" style={{ background: "rgba(138,0,41,0.25)" }} />
+                <ScrollReveal variant="fadeUp" className="mb-14">
+                    <div className="flex items-center gap-3 mb-3">
+                        <div className="w-8 h-[2px]" style={{ background: "#8E0935" }} />
+                        <span className="text-[11px] tracking-[0.2em] uppercase font-bold"
+                            style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>Process</span>
                     </div>
-                    <h2 className="font-black tracking-tight mb-4"
-                        style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "#262626" }}>
-                        {t('howTitle')} <span style={{ color: "#8A0029" }}>{t('howTitleAccent')}</span>
-                    </h2>
-                    <p className="max-w-lg mx-auto text-sm leading-relaxed"
-                        style={{ fontFamily: "var(--font-poppins)", color: "#9CA3AF" }}>
-                        {t('howSubtitle')}
-                    </p>
-                </motion.div>
+                    <div className="flex flex-col lg:flex-row gap-6">
+                        <h2 className="font-black leading-tight lg:w-1/2"
+                            style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "#1A1A1A" }}>
+                            {t('howTitle')} <span style={{ color: "#8E0935" }}>{t('howTitleAccent')}</span>
+                        </h2>
+                        <p className="lg:w-1/2 text-sm leading-relaxed pt-1"
+                            style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
+                            {t('howSubtitle')}
+                        </p>
+                    </div>
+                </ScrollReveal>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-                    {/* Dashed connector — desktop */}
-                    <div className="hidden lg:block absolute top-11 left-[14%] right-[14%] h-px pointer-events-none"
-                        style={{ background: "repeating-linear-gradient(90deg, rgba(138,0,41,0.2) 0, rgba(138,0,41,0.2) 8px, transparent 8px, transparent 18px)" }} />
+                {/* Steps */}
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" staggerDelay={0.15}>
+                    {steps.map((step, i) => (
+                        <StaggerItem key={i} variant="fadeUp">
+                            <div className="group relative p-7 rounded transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full"
+                                style={{ background: "#FDFBEF", border: "1px solid rgba(142,9,53,0.08)" }}>
+                                {/* Top accent */}
+                                <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t opacity-0 group-hover:opacity-100 transition-opacity"
+                                    style={{ background: "#8E0935" }} />
 
-                    {steps.map((step, i) => {
-                        const Icon = step.icon
-                        return (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 24 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1, duration: 0.5 }}
-                                className="group text-center relative z-10"
-                            >
-                                <div className="relative inline-block mb-6">
-                                    <div className="w-20 h-20 mx-auto rounded flex items-center justify-center transition-all duration-300 group-hover:scale-105"
-                                        style={{ background: "#262626", border: `2px solid ${step.accent}` }}>
-                                        <Icon color="#FFFFFF" size={22} />
+                                {/* Step number */}
+                                <div className="flex items-center gap-3 mb-5">
+                                    <div className="w-10 h-10 rounded flex items-center justify-center"
+                                        style={{ background: i % 2 === 0 ? "#8E0935" : "#BC264B" }}>
+                                        <span className="text-xs font-black" style={{ color: "#FDFBEF", fontFamily: "var(--font-inter)" }}>
+                                            {step.num}
+                                        </span>
                                     </div>
-                                    <div className="absolute -top-2.5 -right-2.5 w-7 h-7 rounded flex items-center justify-center text-[11px] font-black text-white"
-                                        style={{ background: step.accent, fontFamily: "var(--font-inter)" }}>
-                                        {step.num}
-                                    </div>
+                                    {i < steps.length - 1 && (
+                                        <div className="hidden lg:block flex-1 h-px" style={{ background: "rgba(142,9,53,0.15)" }} />
+                                    )}
                                 </div>
-                                <h4 className="text-sm font-black mb-2 uppercase tracking-wide transition-colors duration-300 group-hover:text-[#8A0029]"
-                                    style={{ fontFamily: "var(--font-inter)", color: "#262626" }}>
-                                    {step.title}
-                                </h4>
-                                <p className="text-xs leading-relaxed px-2"
-                                    style={{ color: "#9CA3AF", fontFamily: "var(--font-poppins)" }}>
-                                    {step.desc}
+
+                                <h3 className="text-base font-black mb-2 transition-colors duration-300 group-hover:text-[#8E0935]"
+                                    style={{ fontFamily: "var(--font-inter)", color: "#1A1A1A" }}>
+                                    {t(step.titleKey)}
+                                </h3>
+                                <p className="text-xs leading-relaxed"
+                                    style={{ fontFamily: "var(--font-poppins)", color: "#6B7280" }}>
+                                    {t(step.descKey)}
                                 </p>
-                            </motion.div>
-                        )
-                    })}
-                </div>
+                            </div>
+                        </StaggerItem>
+                    ))}
+                </StaggerContainer>
             </Container>
         </section>
     )

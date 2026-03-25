@@ -2,7 +2,7 @@
 
 > **Standard Operating Procedure & Complete Context Document**
 > This document provides full context for any developer or AI tool working on this project.
-> Last updated: March 24, 2026 (Session 5 — Full Brand Overhaul + Sub-pages)
+> Last updated: March 25, 2026 (Session 6 — SVG Decorations & Component Redesign)
 
 ---
 

@@ -11,10 +11,10 @@ import { usePathname } from "next/navigation"
 
 /* Brand tokens */
 const C = {
-    primary: "#8A0029",
-    accent: "#D32F2F",
-    dark: "#262626",
-    white: "#FFFFFF",
+    primary: "#8E0935",
+    accent: "#BC264B",
+    dark: "#1A1A1A",
+    white: "#FDFBEF",
 }
 
 const navLinks = [

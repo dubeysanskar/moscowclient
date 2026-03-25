@@ -5,6 +5,7 @@ import Image from "next/image"
 import { FaWhatsapp, FaTelegramPlane, FaVk } from "react-icons/fa"
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
 import { useLanguage } from "@/context/language"
+import SVGWave from "@/components/decorators/SVGWave"
 
 const quickLinksData = [
     { key: "home", href: "/" },
@@ -40,15 +41,49 @@ export default function Footer() {
     const { t } = useLanguage()
 
     return (
-        <footer className="relative overflow-hidden" style={{ background: "#262626" }}>
+        <>
+        <SVGWave position="top" color="#1A1A1A" bgColor="#FDFBEF" height={50} variant="gentle" />
+        <footer className="relative overflow-hidden" style={{ background: "#1A1A1A" }}>
             {/* Top brand accent */}
-            <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "#8A0029" }} />
+            <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "#8E0935" }} />
 
-            {/* SVG dot decoration */}
-            <svg className="absolute top-10 right-10 opacity-10 hidden lg:block" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-                {Array.from({ length: 16 }, (_, i) => (
-                    <circle key={i} cx={(i % 4) * 20 + 10} cy={Math.floor(i / 4) * 20 + 10} r="2" fill="white" />
+            {/* Globe SVG background */}
+            <svg className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 opacity-[0.04] pointer-events-none hidden lg:block" width="700" height="700" viewBox="0 0 700 700" fill="none" aria-hidden="true">
+                {/* Outer rings */}
+                <circle cx="350" cy="350" r="340" stroke="#FDFBEF" strokeWidth="0.5" />
+                <circle cx="350" cy="350" r="310" stroke="#FDFBEF" strokeWidth="0.3" strokeDasharray="8 6" />
+                <circle cx="350" cy="350" r="280" stroke="#BC264B" strokeWidth="0.6" />
+                {/* Meridians */}
+                <ellipse cx="350" cy="350" rx="280" ry="280" stroke="#FDFBEF" strokeWidth="0.4" />
+                <ellipse cx="350" cy="350" rx="190" ry="280" stroke="#FDFBEF" strokeWidth="0.3" />
+                <ellipse cx="350" cy="350" rx="100" ry="280" stroke="#FDFBEF" strokeWidth="0.3" />
+                {/* Parallels */}
+                <ellipse cx="350" cy="350" rx="280" ry="90" stroke="#FDFBEF" strokeWidth="0.3" />
+                <ellipse cx="350" cy="280" rx="260" ry="60" stroke="#FDFBEF" strokeWidth="0.2" />
+                <ellipse cx="350" cy="420" rx="260" ry="60" stroke="#FDFBEF" strokeWidth="0.2" />
+                <ellipse cx="350" cy="200" rx="200" ry="40" stroke="#FDFBEF" strokeWidth="0.2" />
+                <ellipse cx="350" cy="500" rx="200" ry="40" stroke="#FDFBEF" strokeWidth="0.2" />
+                {/* Rotating dash ring */}
+                <circle cx="350" cy="350" r="260" stroke="#BC264B" strokeWidth="0.8" strokeDasharray="6 4">
+                    <animateTransform attributeName="transform" type="rotate" values="0 350 350;360 350 350" dur="60s" repeatCount="indefinite" />
+                </circle>
+                {/* Marker dots */}
+                <circle cx="420" cy="250" r="4" fill="#8E0935" opacity="0.5" />
+                <circle cx="400" cy="400" r="4" fill="#BC264B" opacity="0.5" />
+            </svg>
+
+            {/* Dot pattern — top left */}
+            <svg className="absolute top-10 left-10 opacity-[0.06] hidden lg:block" width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+                {Array.from({ length: 9 }, (_, i) => (
+                    <circle key={i} cx={(i % 3) * 22 + 11} cy={Math.floor(i / 3) * 22 + 11} r="2" fill="#FDFBEF" />
                 ))}
+            </svg>
+
+            {/* Crosshair — top right */}
+            <svg className="absolute top-12 right-12 opacity-[0.06] hidden lg:block" width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+                <circle cx="30" cy="30" r="25" stroke="#FDFBEF" strokeWidth="0.5" strokeDasharray="4 3" />
+                <line x1="30" y1="5" x2="30" y2="55" stroke="#FDFBEF" strokeWidth="0.3" />
+                <line x1="5" y1="30" x2="55" y2="30" stroke="#FDFBEF" strokeWidth="0.3" />
             </svg>
 
             <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8 pt-16 pb-6">
@@ -67,7 +102,7 @@ export default function Footer() {
                         <div className="flex gap-2">
                             {socials.map((s) => (
                                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                                    className="w-8 h-8 rounded flex items-center justify-center border transition-colors duration-200 hover:border-[#D32F2F] hover:text-white"
+                                    className="w-8 h-8 rounded flex items-center justify-center border transition-colors duration-200 hover:border-[#BC264B] hover:text-white"
                                     style={{ color: "rgba(255,255,255,0.4)", borderColor: "rgba(255,255,255,0.08)" }}
                                     aria-label={s.label}>
                                     {s.icon}
@@ -79,7 +114,7 @@ export default function Footer() {
                     {/* Quick links */}
                     <div>
                         <h4 className="text-[10px] tracking-[0.2em] uppercase font-bold mb-5"
-                            style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
+                            style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
                             {t('quickLinks')}
                         </h4>
                         <ul className="space-y-2">
@@ -126,7 +161,7 @@ export default function Footer() {
                                     <a href={o.mapUrl} target="_blank" rel="noopener noreferrer"
                                         className="text-xs flex items-center gap-1.5 transition-colors duration-200 hover:text-white"
                                         style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
-                                        <FiMapPin style={{ color: "#D32F2F", flexShrink: 0 }} size={10} />
+                                        <FiMapPin style={{ color: "#BC264B", flexShrink: 0 }} size={10} />
                                         {o.label}
                                     </a>
                                 </li>
@@ -144,17 +179,17 @@ export default function Footer() {
                             <a href="tel:+919315226961"
                                 className="flex items-center gap-2 text-xs hover:text-white transition-colors"
                                 style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
-                                <FiPhone style={{ color: "#D32F2F", flexShrink: 0 }} size={11} /> +91 93152 26961
+                                <FiPhone style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> +91 93152 26961
                             </a>
                             <a href="mailto:info@tahaairwaves.com"
                                 className="flex items-center gap-2 text-xs hover:text-white transition-colors"
                                 style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
-                                <FiMail style={{ color: "#D32F2F", flexShrink: 0 }} size={11} /> info@tahaairwaves.com
+                                <FiMail style={{ color: "#BC264B", flexShrink: 0 }} size={11} /> info@tahaairwaves.com
                             </a>
                             <a href="https://maps.google.com/?q=28.5699,77.2721" target="_blank" rel="noopener noreferrer"
                                 className="flex items-start gap-2 text-xs hover:text-white transition-colors"
                                 style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-inter)" }}>
-                                <FiMapPin style={{ color: "#D32F2F", flexShrink: 0, marginTop: "2px" }} size={11} />
+                                <FiMapPin style={{ color: "#BC264B", flexShrink: 0, marginTop: "2px" }} size={11} />
                                 71A, 3rd Floor, New Friends Colony, New Delhi 110025
                             </a>
                         </div>
@@ -167,11 +202,12 @@ export default function Footer() {
                         © {new Date().getFullYear()} Taha Airwaves Pvt Ltd. All Rights Reserved.
                     </p>
                     <span className="inline-block px-3 py-1 rounded-sm text-[10px] font-bold tracking-wide"
-                        style={{ background: "rgba(138,0,41,0.2)", color: "rgba(255,255,255,0.4)" }}>
+                        style={{ background: "rgba(142,9,53,0.2)", color: "rgba(253,251,239,0.4)" }}>
                         RA License: B-3260/DEL/COM/100/5/11259/2025
                     </span>
                 </div>
             </div>
         </footer>
+        </>
     )
 }
