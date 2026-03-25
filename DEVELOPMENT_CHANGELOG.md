@@ -350,3 +350,51 @@ New keys added to `src/context/language.jsx`: `csvc1Title–5`, `bentoTitle`, `b
 - Session 4 build: ✅ Exit code 0
 - Session 5 build: ✅ Exit code 0
 
+---
+
+## SESSION 6 — SVG Decorations & Component Redesign (March 25, 2026)
+
+### Overview
+Comprehensive redesign round addressing client feedback: hero text/form visibility, service card images, countries section layout, and pervasive SVG illustrations/decorations across all sections.
+
+### New Files
+| File | Purpose |
+|---|---|
+| `src/components/decorators/SVGDecorations.jsx` | **10 reusable SVG decoration components**: DotGrid, Crosshair, FlowLine, CurvedConnector, GeometricFrame, DiamondPattern, CircuitLines, PulseRing, GlobeWireframe, CornerOrnament |
+
+### Modified Components
+
+#### Hero (`src/components/home/hero/index.jsx`)
+- **Text**: Hardcoded bilingual (EN/RU) — no translation key dependency. Large "WORKFORCE / SOLUTIONS" headline
+- **Form**: Glassmorphism contact form (7% bg, 16px blur, 15% border, accent bar, CornerOrnaments)
+- **SVG decorations**: DotGrid, Crosshair, GeometricFrame, CircuitLines, FlowLine, CornerOrnaments
+- **Stats bar**: Floating white card below hero with CountUp animations (500+/120+/95%/21+), CircuitLines background
+
+#### Services (`src/components/home/home-projects/index.jsx`)
+- **Images**: Updated to `/images/services/main-img/10-15.{jpg,png,webp}` (correct service-relevant images)
+- **Text**: Hardcoded bilingual titles/descriptions — no raw translation key display
+- **SVG**: DotGrid backgrounds, FlowLine header, CornerOrnaments on image corners, arrow overlay on hover
+
+#### Countries (`src/components/home/countries-we-serve/index.jsx`)
+- **Layout**: Clean 3-column (India / Pipeline / Russia) with 11-col grid
+- **Central card**: Dark `#1A1A1A` background with GlobeWireframe + PulseRing behind CountUp (500+)
+- **SVG**: Animated FlowLines, CurvedConnector, CornerOrnaments, DotGrid, Crosshair
+
+#### Footer (`src/components/footer/index.jsx`)
+- **Globe background**: 700px wireframe globe SVG (meridians, parallels, rotating ring, marker dots)
+- **Additional**: DotPattern top-left, Crosshair top-right
+
+#### All Other Sections (7 sections)
+| Section | SVG Decorations Added |
+|---|---|
+| About | DotPattern, Crosshair, GeometricFrame, CircuitLines |
+| Why Us | Crosshair, CircuitLines, CornerOrnaments |
+| How It Works | DotGrid, GeometricFrame, CornerOrnaments |
+| What We Do | DotGrid, Crosshair, CornerOrnament |
+| CTA | GlobeWireframe, CornerOrnaments, DotGrid |
+| Our Strength | DotGrid, Crosshair, CornerOrnaments |
+| Testimonials | Crosshair, DotGrid, GeometricFrame, CornerOrnaments |
+
+### Build status
+- Session 6 build: ✅ Exit code 0 (27 pages generated)
+
