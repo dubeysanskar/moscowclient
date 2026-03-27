@@ -80,6 +80,65 @@
 
 ---
 
+## Session 9 — Premium UI/UX Redesign, Animation System & SVG Library (March 27, 2026)
+
+### Hero Section — Cinematic Overhaul
+- **File**: `src/components/home/hero/index.jsx`
+- Redesigned with word-by-word text reveal, parallax scrolling, floating particles
+- Glassmorphism contact form (0.75 white opacity, 16px blur, dark text inputs)
+- Half-screen maroon overlay with gradient transition
+
+### About Section — Brand-Compliant Redesign
+- **File**: `src/components/home/home-about/index.jsx`
+- Background: `#FDFBEF` (Cloud Dancer)
+- Heading changed to "Structured Workforce Deployment Solutions" (brand SOP compliant)
+- SVG decorations (ConcentricCircles, arrows, dot patterns) in z-[1] behind z-10 content
+- Floating stats card (20+ years), MEA badge, highlight cards
+- Bottom divider with proper spacing (mt-8 + h-6 spacer)
+
+### Our Strength — BackgroundPaths Full Coverage
+- **File**: `src/components/home/our-strength/index.jsx`
+- Uses `FloatingPaths` directly as absolute overlays (full section coverage)
+- Background: `#FDFBEF`; animated maroon SVG paths fill the entire section height
+- White cards with icon boxes, animated counters, maroon hover accents
+
+### Services "What We Do" — RadialOrbitalTimeline Integration
+- **File**: `src/components/home/home-services/index.jsx`
+- Added `RadialOrbitalTimeline` (orbital animation on left, detail cards on right)
+- New SVG patterns: diagonal hatching, diamond lattice, plus signs, triangles
+- Background: `#FDFBEF`; hardcoded RU/EN titles
+- **NEW**: `src/components/ui/radial-orbital-timeline.jsx` — brand-adapted orbital timeline
+
+### How It Works — SVG Repositioning & BG Color
+- **File**: `src/components/home/how-it-works/index.jsx`
+- Background: `#FDFBEF` (from `#F7F7F7`)
+- SVGs repositioned: circles/starburst on LEFT, arrows/curves/hexgrid on RIGHT
+- All decorations in z-[1] container behind z-10 content
+
+### CTA Section — ElegantShape Floating Shapes
+- **File**: `src/components/home/cta/index.jsx`
+- 5 ElegantShape floating pills (white/red translucent) on maroon background
+- Grid pattern overlay, dot grids, wavy lines, corner ornaments
+
+### New Components Created
+| File | Type | Description |
+|---|---|---|
+| `src/components/ui/radial-orbital-timeline.jsx` | **NEW** | Orbital timeline (maroon theme) |
+| `src/components/ui/badge.jsx` | **NEW** | shadcn Badge (JSX) |
+| `src/components/ui/card.jsx` | **NEW** | shadcn Card (JSX) |
+| `src/components/ui/shape-landing-hero.jsx` | Existing | ElegantShape floating pills |
+| `src/components/ui/background-paths.jsx` | Modified | Added `preserveAspectRatio="none"` |
+| `src/components/decorators/SVGIllustrations.jsx` | Existing | 17 brand-aligned SVG illustrations |
+
+### SVG Architecture — z-Index System
+All sections now follow this z-index pattern:
+- `z-[1]`: SVG decorations (pointer-events-none, absolute inset-0)
+- `z-[2]`: Secondary overlays (accent bars, BackgroundPaths)
+- `z-10`: Content container (Container with relative z-10)
+- This prevents SVGs from blurring text or overlapping interactive elements
+
+---
+
 ## Previous Sessions
 
-> Sessions 1–7 covered: Initial setup, brand redesign, color palette enforcement, font migration to Inter, hero section, splash screen, blog/services UI, About page expansion, footer/chatbot localization. See git history for details.
+> Sessions 1–8 covered: Initial setup, brand redesign, color palette enforcement, font migration to Inter, hero section, splash screen, blog/services UI, About page expansion, footer/chatbot localization, full RU/EN translation. See git history for details.

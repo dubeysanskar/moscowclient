@@ -226,6 +226,11 @@ npm run build && npm start  # Production
 14. **Footer office links** — Hash navigation to contact page: `/contact#office-delhi`, `/contact#office-noida`, `/contact#office-moscow`
 15. **Service detail pages** — All content Russia-focused. No GCC/Gulf country lists. Uses Russia Deployment card instead of Countries We Deploy To. All data bilingual (en/ru).
 16. **Navbar & Contact page** — Show Russian contact info: `+7 985 074-88-28`, `info@tahaairwaves.ru`. Social icons use brand color `#8E0935` (not platform colors).
+17. **SVG Illustration Library** — `src/components/decorators/SVGIllustrations.jsx` contains 17 reusable SVG background components (ConcentricCircles, DotMatrix, StarBurst, HexGrid, ArrowDown, ArrowUp, ChevronPattern, CrossPattern, FlowingCurves, WavyLines, NetworkMesh, CircuitBoard, NestedFrames, GlobeOutline, etc.). Use these for section backgrounds at 0.06–0.14 opacity.
+18. **SVG z-Index Architecture** — All sections follow: z-[1] = decorative SVGs (pointer-events-none), z-[2] = secondary overlays (accent bars, BackgroundPaths), z-10 = content containers. SVGs must NEVER overlap or blur text.
+19. **New UI Components** — `radial-orbital-timeline.jsx` (orbital node animation), `badge.jsx` (shadcn Badge), `card.jsx` (shadcn Card), `shape-landing-hero.jsx` (ElegantShape floating pills), `background-paths.jsx` (FloatingPaths animated SVG). `button.jsx` already exists.
+20. **Section Backgrounds** — Most home sections use `#FDFBEF` (Cloud Dancer) as background. White `#FFFFFF` reserved for card surfaces and form fields. `#8A0029` for CTA section.
+21. **Brand Vocabulary** — Approved: "Manpower infrastructure", "Workforce deployment", "Verified talent", "Regulatory compliance", "End-to-end solutions", "Operational accountability", "Deployment timelines", "Cross-border workforce", "Scalable operations". AVOID: "Dream jobs", "Life-changing", "We believe", "Best in the market", "World-class", "Revolutionary", "Disruptive". Example correct: "We manage workforce deployment through structured and compliant processes."
 
 ---
 

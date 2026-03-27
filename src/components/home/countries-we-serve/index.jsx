@@ -53,10 +53,10 @@ const RUSSIA_FEATURES = [
 ]
 
 const SECTORS = [
-    { en: "Construction", ru: "Строительство", color: "#8E0935" },
-    { en: "Hospitality", ru: "Гостеприимство", color: "#BC264B" },
-    { en: "Manufacturing", ru: "Производство", color: "#8E0935" },
-    { en: "Logistics", ru: "Логистика", color: "#BC264B" },
+    { en: "Construction", ru: "Строительство", color: "#8A0029" },
+    { en: "Hospitality", ru: "Гостеприимство", color: "#D32F2F" },
+    { en: "Manufacturing", ru: "Производство", color: "#8A0029" },
+    { en: "Logistics", ru: "Логистика", color: "#D32F2F" },
 ]
 
 export default function CountriesWeServe() {
@@ -65,29 +65,39 @@ export default function CountriesWeServe() {
     const inView = useInView(ref, { once: true, margin: "-80px" })
 
     return (
-        <section ref={ref} className="py-20 lg:py-28 relative overflow-hidden" style={{ background: "#FDFBEF" }}>
+        <section ref={ref} className="py-20 lg:py-28 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
             {/* ── Background SVG Decorations ── */}
-            <GlobeWireframe size={700} color="#8E0935" accentColor="#BC264B" opacity={0.035} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-            <DotGrid rows={5} cols={5} color="#8E0935" opacity={0.04} spacing={22} className="absolute top-12 left-8 hidden lg:block" />
-            <Crosshair size={100} color="#8E0935" accentColor="#BC264B" opacity={0.05} className="absolute bottom-20 right-12 hidden lg:block" />
+            <GlobeWireframe size={700} color="#8A0029" accentColor="#D32F2F" opacity={0.035} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+            <DotGrid rows={5} cols={5} color="#8A0029" opacity={0.04} spacing={22} className="absolute top-12 left-8 hidden lg:block" />
+            <Crosshair size={100} color="#8A0029" accentColor="#D32F2F" opacity={0.05} className="absolute bottom-20 right-12 hidden lg:block" />
+
+            {/* Decorative wavy line */}
+            <svg className="absolute top-[40%] left-0 w-full hidden lg:block" height="25" viewBox="0 0 1440 25" fill="none" preserveAspectRatio="none" aria-hidden="true" style={{ opacity: 0.04 }}>
+                <path d="M0 12 Q180 2 360 12 T720 12 T1080 12 T1440 12" stroke="#8A0029" strokeWidth="1" fill="none" />
+            </svg>
+
+            {/* Decorative arrow */}
+            <svg className="absolute bottom-[15%] right-[4%] hidden xl:block" width="20" height="40" viewBox="0 0 20 40" fill="none" aria-hidden="true" style={{ opacity: 0.06 }}>
+                <path d="M10 0 L10 32 M3 25 L10 32 L17 25" stroke="#8A0029" strokeWidth="1.2" strokeLinecap="round" />
+            </svg>
 
             <Container className="relative z-10">
                 {/* Header */}
                 <ScrollReveal variant="fadeUp">
                     <div className="text-center mb-16">
                         <div className="flex items-center justify-center gap-3 mb-4">
-                            <FlowLine width={40} height={2} color="#8E0935" />
+                            <FlowLine width={40} height={2} color="#8A0029" />
                             <span className="text-[10px] tracking-[0.2em] uppercase font-bold"
-                                style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
+                                style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
                                 {lang === 'ru' ? 'Индия — Россия' : 'India to Russia'}
                             </span>
-                            <FlowLine width={40} height={2} color="#8E0935" />
+                            <FlowLine width={40} height={2} color="#8A0029" />
                         </div>
                         <h2 className="font-black tracking-tight mb-4"
-                            style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "#1A1A1A" }}>
+                            style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "#262626" }}>
                             {lang === 'ru'
-                                ? <>{`Индия —`} <span style={{ color: "#8E0935" }}>{`Россия`}</span></>
-                                : <>{`India to`} <span style={{ color: "#8E0935" }}>{`Russia`}</span></>
+                                ? <>{`Индия —`} <span style={{ color: "#8A0029" }}>{`Россия`}</span></>
+                                : <>{`India to`} <span style={{ color: "#8A0029" }}>{`Russia`}</span></>
                             }
                         </h2>
                         <p className="max-w-xl mx-auto text-sm leading-relaxed"
@@ -110,16 +120,16 @@ export default function CountriesWeServe() {
                         transition={{ duration: 0.7, delay: 0.1 }}
                         className="lg:col-span-3"
                     >
-                        <div className="h-full rounded-lg p-7 relative"
-                            style={{ background: "white", border: "1px solid rgba(142,9,53,0.08)", boxShadow: "0 8px 30px rgba(0,0,0,0.04)" }}>
-                            <div className="absolute top-0 left-0 right-0 h-1 rounded-t-lg" style={{ background: "#8E0935" }} />
-                            <CornerOrnament size={24} color="#8E0935" position="top-right" className="absolute top-4 right-4 opacity-30" />
-                            <DotGrid rows={3} cols={3} color="#8E0935" opacity={0.06} spacing={14} className="absolute bottom-4 right-4" />
+                        <div className="h-full rounded-2xl p-7 relative"
+                            style={{ background: "white", border: "1px solid rgba(138,0,41,0.06)", boxShadow: "0 8px 30px rgba(0,0,0,0.04)" }}>
+                            <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl" style={{ background: "#8A0029" }} />
+                            <CornerOrnament size={24} color="#8A0029" position="top-right" className="absolute top-4 right-4 opacity-30" />
+                            <DotGrid rows={3} cols={3} color="#8A0029" opacity={0.06} spacing={14} className="absolute bottom-4 right-4" />
 
                             <div className="text-3xl mb-3">🇮🇳</div>
-                            <h3 className="text-xl font-black mb-1" style={{ color: "#1A1A1A", fontFamily: "var(--font-inter)" }}>India</h3>
+                            <h3 className="text-xl font-black mb-1" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>India</h3>
                             <p className="text-xs font-bold uppercase tracking-wider mb-5"
-                                style={{ color: "#8E0935", fontFamily: "var(--font-inter)" }}>
+                                style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>
                                 {lang === 'ru' ? 'Центр подбора' : 'Sourcing & Recruitment Hub'}
                             </p>
 
@@ -127,9 +137,9 @@ export default function CountriesWeServe() {
                                 {INDIA_FEATURES.map((f, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <div className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
-                                            style={{ background: "rgba(142,9,53,0.08)" }}>
+                                            style={{ background: "rgba(138,0,41,0.08)" }}>
                                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                <path d="M2 5 L4.5 7.5 L8 3" stroke="#8E0935" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                                                <path d="M2 5 L4.5 7.5 L8 3" stroke="#8A0029" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                                             </svg>
                                         </div>
                                         <span className="text-xs font-medium" style={{ color: "#4B5563", fontFamily: "var(--font-poppins)" }}>
@@ -150,41 +160,41 @@ export default function CountriesWeServe() {
                     >
                         {/* Animated connector bar */}
                         <div className="flex items-center justify-center gap-3">
-                            <FlowLine width={80} height={2} color="#8E0935" />
-                            <span className="text-[9px] tracking-[0.25em] uppercase font-black px-3 py-1.5 rounded-sm"
-                                style={{ background: "rgba(142,9,53,0.08)", color: "#8E0935", fontFamily: "var(--font-inter)" }}>
+                            <FlowLine width={80} height={2} color="#8A0029" />
+                            <span className="text-[9px] tracking-[0.25em] uppercase font-black px-3 py-1.5 rounded-lg"
+                                style={{ background: "rgba(138,0,41,0.08)", color: "#8A0029", fontFamily: "var(--font-inter)" }}>
                                 {lang === 'ru' ? 'Канал развёртывания' : 'Deployment Pipeline'}
                             </span>
-                            <FlowLine width={80} height={2} color="#8E0935" />
+                            <FlowLine width={80} height={2} color="#8A0029" />
                         </div>
 
                         {/* Central stat card — dark with globe pattern */}
-                        <div className="flex-1 rounded-lg text-center relative overflow-hidden flex flex-col items-center justify-center py-12 px-8"
-                            style={{ background: "#1A1A1A" }}>
+                        <div className="flex-1 rounded-2xl text-center relative overflow-hidden flex flex-col items-center justify-center py-12 px-8"
+                            style={{ background: "#8A0029" }}>
 
                             {/* Background SVG globe illustration */}
-                            <GlobeWireframe size={350} color="#FDFBEF" accentColor="#BC264B" opacity={0.06} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-                            <CornerOrnament size={30} color="#BC264B" position="top-left" className="absolute top-5 left-5 opacity-30" />
-                            <CornerOrnament size={30} color="#BC264B" position="bottom-right" className="absolute bottom-5 right-5 opacity-30" />
+                            <GlobeWireframe size={350} color="#FFFFFF" accentColor="#D32F2F" opacity={0.06} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+                            <CornerOrnament size={30} color="#D32F2F" position="top-left" className="absolute top-5 left-5 opacity-30" />
+                            <CornerOrnament size={30} color="#D32F2F" position="bottom-right" className="absolute bottom-5 right-5 opacity-30" />
 
                             {/* Pulsing ring behind number */}
-                            <PulseRing size={80} color="#BC264B" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%]" />
+                            <PulseRing size={80} color="#D32F2F" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%]" />
 
                             <div className="relative z-10">
                                 <div className="text-6xl lg:text-7xl font-black mb-2"
-                                    style={{ color: "#FDFBEF", fontFamily: "var(--font-inter)" }}>
+                                    style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>
                                     <CountUp end={500} suffix="+" />
                                 </div>
                                 <p className="text-[11px] tracking-[0.2em] uppercase font-bold mb-1"
-                                    style={{ color: "rgba(253,251,239,0.5)", fontFamily: "var(--font-inter)" }}>
+                                    style={{ color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-inter)" }}>
                                     {lang === 'ru' ? 'Работников размещено в России' : 'Workers Deployed to Russia'}
                                 </p>
-                                <p className="text-xs" style={{ color: "rgba(253,251,239,0.25)" }}>since 2022</p>
+                                <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>since 2022</p>
                             </div>
                         </div>
 
                         {/* Curved connector decoration */}
-                        <CurvedConnector width={300} height={30} color="#8E0935" className="mx-auto opacity-40 hidden lg:block" />
+                        <CurvedConnector width={300} height={30} color="#8A0029" className="mx-auto opacity-40 hidden lg:block" />
 
                         {/* Sector badges */}
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -194,9 +204,9 @@ export default function CountriesWeServe() {
                                     animate={inView ? { opacity: 1, y: 0 } : {}}
                                     transition={{ delay: 0.5 + i * 0.1 }}
                                     className="p-3 rounded-lg flex items-center gap-2 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
-                                    style={{ background: "white", border: "1px solid rgba(142,9,53,0.06)" }}>
+                                    style={{ background: "white", border: "1px solid rgba(138,0,41,0.06)" }}>
                                     <div className="w-2.5 h-2.5 rounded-full" style={{ background: s.color }} />
-                                    <span className="text-xs font-bold" style={{ color: "#1A1A1A", fontFamily: "var(--font-inter)" }}>
+                                    <span className="text-xs font-bold" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
                                         {lang === 'ru' ? s.ru : s.en}
                                     </span>
                                 </motion.div>
@@ -211,16 +221,16 @@ export default function CountriesWeServe() {
                         transition={{ duration: 0.7, delay: 0.4 }}
                         className="lg:col-span-3"
                     >
-                        <div className="h-full rounded-lg p-7 relative"
-                            style={{ background: "white", border: "1px solid rgba(142,9,53,0.08)", boxShadow: "0 8px 30px rgba(0,0,0,0.04)" }}>
-                            <div className="absolute top-0 left-0 right-0 h-1 rounded-t-lg" style={{ background: "#BC264B" }} />
-                            <CornerOrnament size={24} color="#BC264B" position="top-right" className="absolute top-4 right-4 opacity-30" />
-                            <Crosshair size={50} color="#BC264B" opacity={0.06} className="absolute bottom-4 right-4" />
+                        <div className="h-full rounded-2xl p-7 relative"
+                            style={{ background: "white", border: "1px solid rgba(138,0,41,0.06)", boxShadow: "0 8px 30px rgba(0,0,0,0.04)" }}>
+                            <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl" style={{ background: "#D32F2F" }} />
+                            <CornerOrnament size={24} color="#D32F2F" position="top-right" className="absolute top-4 right-4 opacity-30" />
+                            <Crosshair size={50} color="#D32F2F" opacity={0.06} className="absolute bottom-4 right-4" />
 
                             <div className="text-3xl mb-3">🇷🇺</div>
-                            <h3 className="text-xl font-black mb-1" style={{ color: "#1A1A1A", fontFamily: "var(--font-inter)" }}>Russia</h3>
+                            <h3 className="text-xl font-black mb-1" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>Russia</h3>
                             <p className="text-xs font-bold uppercase tracking-wider mb-5"
-                                style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
+                                style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
                                 {lang === 'ru' ? 'Развёртывание и операции' : 'Deployment & Operations'}
                             </p>
 
@@ -228,9 +238,9 @@ export default function CountriesWeServe() {
                                 {RUSSIA_FEATURES.map((f, i) => (
                                     <div key={i} className="flex items-center gap-3">
                                         <div className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
-                                            style={{ background: "rgba(188,38,75,0.08)" }}>
+                                            style={{ background: "rgba(211,47,47,0.08)" }}>
                                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                <path d="M2 5 L4.5 7.5 L8 3" stroke="#BC264B" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                                                <path d="M2 5 L4.5 7.5 L8 3" stroke="#D32F2F" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                                             </svg>
                                         </div>
                                         <span className="text-xs font-medium" style={{ color: "#4B5563", fontFamily: "var(--font-poppins)" }}>

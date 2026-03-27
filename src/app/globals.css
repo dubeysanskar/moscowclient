@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme inline {
-	/* === TAHA AIRWAVES BRAND PALETTE (from Brand Book) === */
-	--color-primary: #8E0935;       /* Viva Magenta — Primary */
-	--color-accent: #BC264B;        /* Secondary Burgundy */
-	--color-dark: #1A1A1A;          /* Premium Dark */
-	--color-light: #FDFBEF;         /* Cloud Dancer — Background */
-	--color-white: #FDFBEF;         /* Cloud Dancer replaces pure white */
+	/* === TAHA AIRWAVES BRAND PALETTE (Official) === */
+	--color-primary: #8A0029;       /* Deep Maroon / Wine Red */
+	--color-accent: #D32F2F;        /* Bright Red Accent */
+	--color-dark: #262626;          /* Dark Gray */
+	--color-light: #F7F7F7;         /* Soft Light Gray */
+	--color-white: #FFFFFF;         /* Pure White */
 
 	/* Fonts */
 	--font-inter: "Inter", sans-serif;
@@ -19,18 +19,16 @@
 }
 
 body {
-	background: #FDFBEF;
-	color: #1A1A1A;
+	background: #F7F7F7;
+	color: #262626;
 	font-family: "Inter", sans-serif;
 }
 
 /* Remove ALL browser outline defaults — add custom focus */
 :focus-visible {
-	outline: 2px solid #8E0935;
+	outline: 2px solid #8A0029;
 	outline-offset: 2px;
 }
-
-
 
 /* === SCROLL REVEAL utilities === */
 @keyframes fadeSlideUp {
@@ -46,16 +44,17 @@ body {
 	to { opacity: 1; transform: translateX(0); }
 }
 
-/* === SVG WAVE section separators === */
-.wave-separator {
-	width: 100%;
-	line-height: 0;
-	overflow: hidden;
+/* === Floating particle animation === */
+@keyframes float {
+	0%, 100% { transform: translateY(0) rotate(0deg); }
+	25% { transform: translateY(-10px) rotate(2deg); }
+	50% { transform: translateY(-5px) rotate(-1deg); }
+	75% { transform: translateY(-15px) rotate(1deg); }
 }
-.wave-separator svg {
-	display: block;
-	width: 100%;
-	height: auto;
+
+@keyframes pulse-subtle {
+	0%, 100% { opacity: 0.3; transform: scale(1); }
+	50% { opacity: 0.6; transform: scale(1.05); }
 }
 
 /* === Smooth scrollbar === */
@@ -63,9 +62,26 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+	height: auto;
+}
+
+.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+	overflow: hidden;
+}
+
 /* === Image lazy-load placeholder === */
 .img-lazy-wrapper {
 	position: relative;
 	overflow: hidden;
-	background: rgba(142, 9, 53, 0.03);
+	background: rgba(138, 0, 41, 0.03);
 }

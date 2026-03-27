@@ -496,3 +496,68 @@ Comprehensive redesign round addressing client feedback: hero text/form visibili
 
 ### Build status
 - Session 7f: Verified via browser — all pages render, splash only on first load
+
+---
+
+## SESSION 9 — PREMIUM UI/UX REDESIGN & SVG ARCHITECTURE (March 27, 2026)
+
+### File: `src/components/home/hero/index.jsx`
+- Word-by-word animated text reveal (AnimatedWord component)
+- Parallax scroll opacity/scale effects (useScroll + useTransform)
+- Background image slideshow with crossfade (4 images, 7s cycle)
+- Floating particle system (20 animated dots via Framer Motion)
+- Contact form: glassmorphism panel (0.75 white bg, 16px blur, dark text/inputs)
+- Geometric transition divider at bottom (SVG chevron)
+- `overflow-hidden` on form container to fix accent bar overflow
+
+### File: `src/components/home/home-about/index.jsx`
+- Background: `#FDFBEF`
+- Heading: "Structured Workforce Deployment Solutions" (brand SOP compliant)
+- All ElegantShape animations REMOVED (were blurring text/image)
+- SVG decorations in `z-[1]` container: ConcentricCircles (right), ArrowDown/Up, DotMatrix, CornerOrnaments
+- Content at `z-10` (above decorations)
+- Bottom divider: `mt-8` spacing + `h-6` spacer below
+- Highlight cards: 4 features (MEA License, 500+, Compliance, 20+ Years)
+
+### File: `src/components/home/our-strength/index.jsx`
+- Background: `#FDFBEF`
+- Uses `FloatingPaths` from background-paths.jsx directly as absolute overlays (z-[1])
+- SVG decorations in z-[2]: DotMatrix, NestedFrames, GlobeOutline, StarBurst, arrows, WavyLines
+- Content in z-10 with py-24 lg:py-32 padding
+- AnimatedCounter: number counting animation on scroll-into-view
+
+### File: `src/components/home/home-services/index.jsx`
+- **RadialOrbitalTimeline** on left, service detail cards on right
+- Background: `#FDFBEF` (matching other sections)
+- Hardcoded RU/EN titles (no t() keys for heading — keys don't exist)
+- New SVG patterns: diagonal hatching, diamond lattice, plus signs, triangles
+- All SVGs in z-[1] behind z-10 content
+
+### File: `src/components/home/how-it-works/index.jsx`
+- Background: `#FDFBEF` (changed from `#F7F7F7`)
+- SVGs repositioned: ConcentricCircles, StarBurst, DotMatrix on LEFT; ArrowDown, FlowingCurves, HexGrid on RIGHT
+- All in z-[1] container, content in z-10
+
+### File: `src/components/home/cta/index.jsx`
+- 5 ElegantShape floating pills on `#8A0029` background
+- Grid pattern overlay, DotMatrix, WavyLines, CornerOrnaments
+- White CTA button + transparent outline button
+
+### File: `src/components/home/home-service-bento/index.jsx`
+- Added SVG illustrations: HexGrid, StarBurst, ArrowDown, CrossPattern, DotMatrix, WavyLines
+- All in z-[1] container behind z-10 content
+
+### New Files Created
+- `src/components/ui/radial-orbital-timeline.jsx` — Orbital node timeline (brand maroon/red)
+- `src/components/ui/badge.jsx` — shadcn Badge component (JSX)
+- `src/components/ui/card.jsx` — shadcn Card component (JSX)
+- `src/components/decorators/SVGIllustrations.jsx` — 17 reusable SVG bg components
+
+### File: `src/components/ui/background-paths.jsx`
+- Added `preserveAspectRatio="none"` to SVG → paths stretch to fill full container height
+- Exported `FloatingPaths` separately for direct use outside BackgroundPaths wrapper
+
+### SVG z-Index Architecture (all sections)
+- z-[1]: Decorative SVGs (pointer-events-none)
+- z-[2]: Secondary overlays (accent bars, BackgroundPaths)
+- z-10: Content containers
