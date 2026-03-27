@@ -25,14 +25,14 @@ export default function HomeServiceBento() {
         <section className="py-10 relative overflow-hidden" style={{ background: "#F7F7F7" }}>
             {/* ═══ Visible SVG illustrations — behind content ═══ */}
             <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
-                <HexGrid width={200} height={160} opacity={0.15} className="absolute -right-8 top-[10%] hidden lg:block" />
-                <StarBurst size={150} rays={12} opacity={0.14} className="absolute left-[3%] bottom-[10%] hidden xl:block" />
-                <ArrowDown size={50} opacity={0.18} className="absolute left-[5%] top-[30%] hidden xl:block" />
-                <CrossPattern rows={3} cols={4} spacing={40} crossSize={10} opacity={0.12} className="absolute right-[5%] bottom-[20%] hidden xl:block" />
-                <DotMatrix rows={4} cols={3} spacing={16} radius={2} opacity={0.14} className="absolute left-[2%] top-[10%] hidden lg:block" />
-                <WavyLines width={1440} height={40} opacity={0.08} className="absolute top-[50%] left-0 w-full hidden lg:block" />
-                <CornerOrnament size={35} color="#8A0029" position="top-left" className="absolute top-6 left-6 opacity-20" />
-                <CornerOrnament size={35} color="#D32F2F" position="bottom-right" className="absolute bottom-6 right-6 opacity-20" />
+                <HexGrid width={200} height={160} opacity={0.28} className="absolute -right-8 top-[10%] hidden lg:block" />
+                <StarBurst size={150} rays={12} opacity={0.25} className="absolute left-[3%] bottom-[10%] hidden xl:block" />
+                <ArrowDown size={50} opacity={0.30} className="absolute left-[5%] top-[30%] hidden xl:block" />
+                <CrossPattern rows={3} cols={4} spacing={40} crossSize={10} opacity={0.22} className="absolute right-[5%] bottom-[20%] hidden xl:block" />
+                <DotMatrix rows={4} cols={3} spacing={16} radius={2} opacity={0.25} className="absolute left-[2%] top-[10%] hidden lg:block" />
+                <WavyLines width={1440} height={40} opacity={0.15} className="absolute top-[50%] left-0 w-full hidden lg:block" />
+                <CornerOrnament size={35} color="#8A0029" position="top-left" className="absolute top-6 left-6 opacity-30" />
+                <CornerOrnament size={35} color="#D32F2F" position="bottom-right" className="absolute bottom-6 right-6 opacity-30" />
             </div>
 
             <Container className="relative" style={{ zIndex: 10 }}>
