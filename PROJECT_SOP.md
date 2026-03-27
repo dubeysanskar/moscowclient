@@ -2,7 +2,7 @@
 
 > **Standard Operating Procedure & Complete Context Document**
 > This document provides full context for any developer or AI tool working on this project.
-> Last updated: March 27, 2026 (Session 9 — Services Tabs, StaggerTestimonials, Horizontal Scroll WhatWeDo, Process SVG Visibility)
+> Last updated: March 27, 2026 (Session 10 — Hero Stats Fix, Social Links Update, Services Page Revamp, About Page Corrections)
 
 ---
 
@@ -13,7 +13,7 @@ This website is a **Russia-market focused** deployment of Taha Airwaves, serving
 | Aspect | Detail |
 |---|---|
 | **Company** | Taha Airwaves Private Limited |
-| **Global HQ** | New Delhi, India (est. 2005) |
+| **Global HQ** | New Delhi, India (est. 2015) |
 | **Russia Operations** | Established 2022, 500+ workers recruited |
 | **Domain** | tahaairwaves.ru |
 | **Focus** | Manpower recruitment & deployment exclusively for the Russian market |
@@ -99,11 +99,13 @@ All services must reference Russia specifically. No other country names in servi
 
 ### 3.2 Social Media (Russia-relevant platforms)
 
-| Platform | Icon Color | URL |
+| Platform | Icon | URL |
 |---|---|---|
-| VK | White (footer) / Brand #8E0935 (contact) | https://vk.com/tahaairwaves |
-| Telegram | White (footer) / Brand #8E0935 (contact) | https://t.me/tahaairwaves |
-| WhatsApp | White (footer) / Brand #8E0935 (contact) | https://wa.me/79850748828 |
+| WhatsApp | FaWhatsapp | https://wa.me/qr/TKSOMEYZZW2CN1 |
+| Telegram | FaTelegramPlane | https://t.me/tahaairwaves |
+| VK Video | FaVk | https://vkvideo.ru/@tahaairwaves |
+| Rutube | FaYoutube | https://rutube.ru/channel/76971642/ |
+| Max | Custom SVG | https://max.ru/u/f9LHodD0cOIMJiIqD-D832F8g35uW7T1VTQlUSH07133auTjMZ-FQlggpkA |
 
 ### 3.3 Key Metrics / Our Strength
 
@@ -117,7 +119,7 @@ All services must reference Russia specifically. No other country names in servi
 
 - **Company**: Taha Airwaves Private Limited
 - **RA License**: B-3260/DEL/COM/100/5/11259/2025
-- **Established**: 2005 (global), 2022 (Russia operations)
+- **Established**: 2015 (global), 2022 (Russia operations)
 - **Head Office**: 71A, 3rd Floor, Taimoor Nagar, New Friends Colony, New Delhi 110025
 - **Moscow Office**: Skolkovo Innovation Center, Malevicha Street, 2k4, 143026
 - **Phone (Russia)**: +7 985 074-88-28
@@ -151,17 +153,14 @@ src/components/providers.jsx — Wraps layout with LanguageProvider
 
 ```
 page.js
-├── Hero — 3 bg images (crossfade), static content, contact form, stats bar
+├── Hero — 3 bg images (crossfade), static content, contact form, stats bar (100%, 📍 Moscow, 500+, 10+)
 ├── HomeAbout — Two-column intro (Russia-focused, language-aware)
-├── OurStrength — Key metrics (500+ workers, est. 2022, 20+ yrs, 50+ partners)
-├── WhatWeDo — 4 service cards (Recruitment, Bulk Hiring, Visa, Deployment)
-├── HowItWorks — 4-step process (Requirement → Sourcing → Docs → Deploy)
+├── OurStrength — Key metrics (500+ workers, est. 2022, 10+ yrs, 50+ partners)
+├── WhatWeDo — "Why Russian Companies Choose Us?" (5 cards incl. Local Support in Moscow)
 ├── CardCarousel — Services carousel
-├── HomeServiceBento — Service bento grid
+├── HomeServiceBento — How We Work (6 steps incl. No Hidden Fees, Transparency)
 ├── ServicesShowcase — Projects showcase
-├── CountriesWeServe — India→Russia deployment pipeline
 ├── IndustriesWeServe — Industry image cards
-├── WhyUs — Why choose Taha Airwaves
 ├── Partners — 20 logo marquee
 ├── Testimonials — Client testimonials with country flags
 ├── BlogPreview — Latest articles (light theme)
@@ -185,7 +184,10 @@ page.js
 ## 5. API ROUTES
 
 ### 5.1 `/api/chat` (POST)
-- Gemini 2.0 Flash chatbot
+- Uses `@google/genai` SDK with `gemini-2.5-flash` model
+- Russia-focused system prompt with full company context
+- Responds in user's language (RU/EN)
+- Fallback contact: +7 985 074-88-28, info@tahaairwaves.ru
 - System prompt: Russia-focused services and info
 
 ### 5.2 `/api/contact` (POST)
@@ -222,6 +224,7 @@ npm run build && npm start  # Production
 10. **Hero bg-only animation** — Only background images crossfade, content is static
 11. **Hero contact form** — Right side of hero on desktop
 12. **Splash screen** — Multilingual "Hello" greeting animation in `src/components/splash/index.jsx`. Controlled by `providers.jsx` via `sessionStorage('taha_sp')` — shows ONLY on first page load, NEVER on client-side navigation. `showSplash` state starts `false` → `useEffect` enables it once if no key. NEVER use inline HTML splash in layout.js (causes site breakage).
+13. **Chatbot scroll** — Chat panel uses `overscrollBehavior: contain` and `onWheel` stopPropagation to prevent background page scroll when scrolling inside the chatbot.
 13. **About page** — Full content: Our Story (3 paragraphs), Mission/Vision/Strategy, Core Values (4 cards), Industries (17 tags with `{en, ru}`), Global Presence (with `details_ru`), Countries Served (with `name_ru`)
 14. **Footer office links** — Hash navigation to contact page: `/contact#office-delhi`, `/contact#office-noida`, `/contact#office-moscow`
 15. **Service detail pages** — All content Russia-focused. No GCC/Gulf country lists. Uses Russia Deployment card instead of Countries We Deploy To. All data bilingual (en/ru).

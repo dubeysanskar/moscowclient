@@ -9,7 +9,7 @@ import { DotGrid, Crosshair, CornerOrnament, FlowLine, GlobeWireframe, CircuitLi
 
 const GLOBAL_STATS = [
     { value: "500+", labelEn: "Workers Deployed", labelRu: "Трудоустроено специалистов", accent: "#8E0935" },
-    { value: "20+", labelEn: "Years Experience", labelRu: "Лет опыта", accent: "#BC264B" },
+    { value: "10+", labelEn: "Years Experience", labelRu: "Лет опыта", accent: "#BC264B" },
     { value: "50+", labelEn: "Global Partners", labelRu: "Глобальных партнёров", accent: "#8E0935" },
     { value: "100%", labelEn: "Compliance Rate", labelRu: "Соответствие требованиям", accent: "#BC264B" },
 ]
@@ -51,23 +51,23 @@ const INDUSTRIES = [
 
 const GLOBAL_PRESENCE = [
     {
-        country: "India (HQ)", flag: "🇮🇳", since: "2005",
+        country: "India (HQ)", flag: "🇮🇳",
         address: "71A, 3rd Floor, New Friends Colony, New Delhi 110025",
         phone: "+91 93152 26961", email: "info@tahaairwaves.com",
-        details: ["New Delhi Head Office", "Noida Branch Office", "MEA Licensed (RA)", "Est. 2005"],
-        details_ru: ["Главный офис в Нью-Дели", "Филиал в Ноиде", "Лицензия MEA (RA)", "С 2005 года"]
+        details: ["New Delhi Head Office", "Noida Branch Office", "MEA Licensed (RA)"],
+        details_ru: ["Главный офис в Нью-Дели", "Филиал в Ноиде", "Лицензия MEA (RA)"]
     },
     {
-        country: "Россия", country_en: "Russia", flag: "🇷🇺", since: "2022",
+        country: "Russia", flag: "🇷🇺",
         address: "Moscow, Russian Federation",
-        phone: "+7 (495) 123-45-67", email: "russia@tahaairwaves.ru",
-        details: ["Moscow Representative Office", "500+ Workers Deployed", "Est. 2022", "Construction, Manufacturing, Oil & Gas"],
-        details_ru: ["Представительство в Москве", "500+ работников размещено", "С 2022 года", "Строительство, производство, нефть и газ"]
+        phone: "+7 985 074-88-28", email: "info@tahaairwaves.ru",
+        details: ["Moscow Representative Office", "500+ Workers Deployed", "Construction, Manufacturing, Oil & Gas"],
+        details_ru: ["Представительство в Москве", "500+ работников размещено", "Строительство, производство, нефть и газ"]
     },
     {
-        country: "UAE / GCC", flag: "🇦🇪", since: "2010",
+        country: "UAE / GCC", flag: "🇦🇪",
         address: "Dubai, United Arab Emirates",
-        phone: "+91 93152 26961", email: "gcc@tahaairwaves.com",
+        phone: "+91 93152 26961", email: "info@tahaairwaves.com",
         details: ["GCC Region Coverage", "UAE, Saudi, Oman, Kuwait, Qatar", "Hospitality & Construction", "Trusted Partner"],
         details_ru: ["Покрытие региона GCC", "ОАЭ, Саудовская Аравия, Оман, Кувейт, Катар", "Гостиницы и строительство", "Надёжный партнёр"]
     },
@@ -125,8 +125,8 @@ export default function AboutMain() {
                         <p className="max-w-xl text-base leading-relaxed"
                             style={{ color: "rgba(253,251,239,0.55)", fontFamily: "var(--font-poppins)" }}>
                             {lang === 'ru'
-                                ? 'Taha Airwaves Private Limited — государственное лицензированное агентство по подбору персонала, базирующееся в Нью-Дели с 2005 года.'
-                                : 'Taha Airwaves Private Limited — a government-licensed manpower recruitment consultancy based in New Delhi, India since 2005.'
+                                ? 'Taha Airwaves Private Limited — государственное лицензированное агентство по подбору персонала, работающее с 2015 года. Операции в России с 2022 года.'
+                                : 'Taha Airwaves Private Limited — a government-licensed manpower recruitment agency, operating since 2015. Serving the Russian market since 2022.'
                             }
                         </p>
                     </motion.div>
@@ -388,9 +388,6 @@ export default function AboutMain() {
                                     <div>
                                         <h4 className="font-black text-base"
                                             style={{ fontFamily: "var(--font-inter)", color: "#FDFBEF" }}>{p.country}</h4>
-                                        <span className="text-xs" style={{ color: "rgba(253,251,239,0.35)", fontFamily: "var(--font-inter)" }}>
-                                            {lang === 'ru' ? `С ${p.since} года` : `Since ${p.since}`}
-                                        </span>
                                     </div>
                                 </div>
                                 {(lang === 'ru' ? p.details_ru : p.details).map((d) => (

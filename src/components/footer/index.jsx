@@ -36,6 +36,7 @@ const socials = [
     { icon: <FaTelegramPlane size={13} />, href: "https://t.me/tahaairwaves", label: "Telegram" },
     { icon: <FaVk size={13} />, href: "https://vkvideo.ru/@tahaairwaves", label: "VK Video" },
     { icon: <FaYoutube size={13} />, href: "https://rutube.ru/channel/76971642/", label: "Rutube" },
+    { icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-1-3H7l6-10-1 6h3l-4 7z"/></svg>, href: "https://max.ru/u/f9LHodD0cOIMJiIqD-D832F8g35uW7T1VTQlUSH07133auTjMZ-FQlggpkA", label: "Max" },
 ]
 
 export default function Footer() {

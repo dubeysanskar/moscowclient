@@ -2,7 +2,79 @@
 
 > Full record of every change made during the UI/UX overhaul.
 > This file serves as a complete audit trail for future reference.
-> Date: March 21–24, 2026
+> Date: March 21–27, 2026
+
+---
+
+## SESSION 10 — March 27, 2026 (Content Corrections, Social Links, Services Revamp)
+
+### Hero Stats Bar
+- Replaced ✓ tick icons with proper values: `100%` (Government Approved & Verified), `Moscow📍` (Local Office in Russia)
+- Shortened sub-labels: "Workers in Russia", "Global Experience"
+- Reduced stat value font size from `text-2xl/3xl/4xl` to `text-xl/2xl` for compact display
+- Fixed rendering logic to handle string vs numeric values for CountUp animation
+- Improved WhatsApp/Telegram/Max button visibility with `rgba(255,255,255,0.1)` background and `2px solid` borders
+
+### Social Links (Site-wide)
+- WhatsApp → `https://wa.me/qr/TKSOMEYZZW2CN1` (was wa.me/919315226961)
+- Telegram → `https://t.me/tahaairwaves`
+- VK Video → `https://vkvideo.ru/@tahaairwaves` (was vk.com/tahaairwaves)
+- Rutube → `https://rutube.ru/channel/76971642/` (new)
+- Max → `https://max.ru/u/f9LHodD0cOIMJiIqD-...` (new, custom SVG icon)
+- Updated in: header, footer, hero, CTA, contact page, service detail
+
+### Homepage Sections Removed
+- `CountriesWeServe` (India→Russia) — removed from page.js
+- `WhyUs` — removed from page.js
+
+### CTA Section
+- Fixed "STRONG CTA SECTION" → "GET STARTED TODAY" (EN) / "НАЧНИТЕ СЕГОДНЯ" (RU)
+
+### What We Do Section
+- Heading → "Why Russian Companies Choose Us?" / "Почему российские компании выбирают нас?"
+- Replaced "Visa & Documentation" card → "Local Support in Moscow"
+
+### How We Work (Bento)
+- Changed 20+ → 10+ years experience
+- Added 2 new steps: "No Hidden Fees" and "Full Transparency" (both EN/RU)
+- Grid changed to 3-column layout on desktop
+
+### About Page (`/about`)
+- Stats: 20+ → 10+ years experience
+- Hero subtitle: "since 2005" → "operating since 2015. Serving Russian market since 2022"
+- Global Presence: removed "Since YYYY" from all entries, removed "Est. 2005" from India details
+- Russia: country name "Россия" → "Russia", phone updated to +7 985 074-88-28
+- GCC email: `gcc@tahaairwaves.com` → `info@tahaairwaves.com`
+
+### Services Page (`/services`)
+- Rebuilt with StickyTabs pattern from old tahafrontend
+- 3 categories: Manpower Supply (8), Compliance & Documentation (2), Outsourcing (1)
+- Hover image modal on desktop, thumbnail on mobile
+- Excluded Hajj & Umrah service (not used)
+- Full RU/EN translation support
+- New `StickyTabs.jsx` component at `src/components/ui/StickyTabs.jsx`
+
+### Blog Preview
+- Standardized dates to "Mar" format
+
+### Testimonials
+- Improved mobile responsiveness with text clamping
+
+### Language (language.jsx)
+- Updated WhyUs translations: 20+ → 10+ years (since 2015)
+- Added bento steps 5-6 translations (No Hidden Fees, Transparency)
+- Fixed CTA subtitle translations
+
+### Chatbot
+- Rewritten to use `@google/genai` SDK with `gemini-2.5-flash` (was raw REST API with `gemini-2.0-flash`)
+- Full Russia-focused system prompt with 11 services, contact info, social links
+- Responds in user's language (RU/EN)
+- All fallback messages updated to Russia phone (+7 985 074-88-28)
+- Installed `@google/genai` package
+
+### Chatbot Scroll Fix
+- Added `overscrollBehavior: contain` and `onWheel` stopPropagation to chat panel
+- Background page no longer scrolls when scrolling inside chatbot
 
 ---
 

@@ -110,10 +110,10 @@ function AnimatedWord({ word, delay, color }) {
 }
 
 const STATS = [
-    { value: null, suffix: "", label: "Government Approved", labelRu: "Гос. лицензия", svg: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
-    { value: null, suffix: "", label: "Our Russia Office", labelRu: "Наш офис в России", svg: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", link: "/contact#office-moscow" },
-    { value: 500, suffix: "+", label: "500+ Workers Deployed in Russia", labelRu: "500+ работников в России", svg: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
-    { value: 10, suffix: "+", label: "10+ Years Global Experience", labelRu: "10+ лет мирового опыта", svg: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+    { value: "100%", suffix: "", label: "Government Approved & Verified", labelRu: "Гос. лицензия и проверка", svg: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+    { value: "Moscow📍", suffix: "", label: "Local Office in Russia", labelRu: "Офис в России", svg: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", link: "/contact#office-moscow" },
+    { value: 500, suffix: "+", label: "Workers in Russia", labelRu: "Работников в России", svg: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
+    { value: 10, suffix: "+", label: "Global Experience", labelRu: "Мировой опыт", svg: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
 ]
 
 /* ── Particles config ── */
@@ -466,9 +466,9 @@ export default function Hero() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <div className="text-2xl sm:text-3xl md:text-4xl font-black"
+                                        <div className="text-xl sm:text-2xl md:text-2xl font-black"
                                             style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
-                                            {stat.value !== null ? <CountUp end={stat.value} suffix={stat.suffix} /> : <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#8A0029" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>}
+                                            {typeof stat.value === 'number' ? <CountUp end={stat.value} suffix={stat.suffix} /> : <span>{stat.value}{stat.suffix}</span>}
                                         </div>
                                         <div className="text-[10px] sm:text-xs font-semibold tracking-wide uppercase"
                                             style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>

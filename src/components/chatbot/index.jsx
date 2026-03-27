@@ -48,9 +48,9 @@ export default function Chatbot() {
                 body: JSON.stringify({ messages: newMessages, lang }),
             })
             const data = await res.json()
-            setMessages(prev => [...prev, { role: 'assistant', content: data.reply || (lang === 'ru' ? 'Пожалуйста, позвоните: +91 93152 26961' : "Sorry, please call +91 93152 26961.") }])
+            setMessages(prev => [...prev, { role: 'assistant', content: data.reply || (lang === 'ru' ? 'Пожалуйста, позвоните: +7 985 074-88-28' : "Sorry, please call +7 985 074-88-28.") }])
         } catch {
-            setMessages(prev => [...prev, { role: 'assistant', content: lang === 'ru' ? 'Проблема с подключением. Позвоните: +91 93152 26961' : "Connection error. Please contact us at +91 93152 26961." }])
+            setMessages(prev => [...prev, { role: 'assistant', content: lang === 'ru' ? 'Проблема с подключением. Позвоните: +7 985 074-88-28' : "Connection error. Please contact us at +7 985 074-88-28." }])
         } finally {
             setLoading(false)
         }
@@ -96,6 +96,7 @@ export default function Chatbot() {
                         transition={{ duration: 0.25 }}
                         className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-48px)] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
                         style={{ maxHeight: '520px', border: '1px solid rgba(142,9,53,0.15)', background: '#FDFBEF' }}
+                        onWheel={e => e.stopPropagation()}
                     >
                         {/* Header */}
                         <div className="p-4 flex items-center gap-3" style={{ background: '#8E0935' }}>
@@ -108,7 +109,9 @@ export default function Chatbot() {
                         </div>
 
                         {/* Messages */}
-                        <div className="flex-1 overflow-y-auto p-4 space-y-3" style={{ maxHeight: '320px' }}>
+                        <div className="flex-1 overflow-y-auto p-4 space-y-3" style={{ maxHeight: '320px', overscrollBehavior: 'contain', touchAction: 'pan-y' }}
+                            onWheel={e => e.stopPropagation()}
+                        >
                             {messages.map((m, i) => (
                                 <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                     <div className="max-w-[85%] px-4 py-2.5 rounded-2xl text-sm" style={{
