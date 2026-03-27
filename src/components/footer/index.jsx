@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { FaWhatsapp, FaTelegramPlane, FaVk } from "react-icons/fa"
+import { FaWhatsapp, FaTelegramPlane, FaVk, FaYoutube } from "react-icons/fa"
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi"
 import { useLanguage } from "@/context/language"
 import SVGWave from "@/components/decorators/SVGWave"
@@ -32,9 +32,10 @@ const offices = [
 ]
 
 const socials = [
-    { icon: <FaVk size={13} />, href: "https://vk.com/tahaairwaves", label: "VK" },
+    { icon: <FaWhatsapp size={13} />, href: "https://wa.me/qr/TKSOMEYZZW2CN1", label: "WhatsApp" },
     { icon: <FaTelegramPlane size={13} />, href: "https://t.me/tahaairwaves", label: "Telegram" },
-    { icon: <FaWhatsapp size={13} />, href: "https://wa.me/919315226961", label: "WhatsApp" },
+    { icon: <FaVk size={13} />, href: "https://vkvideo.ru/@tahaairwaves", label: "VK Video" },
+    { icon: <FaYoutube size={13} />, href: "https://rutube.ru/channel/76971642/", label: "Rutube" },
 ]
 
 export default function Footer() {

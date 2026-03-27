@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react"
 import { motion, useInView } from "framer-motion"
 import { MdArrowOutward } from "react-icons/md"
 import { FiPhone, FiMail, FiMapPin, FiExternalLink } from "react-icons/fi"
-import { FaWhatsapp, FaTelegramPlane, FaVk } from "react-icons/fa"
+import { FaWhatsapp, FaTelegramPlane, FaVk, FaYoutube } from "react-icons/fa"
 import { useLanguage } from "@/context/language"
 
 const OFFICES = [
@@ -46,9 +46,10 @@ const SERVICES_LIST = [
 ]
 
 const socials = [
-    { icon: <FaVk />, href: "https://vk.com/tahaairwaves", label: "VK", bg: "#8E0935" },
+    { icon: <FaWhatsapp />, href: "https://wa.me/qr/TKSOMEYZZW2CN1", label: "WhatsApp", bg: "#8E0935" },
     { icon: <FaTelegramPlane />, href: "https://t.me/tahaairwaves", label: "Telegram", bg: "#8E0935" },
-    { icon: <FaWhatsapp />, href: "https://wa.me/79850748828", label: "WhatsApp", bg: "#8E0935" },
+    { icon: <FaVk />, href: "https://vkvideo.ru/@tahaairwaves", label: "VK Video", bg: "#8E0935" },
+    { icon: <FaYoutube />, href: "https://rutube.ru/channel/76971642/", label: "Rutube", bg: "#8E0935" },
 ]
 
 export default function ContactMain() {
@@ -178,7 +179,7 @@ export default function ContactMain() {
                                 {lang === 'ru' ? 'Прямой контакт' : 'Direct Contact'}
                             </h3>
                             <div className="space-y-4">
-                                {[{ icon: FiPhone, label: lang === 'ru' ? 'Телефон' : 'Phone', val: '+7 985 074-88-28', href: 'tel:+79850748828' }, { icon: FiMail, label: 'Email', val: 'info@tahaairwaves.ru', href: 'mailto:info@tahaairwaves.ru' }, { icon: FaWhatsapp, label: 'WhatsApp', val: '+7 985 074-88-28', href: 'https://wa.me/79850748828' }].map((c, i) => {
+                                {[{ icon: FiPhone, label: lang === 'ru' ? 'Телефон' : 'Phone', val: '+7 985 074-88-28', href: 'tel:+79850748828' }, { icon: FiMail, label: 'Email', val: 'info@tahaairwaves.ru', href: 'mailto:info@tahaairwaves.ru' }, { icon: FaWhatsapp, label: 'WhatsApp', val: '+7 985 074-88-28', href: 'https://wa.me/qr/TKSOMEYZZW2CN1' }].map((c, i) => {
                                     const Icon = c.icon
                                     return (
                                         <a key={i} href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="flex items-center gap-3 group">

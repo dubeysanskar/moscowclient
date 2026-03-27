@@ -30,9 +30,9 @@ const SERVICES = [
     },
     {
         icon: FiFileText,
-        titleEn: "Visa & Documentation", titleRu: "Виза и документация",
-        descEn: "Complete visa processing, document attestation, emigration clearance, and compliance management.",
-        descRu: "Полная визовая обработка, заверение документов, эмиграционное оформление и управление соответствием.",
+        titleEn: "Local Support in Moscow", titleRu: "Местная поддержка в Москве",
+        descEn: "Dedicated Moscow office with on-ground coordination, worker support, and direct employer communication.",
+        descRu: "Офис в Москве с координацией, поддержкой работников и связью с работодателями.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #6B0020 100%)",
         border: "rgba(253,251,239,0.15)",
@@ -112,21 +112,21 @@ function Header({ lang }) {
                     <FlowLine width={40} height={2} color="#8E0935" />
                     <span className="text-sm tracking-[0.2em] uppercase font-bold"
                         style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
-                        {lang === 'ru' ? 'Наши Услуги' : 'Services'}
+                         {lang === 'ru' ? 'Наши услуги' : 'Services'}
                     </span>
                 </div>
                 <h2 className="font-black tracking-tight"
                     style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(2rem, 4.5vw, 3.5rem)", color: "#1A1A1A" }}>
                     {lang === 'ru'
-                        ? <>{`Наши услуги `}<span style={{ color: "#8E0935" }}>{`подбора`}</span></>
-                        : <>{`Our Recruitment `}<span style={{ color: "#8E0935" }}>{`Services`}</span></>
+                        ? <>{`Почему российские компании `}<span style={{ color: "#8E0935" }}>{`выбирают нас?`}</span></>
+                        : <>{`Why Russian Companies `}<span style={{ color: "#8E0935" }}>{`Choose Us?`}</span></>
                     }
                 </h2>
                 <p className="mt-3 text-sm lg:text-base max-w-xl leading-relaxed"
                     style={{ color: "#6B7280", fontFamily: "var(--font-poppins)" }}>
                     {lang === 'ru'
-                        ? 'Комплексные кадровые услуги, охватывающие каждый этап жизненного цикла подбора персонала'
-                        : 'Comprehensive manpower services covering every phase of the recruitment lifecycle'
+                        ? 'Надёжная кадровая поддержка на каждом этапе процесса подбора персонала'
+                        : 'Trusted manpower support across every stage of the recruitment process'
                     }
                 </p>
             </div>

@@ -88,7 +88,7 @@ export default function CTA() {
                                 </span>
                             </button>
                         </Link>
-                        <a href="https://wa.me/79850748828" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                        <a href="https://wa.me/qr/TKSOMEYZZW2CN1" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                             <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300 hover:bg-white/15"
                                 style={{ background: "transparent", color: "#FFFFFF", border: "2px solid rgba(255,255,255,0.3)", fontFamily: "var(--font-inter)" }}>
                                 {t('ctaBtn2')}

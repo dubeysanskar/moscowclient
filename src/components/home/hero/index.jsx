@@ -304,21 +304,21 @@ export default function Hero() {
                                         </span>
                                     </button>
                                 </Link>
-                                <a href="https://wa.me/79850748828" target="_blank" rel="noopener noreferrer">
-                                    <button className="flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs font-bold cursor-pointer transition-all duration-300 hover:bg-white/10"
-                                        style={{ background: "transparent", color: "#FFFFFF", border: "1.5px solid rgba(255,255,255,0.25)", fontFamily: "var(--font-inter)" }}>
+                                <a href="https://wa.me/qr/TKSOMEYZZW2CN1" target="_blank" rel="noopener noreferrer">
+                                    <button className="flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs font-bold cursor-pointer transition-all duration-300 hover:bg-white/20"
+                                        style={{ background: "rgba(255,255,255,0.1)", color: "#FFFFFF", border: "2px solid rgba(255,255,255,0.4)", fontFamily: "var(--font-inter)" }}>
                                         WhatsApp
                                     </button>
                                 </a>
-                                <a href="https://t.me/taaborofficial" target="_blank" rel="noopener noreferrer">
-                                    <button className="flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs font-bold cursor-pointer transition-all duration-300 hover:bg-white/10"
-                                        style={{ background: "transparent", color: "#FFFFFF", border: "1.5px solid rgba(255,255,255,0.25)", fontFamily: "var(--font-inter)" }}>
+                                <a href="https://t.me/tahaairwaves" target="_blank" rel="noopener noreferrer">
+                                    <button className="flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs font-bold cursor-pointer transition-all duration-300 hover:bg-white/20"
+                                        style={{ background: "rgba(255,255,255,0.1)", color: "#FFFFFF", border: "2px solid rgba(255,255,255,0.4)", fontFamily: "var(--font-inter)" }}>
                                         Telegram
                                     </button>
                                 </a>
-                                <a href="https://max.me/tahaairwaves" target="_blank" rel="noopener noreferrer">
-                                    <button className="flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs font-bold cursor-pointer transition-all duration-300 hover:bg-white/10"
-                                        style={{ background: "transparent", color: "#FFFFFF", border: "1.5px solid rgba(255,255,255,0.25)", fontFamily: "var(--font-inter)" }}>
+                                <a href="https://max.ru/u/f9LHodD0cOIMJiIqD-D832F8g35uW7T1VTQlUSH07133auTjMZ-FQlggpkA" target="_blank" rel="noopener noreferrer">
+                                    <button className="flex items-center gap-2 px-6 py-3.5 rounded-lg text-xs font-bold cursor-pointer transition-all duration-300 hover:bg-white/20"
+                                        style={{ background: "rgba(255,255,255,0.1)", color: "#FFFFFF", border: "2px solid rgba(255,255,255,0.4)", fontFamily: "var(--font-inter)" }}>
                                         Max
                                     </button>
                                 </a>
@@ -468,7 +468,7 @@ export default function Hero() {
                                     <div>
                                         <div className="text-2xl sm:text-3xl md:text-4xl font-black"
                                             style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
-                                            {stat.value !== null ? <CountUp end={stat.value} suffix={stat.suffix} /> : '✓'}
+                                            {stat.value !== null ? <CountUp end={stat.value} suffix={stat.suffix} /> : <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#8A0029" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>}
                                         </div>
                                         <div className="text-[10px] sm:text-xs font-semibold tracking-wide uppercase"
                                             style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>

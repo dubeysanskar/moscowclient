@@ -236,7 +236,7 @@ export default function ServiceDetailContent({ service }) {
                                 style={{ background: '#FDFBEF', color: '#8E0935', fontFamily: 'var(--font-inter)' }}>
                                 {ru ? 'Получить предложение' : 'Get a Quote'}
                             </Link>
-                            <a href="https://wa.me/79850748828" target="_blank" rel="noopener noreferrer"
+                            <a href="https://wa.me/qr/TKSOMEYZZW2CN1" target="_blank" rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 px-7 py-3 rounded text-sm font-bold uppercase tracking-[0.1em]"
                                 style={{ background: 'transparent', color: '#FDFBEF', border: '1px solid rgba(253,251,239,0.4)', fontFamily: 'var(--font-inter)' }}>
                                 <FaWhatsapp /> WhatsApp

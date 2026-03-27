@@ -3,7 +3,7 @@
 import Container from "@/components/container"
 import Link from "next/link"
 import { MdArrowOutward } from "react-icons/md"
-import { FiShield, FiSearch, FiFileText, FiSend } from "react-icons/fi"
+import { FiShield, FiSearch, FiFileText, FiSend, FiDollarSign, FiEye } from "react-icons/fi"
 import { useLanguage } from "@/context/language"
 import ScrollReveal from "@/components/animations/ScrollReveal"
 import { CornerOrnament } from "@/components/decorators/SVGDecorations"
@@ -19,6 +19,8 @@ export default function HomeServiceBento() {
         { icon: FiShield, num: "02", titleKey: "bentoStep2", descKey: "bentoStep2Desc" },
         { icon: FiFileText, num: "03", titleKey: "bentoStep3", descKey: "bentoStep3Desc" },
         { icon: FiSend, num: "04", titleKey: "bentoStep4", descKey: "bentoStep4Desc" },
+        { icon: FiDollarSign, num: "05", titleKey: "bentoStep5", descKey: "bentoStep5Desc" },
+        { icon: FiEye, num: "06", titleKey: "bentoStep6", descKey: "bentoStep6Desc" },
     ]
 
     return (
@@ -74,7 +76,7 @@ export default function HomeServiceBento() {
                                     {t('bentoTitle')}
                                 </h2>
 
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                     {steps.map((step, i) => {
                                         const Icon = step.icon
                                         return (
@@ -154,7 +156,7 @@ export default function HomeServiceBento() {
                                 </div>
                                 <div className="h-px" style={{ background: "rgba(255,255,255,0.15)" }} />
                                 <div>
-                                    <p className="text-5xl font-black mb-1" style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>20+</p>
+                                    <p className="text-5xl font-black mb-1" style={{ color: "#FFFFFF", fontFamily: "var(--font-inter)" }}>10+</p>
                                     <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-poppins)" }}>{t('heroStat3Label')}</p>
                                 </div>
                             </div>

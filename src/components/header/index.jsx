@@ -4,7 +4,8 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
-import { FaWhatsapp, FaTelegramPlane, FaVk } from "react-icons/fa"
+import { FaWhatsapp, FaTelegramPlane, FaVk, FaYoutube } from "react-icons/fa"
+import { SiRutube } from "react-icons/si"
 import { FiPhone, FiMail } from "react-icons/fi"
 import { useLanguage } from "@/context/language"
 import { usePathname } from "next/navigation"
@@ -27,9 +28,10 @@ const navLinks = [
 ]
 
 const socials = [
-    { icon: <FaVk size={13} />, href: "https://vk.com/tahaairwaves", label: "VK" },
+    { icon: <FaWhatsapp size={13} />, href: "https://wa.me/qr/TKSOMEYZZW2CN1", label: "WhatsApp" },
     { icon: <FaTelegramPlane size={13} />, href: "https://t.me/tahaairwaves", label: "Telegram" },
-    { icon: <FaWhatsapp size={13} />, href: "https://wa.me/919315226961", label: "WhatsApp" },
+    { icon: <FaVk size={13} />, href: "https://vkvideo.ru/@tahaairwaves", label: "VK Video" },
+    { icon: <FaYoutube size={13} />, href: "https://rutube.ru/channel/76971642/", label: "Rutube" },
 ]
 
 export default function Header() {
@@ -122,7 +124,7 @@ export default function Header() {
                                 style={{ color: "#4B5563", borderColor: "rgba(142,9,53,0.12)", fontFamily: "var(--font-inter)" }}>
                                 {lang === 'ru' ? '🇬🇧 EN' : '🇷🇺 РУ'}
                             </button>
-                            <a href="https://wa.me/919315226961?text=Hi%2C%20I%27m%20interested%20in%20hiring%20workers%20for%20Russia."
+                            <a href="https://wa.me/qr/TKSOMEYZZW2CN1"
                                 target="_blank" rel="noopener noreferrer">
                                 <button className="flex items-center gap-2 px-5 py-2 rounded text-[12px] tracking-wide font-semibold transition-all duration-200 cursor-pointer hover:opacity-90"
                                     style={{ background: C.primary, color: C.cream, fontFamily: "var(--font-inter)" }}>
@@ -202,7 +204,7 @@ export default function Header() {
                                     </a>
                                 ))}
                             </div>
-                            <a href="https://wa.me/919315226961" target="_blank" rel="noopener noreferrer"
+                            <a href="https://wa.me/qr/TKSOMEYZZW2CN1" target="_blank" rel="noopener noreferrer"
                                 onClick={() => setIsOpen(false)}>
                                 <button className="w-full py-3.5 rounded text-sm tracking-wide font-bold flex items-center justify-center gap-2 cursor-pointer"
                                     style={{ background: C.primary, color: C.cream, fontFamily: "var(--font-inter)" }}>

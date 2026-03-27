@@ -33,7 +33,7 @@ function StaggerTestimonials({ testimonials = [] }) {
 
     useEffect(() => {
         const update = () => {
-            setCardSize(window.innerWidth >= 640 ? 365 : 280)
+            setCardSize(window.innerWidth >= 640 ? 365 : Math.min(280, window.innerWidth - 40))
         }
         update()
         window.addEventListener('resize', update)
@@ -85,7 +85,7 @@ function StaggerTestimonials({ testimonials = [] }) {
                         <img src={item.flag} alt="" className="mb-4 h-8 w-10 rounded-sm object-cover shadow-sm" loading="lazy" />
 
                         {/* Quote */}
-                        <h3 className="text-sm sm:text-base font-medium leading-relaxed"
+                        <h3 className="text-xs sm:text-sm md:text-base font-medium leading-relaxed line-clamp-6 sm:line-clamp-none"
                             style={{
                                 fontFamily: 'var(--font-poppins)',
                                 color: isCenter ? '#FFFFFF' : '#262626',

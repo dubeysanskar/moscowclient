@@ -14,7 +14,7 @@ const posts = [
         title_en: "Why Russia is Becoming a Top Destination for Indian Workers",
         excerpt_ru: "По мере расширения инфраструктуры России спрос на квалифицированных индийских специалистов продолжает расти.",
         excerpt_en: "As Russia expands its infrastructure and industrial sectors, demand for professional Indian manpower surges.",
-        date: "15 Мар 2026",
+        date: "15 Mar 2026",
         cat: "Market Insights",
     },
     {
@@ -23,7 +23,7 @@ const posts = [
         title_en: "Complete Guide: Documentation & Visa for Russia Employment",
         excerpt_ru: "Пошаговое руководство по документированию, эмиграционному разрешению и визовому оформлению для России.",
         excerpt_en: "Step-by-step guide to documentation, emigration clearance, and visa processing for Russia deployment.",
-        date: "10 Мар 2026",
+        date: "10 Mar 2026",
         cat: "Guides",
     },
     {
@@ -32,7 +32,7 @@ const posts = [
         title_en: "How Trade Testing Ensures Quality Manpower for Russian Employers",
         excerpt_ru: "Строгий процесс проверки гарантирует, что только квалифицированные специалисты попадают к российским работодателям.",
         excerpt_en: "Rigorous testing guarantees only qualified, job-ready workers reach Russian employers.",
-        date: "5 Мар 2026",
+        date: "5 Mar 2026",
         cat: "Industry",
     },
 ]

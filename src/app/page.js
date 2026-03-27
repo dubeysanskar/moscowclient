@@ -7,8 +7,7 @@ import WhatWeDo from "@/components/home/what-we-do";
 import CardCarousel from "@/components/home/home-services";
 import HomeServiceBento from "@/components/home/home-service-bento";
 import ServicesShowcase from "@/components/home/home-projects";
-import WhyUs from "@/components/home/why-us";
-import CountriesWeServe from "@/components/home/countries-we-serve";
+
 import IndustriesWeServe from "@/components/home/industries-we-serve";
 import Partners from "@/components/home/partners";
 import Testimonials from "@/components/home/testimonial";
@@ -25,9 +24,8 @@ export default function Home() {
             <CardCarousel />
             <HomeServiceBento />
             <ServicesShowcase />
-            <CountriesWeServe />
             <IndustriesWeServe />
-            <WhyUs />
+
             <Partners />
             <Testimonials />
             <BlogPreview />
