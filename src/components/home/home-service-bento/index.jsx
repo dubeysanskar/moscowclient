@@ -33,6 +33,17 @@ export default function HomeServiceBento() {
                 <WavyLines width={1440} height={40} opacity={0.15} className="absolute top-[50%] left-0 w-full hidden lg:block" />
                 <CornerOrnament size={35} color="#8A0029" position="top-left" className="absolute top-6 left-6 opacity-30" />
                 <CornerOrnament size={35} color="#D32F2F" position="bottom-right" className="absolute bottom-6 right-6 opacity-30" />
+
+                {/* Diamond shapes */}
+                <svg className="absolute right-[12%] top-[15%] hidden lg:block" width="60" height="60" viewBox="0 0 60 60" fill="none" style={{ opacity: 0.25 }}>
+                    <rect x="30" y="2" width="38" height="38" rx="4" transform="rotate(45 30 2)" stroke="#8A0029" strokeWidth="1.5" fill="none" />
+                </svg>
+                <svg className="absolute left-[8%] bottom-[18%] hidden lg:block" width="45" height="45" viewBox="0 0 45 45" fill="none" style={{ opacity: 0.22 }}>
+                    <rect x="22.5" y="1" width="28" height="28" rx="3" transform="rotate(45 22.5 1)" stroke="#D32F2F" strokeWidth="1.2" fill="none" />
+                </svg>
+                <svg className="absolute right-[4%] bottom-[35%] hidden xl:block" width="35" height="35" viewBox="0 0 35 35" fill="none" style={{ opacity: 0.18 }}>
+                    <rect x="17.5" y="1" width="22" height="22" rx="2" transform="rotate(45 17.5 1)" stroke="#8A0029" strokeWidth="1" fill="none" />
+                </svg>
             </div>
 
             <Container className="relative" style={{ zIndex: 10 }}>

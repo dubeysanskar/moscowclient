@@ -42,10 +42,9 @@ export default function Footer() {
 
     return (
         <>
-        <SVGWave position="top" color="#1A1A1A" bgColor="#FDFBEF" height={50} variant="gentle" />
+        <SVGWave position="top" color="#1A1A1A" bgColor="#8A0029" height={50} variant="gentle" />
         <footer className="relative overflow-hidden" style={{ background: "#1A1A1A" }}>
-            {/* Top brand accent */}
-            <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: "#8E0935" }} />
+
 
             {/* World map image background */}
             <img

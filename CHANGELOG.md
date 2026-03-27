@@ -4,6 +4,61 @@
 
 ---
 
+## Session 9 — Services Tabs, Testimonials Carousel, Horizontal Scroll, SVG Visibility (March 27, 2026)
+
+### Home — AnimatedTabs Services Section
+- **File**: `src/components/home/home-projects/index.jsx`
+- Integrated `AnimatedTabs` component with 9 service tabs (Cleaners, Drivers, General Labour, Factory Workers, Technicians, Visa & Clearance, Outsourcing, Packers, Attestation)
+- Square image layout with bilingual descriptions and tags
+- All descriptions rewritten to sound natural (removed "professionally trained" etc.)
+
+### Home — StaggerTestimonials Carousel
+- **File**: `src/components/home/testimonial/index.jsx`, `src/components/ui/stagger-testimonials.jsx`
+- Replaced 3-card grid with staggered polygon card carousel
+- Added 3 new testimonials (Ольга Сидорова, Андрей Козлов, Марина Белова)
+- Maroon center card, prev/next navigation, corner-cut polygon design
+
+### Home — WhatWeDo Horizontal Scroll
+- **File**: `src/components/home/what-we-do/index.jsx`
+- Sticky section (350vh) with horizontal scroll driven by vertical scrolling
+- All 5 cards uniform with alternating maroon (#8A0029) / dark (#262626) backgrounds
+- Visible 2px borders with box-shadow glow, 3 cards visible at a time on desktop
+- Framer Motion `useScroll`/`useTransform` maps vertical scroll to `-40%` horizontal translation
+
+### Home — AnimatedTabs Mobile UX
+- **File**: `src/components/ui/animated-tabs.jsx`
+- Horizontal scroll with snap, auto-centers active tab, `text-xs` on mobile, hidden scrollbar
+
+### Home — Process Section SVG Visibility
+- **File**: `src/components/home/home-service-bento/index.jsx`
+- Increased SVG opacity from 0.04-0.08 → 0.25-0.30 range
+- Switched Container z-index from Tailwind class to inline style
+- Added 3 diamond-shape SVGs at 0.18-0.25 opacity
+
+### Home — WhatWeDo Horizontal Scroll (Desktop) + Vertical Stack (Mobile)
+- **File**: `src/components/home/what-we-do/index.jsx`
+- Split into `DesktopScroll` (sticky 450vh, hidden < lg) and `MobileStack` (vertical cards, hidden ≥ lg)
+- All 5 cards uniform: alternating maroon (#8A0029) / dark (#262626) with visible 2px borders + box-shadow
+- Desktop: Framer Motion `useScroll`/`useTransform` maps vertical scroll to -43% horizontal translation
+- Mobile: compact vertical cards (minHeight 220px)
+
+### Home — CTA Section Mobile Fix
+- **File**: `src/components/home/cta/index.jsx`
+- Made SVGs visible on all screens (removed `hidden lg:block`)
+- Buttons now full-width on mobile (`w-full sm:w-auto`)
+- Added diamond SVGs visible on all screen sizes
+
+### Home — India-Russia Flags
+- **File**: `src/components/home/countries-we-serve/index.jsx`
+- Replaced emoji flags (🇮🇳/🇷🇺) with flagcdn images (w80) for crisp laptop rendering
+
+### Footer — Gap Fix
+- **File**: `src/components/footer/index.jsx`
+- Changed `SVGWave` bgColor from `#FDFBEF` (cream) to `#8A0029` (maroon) — eliminates white stripe between CTA and footer
+- Removed 3px red accent line at top of footer
+
+---
+
 ## Session 8 — Full Localization Overhaul, Contact Update, Blog & Service Pages (March 25, 2026)
 
 ### Home Page — ServicesShowcase Russian Tags

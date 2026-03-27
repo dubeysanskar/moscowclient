@@ -126,7 +126,7 @@ export default function CountriesWeServe() {
                             <CornerOrnament size={24} color="#8A0029" position="top-right" className="absolute top-4 right-4 opacity-30" />
                             <DotGrid rows={3} cols={3} color="#8A0029" opacity={0.06} spacing={14} className="absolute bottom-4 right-4" />
 
-                            <div className="text-3xl mb-3">🇮🇳</div>
+                            <img src="https://flagcdn.com/w80/in.png" alt="India" className="w-12 h-auto rounded-sm shadow-sm mb-3" loading="lazy" />
                             <h3 className="text-xl font-black mb-1" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>India</h3>
                             <p className="text-xs font-bold uppercase tracking-wider mb-5"
                                 style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>
@@ -227,7 +227,7 @@ export default function CountriesWeServe() {
                             <CornerOrnament size={24} color="#D32F2F" position="top-right" className="absolute top-4 right-4 opacity-30" />
                             <Crosshair size={50} color="#D32F2F" opacity={0.06} className="absolute bottom-4 right-4" />
 
-                            <div className="text-3xl mb-3">🇷🇺</div>
+                            <img src="https://flagcdn.com/w80/ru.png" alt="Russia" className="w-12 h-auto rounded-sm shadow-sm mb-3" loading="lazy" />
                             <h3 className="text-xl font-black mb-1" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>Russia</h3>
                             <p className="text-xs font-bold uppercase tracking-wider mb-5"
                                 style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>

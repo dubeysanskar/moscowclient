@@ -31,11 +31,20 @@ export default function CTA() {
                 gradient="from-white/[0.05]"
                 className="left-[20%] top-[5%] hidden lg:block" />
 
-            {/* Additional SVG decorations */}
-            <DotMatrix rows={4} cols={4} color="#FFFFFF" spacing={20} radius={2} opacity={0.05} className="absolute top-10 right-10 hidden lg:block" />
-            <WavyLines width={1440} height={60} color="#FFFFFF" accentColor="#D32F2F" opacity={0.05} className="absolute bottom-[30%] left-0 w-full hidden lg:block" />
-            <CornerOrnament size={60} color="#D32F2F" position="top-left" className="absolute top-8 left-8 opacity-15 hidden lg:block" />
-            <CornerOrnament size={60} color="#D32F2F" position="bottom-right" className="absolute bottom-8 right-8 opacity-15 hidden lg:block" />
+            {/* Mobile-visible SVG decorations */}
+            <DotMatrix rows={3} cols={3} color="#FFFFFF" spacing={16} radius={2} opacity={0.08} className="absolute top-6 right-6" />
+            <DotMatrix rows={4} cols={4} color="#FFFFFF" spacing={20} radius={2} opacity={0.05} className="absolute bottom-6 left-6 hidden sm:block" />
+            <WavyLines width={1440} height={60} color="#FFFFFF" accentColor="#D32F2F" opacity={0.06} className="absolute bottom-[30%] left-0 w-full" />
+            <CornerOrnament size={40} color="#D32F2F" position="top-left" className="absolute top-6 left-6 opacity-20" />
+            <CornerOrnament size={40} color="#D32F2F" position="bottom-right" className="absolute bottom-6 right-6 opacity-20" />
+
+            {/* Diamond SVGs — visible on all screens */}
+            <svg className="absolute right-[8%] top-[12%]" width="40" height="40" viewBox="0 0 40 40" fill="none" style={{ opacity: 0.15 }}>
+                <rect x="20" y="1" width="25" height="25" rx="3" transform="rotate(45 20 1)" stroke="#FFFFFF" strokeWidth="1.2" fill="none" />
+            </svg>
+            <svg className="absolute left-[6%] bottom-[15%]" width="30" height="30" viewBox="0 0 30 30" fill="none" style={{ opacity: 0.12 }}>
+                <rect x="15" y="1" width="18" height="18" rx="2" transform="rotate(45 15 1)" stroke="#D32F2F" strokeWidth="1" fill="none" />
+            </svg>
 
             {/* Grid pattern */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.03 }} aria-hidden="true">
@@ -66,16 +75,16 @@ export default function CTA() {
                     </h2>
 
                     <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
-                        <Link href="/contact">
-                            <button className="flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl relative overflow-hidden group"
+                        <Link href="/contact" className="w-full sm:w-auto">
+                            <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl relative overflow-hidden group"
                                 style={{ background: "#FFFFFF", color: "#8A0029", fontFamily: "var(--font-inter)" }}>
                                 <span className="relative z-10 flex items-center gap-2">
                                     {t('heroCtaContact')} <MdArrowOutward size={15} />
                                 </span>
                             </button>
                         </Link>
-                        <Link href="/services">
-                            <button className="flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300 hover:bg-white/15"
+                        <Link href="/services" className="w-full sm:w-auto">
+                            <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold cursor-pointer transition-all duration-300 hover:bg-white/15"
                                 style={{ background: "transparent", color: "#FFFFFF", border: "2px solid rgba(255,255,255,0.3)", fontFamily: "var(--font-inter)" }}>
                                 {t('heroCtaServices')}
                             </button>
