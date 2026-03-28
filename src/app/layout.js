@@ -29,36 +29,66 @@ export const metadata = {
     metadataBase: new URL("https://tahaairwaves.ru"),
 
     title: {
-        default: "Taha Airwaves | Manpower Recruitment & Deployment to Russia",
+        default: "Taha Airwaves | Подбор и размещение персонала в Россию",
         template: "%s | Taha Airwaves"
     },
 
     description:
-        "Taha Airwaves is a government-licensed overseas manpower recruitment agency specializing in deploying skilled and semi-skilled workforce from India to Russia. End-to-end recruitment, visa processing, and deployment services.",
+        "Taha Airwaves — лицензированное агентство по подбору квалифицированного и полуквалифицированного персонала из Индии для работы в России. Полный цикл рекрутинга, визовое оформление, размещение работников. Офис в Москве.",
 
     keywords: [
         "Taha Airwaves",
+        "подбор персонала Россия",
+        "рекрутинг из Индии",
+        "размещение работников Россия",
+        "индийские работники Россия",
+        "визовое оформление",
+        "аутсорсинг персонала",
+        "кадровое агентство Москва",
+        "строительные рабочие Россия",
+        "разнорабочие из Индии",
+        "водители для России",
+        "грузчики Москва",
+        "уборщики для предприятий",
+        "бариста для кафе",
+        "упаковщики склад",
+        "сварщики электрики сантехники",
+        "аттестация документов",
+        "эмиграционное оформление",
+        "рабочая сила из Индии",
+        "массовый подбор персонала",
+        "рекрутинговое агентство Нью-Дели",
+        "найм иностранных работников Россия",
         "manpower recruitment Russia",
-        "overseas recruitment agency India",
-        "workforce deployment Russia",
         "Indian workers Russia",
-        "visa processing services",
-        "bulk manpower hiring",
-        "overseas employment agency",
-        "construction workers Russia",
-        "hospitality manpower",
-        "factory workers deployment",
-        "recruitment agency New Delhi"
+        "workforce deployment Russia",
+        "overseas recruitment agency",
+        "hire workers from India",
+        "нанять работников из Индии",
+        "кадровый аутсорсинг Россия",
+        "подбор рабочих для строительства Москва",
+        "помощники на производстве Россия",
+        "рабочие для нефтегазовой отрасли",
+        "персонал для гостиниц Россия",
+        "логистический персонал Москва",
     ],
 
     authors: [{ name: "Taha Airwaves Private Limited" }],
     creator: "Taha Airwaves Private Limited",
     publisher: "Taha Airwaves Private Limited",
 
+    alternates: {
+        canonical: "https://tahaairwaves.ru",
+        languages: {
+            "ru-RU": "https://tahaairwaves.ru",
+            "en-US": "https://tahaairwaves.ru",
+        },
+    },
+
     openGraph: {
-        title: "Taha Airwaves | Manpower Recruitment & Deployment to Russia",
+        title: "Taha Airwaves | Подбор и размещение персонала в Россию",
         description:
-            "Government-licensed manpower recruitment agency deploying verified Indian workforce to Russia.",
+            "Лицензированное кадровое агентство — подбор и размещение квалифицированного персонала из Индии в Россию. Офис в Москве, более 500 работников размещено.",
         url: "https://tahaairwaves.ru",
         siteName: "Taha Airwaves",
         locale: "ru_RU",
@@ -68,16 +98,16 @@ export const metadata = {
                 url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Taha Airwaves — Manpower Recruitment & Deployment to Russia"
+                alt: "Taha Airwaves — Подбор и размещение персонала в Россию"
             }
         ]
     },
 
     twitter: {
         card: "summary_large_image",
-        title: "Taha Airwaves | Manpower Recruitment & Deployment to Russia",
+        title: "Taha Airwaves | Подбор и размещение персонала в Россию",
         description:
-            "Government-licensed overseas recruitment agency deploying Indian workforce to Russia.",
+            "Лицензированное агентство по подбору и размещению индийского персонала в России.",
         images: ["/og-image.jpg"]
     },
 
@@ -93,7 +123,11 @@ export const metadata = {
         }
     },
 
-    category: "Manpower Recruitment & Deployment",
+    verification: {
+        yandex: "",
+    },
+
+    category: "Подбор и размещение персонала",
 
     icons: {
 		icon: [

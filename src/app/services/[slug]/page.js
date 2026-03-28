@@ -243,8 +243,13 @@ export async function generateMetadata({ params }) {
     const { slug } = await params
     const service = servicesData[slug] || {}
     return {
-        title: `${service.title || 'Service'} — Taha Airwaves`,
-        description: service.metaDesc || 'Manpower recruitment services by Taha Airwaves.',
+        title: `${service.title_ru || service.title || 'Услуга'} — Taha Airwaves`,
+        description: service.metaDesc_ru || service.metaDesc || 'Услуги по подбору персонала от Taha Airwaves.',
+        openGraph: {
+            title: `${service.title_ru || service.title || 'Услуга'} — Taha Airwaves`,
+            description: service.metaDesc_ru || service.metaDesc || 'Услуги по подбору персонала от Taha Airwaves.',
+            url: `https://tahaairwaves.ru/services/${slug}`,
+        },
     }
 }
 

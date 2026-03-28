@@ -44,7 +44,7 @@ export default function Footer() {
 
     return (
         <>
-            <SVGWave position="top" color="#1A1A1A" bgColor="#8A0029" height={50} variant="gentle" />
+            <SVGWave position="top" color="#1A1A1A" bgColor="#F7F7F7" height={50} variant="gentle" />
             <footer className="relative overflow-hidden" style={{ background: "#1A1A1A" }}>
 
 

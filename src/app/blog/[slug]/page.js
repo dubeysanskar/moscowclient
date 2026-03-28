@@ -9,8 +9,13 @@ export async function generateMetadata({ params }) {
     const { slug } = await params
     const post = BLOG_POSTS.find(p => p.slug === slug) || {}
     return {
-        title: `${post.title || 'Blog'} — Taha Airwaves`,
-        description: post.excerpt || 'Blog article from Taha Airwaves.',
+        title: `${post.title_ru || post.title || 'Блог'} — Taha Airwaves`,
+        description: post.excerpt_ru || post.excerpt || 'Статья блога Taha Airwaves.',
+        openGraph: {
+            title: `${post.title_ru || post.title || 'Блог'} — Taha Airwaves`,
+            description: post.excerpt_ru || post.excerpt || 'Статья блога Taha Airwaves.',
+            url: `https://tahaairwaves.ru/blog/${slug}`,
+        },
     }
 }
 
