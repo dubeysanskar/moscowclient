@@ -44,7 +44,6 @@ export default function Footer() {
 
     return (
         <>
-            <SVGWave position="top" color="#1A1A1A" bgColor="#8A0029" height={50} variant="gentle" />
             <footer className="relative overflow-hidden" style={{ background: "#1A1A1A" }}>
 
 
@@ -98,7 +97,7 @@ export default function Footer() {
 
                         {/* Quick links */}
                         <div>
-                            <h4 className="text-[10px] tracking-[0.2em] uppercase font-bold mb-5"
+                            <h4 className="text-sm tracking-[0.2em] uppercase font-bold mb-5"
                                 style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
                                 {t('quickLinks')}
                             </h4>
@@ -117,7 +116,7 @@ export default function Footer() {
 
                         {/* Services */}
                         <div>
-                            <h4 className="text-[10px] tracking-[0.2em] uppercase font-bold mb-5"
+                            <h4 className="text-sm tracking-[0.2em] uppercase font-bold mb-5"
                                 style={{ color: "#D32F2F", fontFamily: "var(--font-inter)" }}>
                                 {t('ourServices')}
                             </h4>
@@ -136,7 +135,7 @@ export default function Footer() {
 
                         {/* Offices */}
                         <div>
-                            <h4 className="text-[10px] tracking-[0.2em] uppercase font-bold mb-5"
+                            <h4 className="text-sm tracking-[0.2em] uppercase font-bold mb-5"
                                 style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
                                 {t('ourOffices')}
                             </h4>
@@ -156,7 +155,7 @@ export default function Footer() {
 
                         {/* Contact — Russian data */}
                         <div>
-                            <h4 className="text-[10px] tracking-[0.2em] uppercase font-bold mb-5"
+                            <h4 className="text-sm tracking-[0.2em] uppercase font-bold mb-5"
                                 style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
                                 {t('contact')}
                             </h4>

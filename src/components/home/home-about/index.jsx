@@ -10,9 +10,9 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/animat
 
 const HIGHLIGHTS = [
     { icon: FiGlobe, en: "MEA Licensed & Authorized Agency", ru: "Лицензированное агентство MEA" },
-    { icon: FiUsers, en: "500+ Workers Deployed to Russia", ru: "500+ работников размещено в России" },
+    { icon: FiUsers, en: "Head Office in India, New Delhi", ru: "Головной офис в Индии, Нью-Дели" },
     { icon: FiShield, en: "Fully Compliant Documentation Process", ru: "Полностью соответствующий процесс документации" },
-    { icon: FiBookOpen, en: "10+ Years of Recruitment Experience (Since 2015)", ru: "10+ лет опыта в подборе персонала (с 2015)" },
+    { icon: FiBookOpen, en: "10+ Years Working with Gulf & GCC", ru: "10+ лет работы со странами Персидского залива и GCC" },
 ]
 
 export default function HomeAbout() {
