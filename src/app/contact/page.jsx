@@ -8,10 +8,8 @@ export const metadata = {
         "офис Москва подбор персонала",
         "телефон кадрового агентства",
         "связаться рекрутинг Россия",
-        "hire Indian workers in Russia",
-        "Indian manpower for Russia",
-        "recruitment agency Russia India",
         "найм работников из Индии в Россию",
+        "кадровое агентство Россия Индия",
     ],
     openGraph: {
         title: "Контакты Taha Airwaves | Найм персонала из Индии для России и международных проектов",

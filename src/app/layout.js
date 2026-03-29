@@ -37,7 +37,6 @@ export const metadata = {
         "Аккредитованное агентство по подбору персонала, предоставляющее квалифицированных работников из Индии для России и мировых рынков. Быстрый найм, проверенные кандидаты и полная визовая поддержка.",
 
     keywords: [
-        // Master keywords (RU) — repeat across pages
         "найм работников из Индии в Россию",
         "поставка рабочей силы из Индии в Россию",
         "кадровое агентство Россия Индия",
@@ -48,18 +47,6 @@ export const metadata = {
         "аутсорсинг персонала из Индии",
         "агентство по поставке рабочей силы Индия Россия",
         "Taha Airwaves персонал",
-        // Master keywords (EN) — repeat across pages
-        "hire Indian workers in Russia",
-        "Indian manpower supply Russia",
-        "recruitment agency Russia India",
-        "Indian labour for Russia",
-        "overseas manpower agency India",
-        "hire workers from India",
-        "Indian workforce solutions Russia",
-        "Indian manpower outsourcing company",
-        "Indian labour supply agency Russia",
-        "Taha Airwaves Indian manpower",
-        // Additional Russian keywords
         "подбор персонала Россия",
         "рекрутинг из Индии",
         "размещение работников Россия",
@@ -74,15 +61,6 @@ export const metadata = {
         "массовый подбор персонала",
         "быстрое размещение индийского персонала",
         "проверенные индийские работники",
-        // Additional English keywords
-        "fast Indian manpower deployment",
-        "verified Indian manpower supply",
-        "skilled workers from India",
-        "workforce solutions Russia",
-        "manpower recruitment Russia",
-        "Indian workers Russia",
-        "workforce deployment Russia",
-        "overseas recruitment agency",
     ],
 
     authors: [{ name: "Taha Airwaves Private Limited" }],

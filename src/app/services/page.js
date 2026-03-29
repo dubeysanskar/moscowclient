@@ -11,17 +11,8 @@ export const metadata = {
         "международные кадровые услуги",
         "аутсорсинг рабочей силы",
         "услуги по подбору персонала",
-        "Indian manpower services Russia",
-        "hire Indian skilled workers abroad",
-        "labour supply company India",
-        "international manpower services",
-        "outsourcing workforce solutions",
-        "manpower recruitment services",
-        // Master keywords
-        "hire Indian workers in Russia",
-        "Indian manpower for Russia",
-        "workforce solutions Russia",
         "найм работников из Индии в Россию",
+        "кадровое агентство Россия Индия",
     ],
     openGraph: {
         title: "Услуги по подбору персонала | Найм квалифицированных работников из Индии для России и GCC",
