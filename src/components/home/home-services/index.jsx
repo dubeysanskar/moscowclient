@@ -178,13 +178,7 @@ export default function CardCarousel() {
                                     {lang === 'ru' ? 'Работников\nразмещено в России' : 'Workers\ndeployed in Russia'}
                                 </span>
                             </div>
-                            <div className="flex items-center gap-3 px-6 py-4 rounded-xl"
-                                style={{ background: "rgba(138,0,41,0.04)", border: "1px solid rgba(138,0,41,0.08)" }}>
-                                <span className="text-3xl lg:text-4xl font-black" style={{ color: "#8A0029", fontFamily: "var(--font-inter)" }}>365</span>
-                                <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: "#262626", fontFamily: "var(--font-inter)" }}>
-                                    {lang === 'ru' ? 'Дней\nнепрерывной поддержки' : 'Days\nOngoing Support'}
-                                </span>
-                            </div>
+
                         </div>
                     </div>
                 </ScrollReveal>

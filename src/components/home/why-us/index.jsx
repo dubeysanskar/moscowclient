@@ -103,21 +103,16 @@ export default function WhyUs() {
                                     style={{ fontFamily: "var(--font-poppins)", color: "rgba(253,251,239,0.4)" }}>
                                     {t('whyPart2Desc')}
                                 </p>
-                                <div className="grid grid-cols-2 gap-4">
-                                    {[
-                                        { num: t('whyStat1Number'), label: t('whyStat1Label'), color: "#BC264B" },
-                                        { num: t('whyStat2Number'), label: t('whyStat2Label'), color: "#FDFBEF" },
-                                    ].map((s, i) => (
-                                        <div key={i} className="p-4 rounded-sm" style={{ background: "rgba(253,251,239,0.04)", border: "1px solid rgba(253,251,239,0.06)" }}>
-                                            <div className="text-4xl font-black mb-1" style={{ color: s.color, fontFamily: "var(--font-inter)" }}>
-                                                {s.num}
-                                            </div>
-                                            <div className="text-[11px] font-medium tracking-wide uppercase"
-                                                style={{ color: "rgba(253,251,239,0.3)", fontFamily: "var(--font-inter)" }}>
-                                                {s.label}
-                                            </div>
+                                <div className="grid grid-cols-1 gap-4">
+                                    <div className="p-4 rounded-sm" style={{ background: "rgba(253,251,239,0.04)", border: "1px solid rgba(253,251,239,0.06)" }}>
+                                        <div className="text-4xl font-black mb-1" style={{ color: "#BC264B", fontFamily: "var(--font-inter)" }}>
+                                            {t('whyStat1Number')}
                                         </div>
-                                    ))}
+                                        <div className="text-[11px] font-medium tracking-wide uppercase"
+                                            style={{ color: "rgba(253,251,239,0.3)", fontFamily: "var(--font-inter)" }}>
+                                            {t('whyStat1Label')}
+                                        </div>
+                                    </div>
                                 </div>
                                 <Link href="/contact">
                                     <button className="flex items-center gap-2 px-6 py-3 rounded text-sm font-bold cursor-pointer transition-all duration-300 hover:opacity-90 hover:scale-105"
