@@ -7,5 +7,8 @@ export const metadata = {
         description: "Лицензированное кадровое агентство для подбора работников из Индии для российских работодателей.",
         url: "https://tahaairwaves.ru/recruitment-agency-russia",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/recruitment-agency-russia",
+    },
 }
 export default function Layout({ children }) { return children }

@@ -14,7 +14,7 @@ const translations = {
         // Hero
         heroTitle1: 'КАДРОВЫЕ',
         heroTitle2: 'РЕШЕНИЯ',
-        heroTagline: 'Государственно одобренное агентство по подбору персонала с местной поддержкой в Москве. Мы помогаем российским компаниям нанимать квалифицированных работников из Индии, Непала и Индонезии.',
+        heroTagline: 'Лицензированное кадровое агентство с офисом в Москве. Мы помогаем российским компаниям нанимать квалифицированных специалистов из Индии, Непала и Индонезии.',
         heroCtaServices: 'Получить персонал',
         heroCtaContact: 'Поговорить с экспертом (WhatsApp)',
         heroStat1Value: '500+',
@@ -33,7 +33,7 @@ const translations = {
         // About
         aboutTitle: '• О нас',
         aboutPara1: 'Ваш надёжный кадровый партнёр в России',
-        aboutPara2: 'Taha Airwaves — это признанная компания по подбору персонала с мировым опытом, специализирующаяся на поставке квалифицированной рабочей силы в Россию. С сильным присутствием в Москве и глубоким пониманием российского трудового законодательства, мы обеспечиваем плавные и быстрые решения по найму.',
+        aboutPara2: 'Taha Airwaves — признанная компания по подбору персонала с мировым опытом, специализирующаяся на поставке квалифицированной рабочей силы в Россию. Имеем сильные позиции в Москве и глубокое понимание российского трудового законодательства. Обеспечиваем быстрые и плавные решения по найму.',
         learnMore: 'Запросить кандидатов',
         getInTouch: 'Связаться',
         // Our Strength
@@ -129,8 +129,8 @@ const translations = {
         whyPart2Desc: 'С более чем 10-летним опытом в сфере зарубежного набора персонала (с 2015) и выделенной командой для России с 2022 года, Taha Airwaves заработала репутацию надёжности и скорости.',
         whyStat1Number: '500+',
         whyStat1Label: 'Работников размещено',
-        whyStat2Number: '10+',
-        whyStat2Label: 'Лет опыта',
+        whyStat2Number: '✓',
+        whyStat2Label: 'Проверенные кандидаты через наш скрининг',
         // Testimonials
         testimonialsTitle: 'Что говорят наши',
         testimonialsTitleAccent: 'клиенты',
@@ -391,8 +391,8 @@ const translations = {
         whyPart2Desc: 'We deliver skilled manpower from India to Russia — without delays.',
         whyStat1Number: '500+',
         whyStat1Label: 'Workers Deployed',
-        whyStat2Number: '10+',
-        whyStat2Label: 'Years Experience',
+        whyStat2Number: '✓',
+        whyStat2Label: 'Verified Through Screening',
         testimonialsTitle: 'What Our',
         testimonialsTitleAccent: 'Clients Say',
         testimonialsSubtitle: 'Trusted by employers across Russia and the Gulf region',

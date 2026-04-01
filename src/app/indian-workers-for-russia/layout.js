@@ -7,5 +7,8 @@ export const metadata = {
         description: "Наймите работников из Индии для России. Надежное кадровое агентство с быстрым подбором.",
         url: "https://tahaairwaves.ru/indian-workers-for-russia",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/indian-workers-for-russia",
+    },
 }
 export default function Layout({ children }) { return children }

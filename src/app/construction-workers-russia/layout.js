@@ -7,5 +7,8 @@ export const metadata = {
         description: "Подбор каменщиков, электриков, сварщиков, разнорабочих из Индии для строительных объектов в России.",
         url: "https://tahaairwaves.ru/construction-workers-russia",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/construction-workers-russia",
+    },
 }
 export default function Layout({ children }) { return children }

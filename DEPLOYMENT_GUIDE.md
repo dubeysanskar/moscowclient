@@ -61,7 +61,7 @@ pm2 restart tahaairwaves
 ### First-Time Setup (already done)
 
 ```bash
-git clone https://github.com/dubeysanskar/tahaairwaves-russia.git
+git clone git@github.com:dubeysanskar/moscowclient.git
 cd tahaairwaves-russia
 npm install
 

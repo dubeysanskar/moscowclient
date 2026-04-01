@@ -7,5 +7,8 @@ export const metadata = {
         description: "Обученные и опытные работники из Индии для компаний в Санкт-Петербурге.",
         url: "https://tahaairwaves.ru/hire-indian-workers-saint-petersburg",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/hire-indian-workers-saint-petersburg",
+    },
 }
 export default function Layout({ children }) { return children }

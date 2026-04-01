@@ -16,6 +16,9 @@ export const metadata = {
         description: "Свяжитесь с нами: +7 985 074-88-28, info@tahaairwaves.ru. Офис в Москве и Нью-Дели.",
         url: "https://tahaairwaves.ru/contact",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/contact",
+    },
 }
 
 export default function Contact(){

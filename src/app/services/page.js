@@ -19,6 +19,9 @@ export const metadata = {
         description: "Ознакомьтесь с нашими услугами по подбору персонала для России и международных рынков.",
         url: "https://tahaairwaves.ru/services",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/services",
+    },
 }
 
 export default function Services(){

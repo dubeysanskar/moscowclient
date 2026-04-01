@@ -19,6 +19,9 @@ export const metadata = {
         description: "Узнайте о Taha Airwaves — надежном международном агентстве по подбору персонала, соединяющем индийских работников с работодателями в России.",
         url: "https://tahaairwaves.ru/about",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/about",
+    },
 }
 
 export default function About(){

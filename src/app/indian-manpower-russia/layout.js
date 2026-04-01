@@ -7,5 +7,8 @@ export const metadata = {
         description: "Профессиональный подбор квалифицированных работников из Индии для российских предприятий. Быстрый найм и полная визовая поддержка.",
         url: "https://tahaairwaves.ru/indian-manpower-russia",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/indian-manpower-russia",
+    },
 }
 export default function Layout({ children }) { return children }

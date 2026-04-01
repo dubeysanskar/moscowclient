@@ -8,10 +8,10 @@ import { FiShield, FiGlobe, FiUsers, FiAward, FiTarget, FiHeart, FiStar, FiTrend
 import { DotGrid, Crosshair, CornerOrnament, FlowLine, GlobeWireframe, CircuitLines, GeometricFrame } from "@/components/decorators/SVGDecorations"
 
 const GLOBAL_STATS = [
-    { value: "500+", labelEn: "Workers Deployed", labelRu: "Трудоустроено специалистов", accent: "#8E0935" },
-    { value: "10+", labelEn: "Years Experience", labelRu: "Лет опыта", accent: "#BC264B" },
+    { value: "5000+", labelEn: "Workers Deployed Globally", labelRu: "Специалистов трудоустроено по всему миру", accent: "#8E0935" },
+    { value: "11+", labelEn: "Countries Served", labelRu: "Стран обслужено", accent: "#BC264B" },
     { value: "50+", labelEn: "Global Partners", labelRu: "Глобальных партнёров", accent: "#8E0935" },
-    { value: "100%", labelEn: "Compliance Rate", labelRu: "Соответствие требованиям", accent: "#BC264B" },
+    { value: "24/7", labelEn: "Dedicated Support", labelRu: "Постоянная поддержка", accent: "#BC264B" },
 ]
 
 const MISSION_VISION = [

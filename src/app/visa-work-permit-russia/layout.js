@@ -7,5 +7,8 @@ export const metadata = {
         description: "Полное визовое оформление для индийских работников, направляемых в Россию.",
         url: "https://tahaairwaves.ru/visa-work-permit-russia",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/visa-work-permit-russia",
+    },
 }
 export default function Layout({ children }) { return children }

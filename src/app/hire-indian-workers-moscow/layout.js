@@ -7,5 +7,8 @@ export const metadata = {
         description: "Наймите квалифицированных работников из Индии в Москве для строительства, фабрик, логистики и гостиничного бизнеса.",
         url: "https://tahaairwaves.ru/hire-indian-workers-moscow",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/hire-indian-workers-moscow",
+    },
 }
 export default function Layout({ children }) { return children }

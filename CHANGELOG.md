@@ -4,6 +4,91 @@
 
 ---
 
+## Session 13 — Russian SEO Pages & Canonical URL Fixes (April 1, 2026)
+
+### 31 New Russian-Language SEO Landing Pages
+- **Data file**: `src/data/seo-pages-ru.js` (NEW — 494 lines)
+  - Contains all 31 pages with: metaTitle, metaDesc, keywords, h1, tagline, sections[], ctaDescription
+  - Section types: `text`, `list`, `steps`, `cards`, `contact`
+- **Dynamic route**: `src/app/[slug]/page.js` (NEW)
+  - Server component using `generateStaticParams()` + `generateMetadata()`
+  - Renders via existing `SEOPageTemplate` component
+  - `dynamicParams = false` — returns 404 for unknown slugs
+  - Canonical URLs set per-page: `https://tahaairwaves.ru/{encoded-slug}`
+- **Pages created** (Cyrillic URLs):
+  1. `/индийские-работники-в-россии`
+  2. `/нанять-рабочих-из-индии`
+  3. `/надежные-работники-из-индии`
+  4. `/массовый-подбор-персонала-из-индии`
+  5. `/рекрутинг-рабочих-из-индии-под-ключ`
+  6. `/рабочие-из-индии-для-строительства`
+  7. `/рабочие-из-индии-для-производства`
+  8. `/индийские-рабочие-для-склада`
+  9. `/персонал-из-индии-для-гостиниц`
+  10. `/рабочие-из-индии-для-сельского-хозяйства`
+  11. `/заказать-рабочих-из-индии`
+  12. `/подбор-рабочих-из-индии-цена`
+  13. `/агентство-по-подбору-персонала-индия`
+  14. `/рабочие-из-индии-с-документами`
+  15. `/официальный-наем-рабочих-из-индии`
+  16. `/нанять-персонал-из-индии`
+  17. `/услуги-подбора-персонала-индия`
+  18. `/агентство-по-подбору-рабочих-из-индии`
+  19. `/подбор-персонала-из-индии-цена`
+  20. `/контакты-рекрутингового-агентства-в-индии`
+  21. `/лучшее-рекрутинговое-агентство-в-индии`
+  22. `/массовый-рекрутинг-в-индии`
+  23. `/как-связаться-с-рекрутинговым-агентством-в-индии`
+  24. `/телефон-кадрового-агентства-индия`
+  25. `/заказать-подбор-персонала-в-индии`
+  26. `/агентство-по-подбору-рабочих-индия-контакты`
+  27. `/сколько-стоит-нанять-рабочих-из-индии`
+  28. `/процесс-оформления-работников-из-индии`
+  29. `/плюсы-индийских-работников`
+  30. `/рабочие-в-россию-из-за-границы`
+  31. `/faq-работники-из-индии`
+
+### Canonical URL Fixes (All Pages)
+- **Root layout** (`src/app/layout.js`): Already had `canonical: "https://tahaairwaves.ru"` — correct for homepage
+- **Static pages** (about, blog, contact, services): Already had correct per-page canonicals
+- **Projects page** (`src/app/projects/page.js`): Added metadata with `canonical: "https://tahaairwaves.ru/projects"`
+- **21 English SEO pages**: Added `alternates.canonical` to all layout.js files via script:
+  - indian-manpower-russia, recruitment-agency-russia, construction-workers-russia,
+    fast-workforce-deployment-russia, visa-work-permit-russia, hire-indian-workers-moscow,
+    hire-indian-workers-saint-petersburg, indian-workers-for-russia, indian-manpower-agency-contact,
+    recruitment-offices-india, best-recruitment-agencies-india, best-staffing-agencies-india,
+    hire-indian-workers-mytishchi, hire-indian-workers-lyubertsy, hire-indian-workers-korolyov,
+    hire-indian-workers-krasnogorsk, hire-indian-workers-zheleznodorozhny, hire-indian-workers-odintsovo,
+    hire-indian-workers-zhukovsky, hire-indian-workers-kolomna, hire-indian-workers-mozhaysk
+- **Dynamic routes** (services/[slug], blog/[slug]): Already had correct per-slug canonicals
+- **New Russian pages** ([slug] dynamic route): Canonicals set via `generateMetadata()` with URL-encoded slugs
+
+### SEO Links Cross-Linking Update
+- **File**: `src/data/seo-links.js`
+  - Added all 31 Russian page links to `SEO_INTERNAL_LINKS` array
+  - Total internal links: 21 English + 31 Russian = 52 cross-links
+  - `getLinksExcluding()` helper for per-page link filtering
+
+### Sitemap Update
+- **File**: `src/app/sitemap.js`
+  - Added `SEO_PAGES_RU` array with all 31 Cyrillic slugs
+  - Russian URLs are `encodeURIComponent()`-encoded in sitemap output
+  - Added `/projects` to static pages
+  - Total sitemap URLs: ~6 static + 11 services + 9 blogs + 21 English SEO + 31 Russian SEO = **78 URLs**
+
+### Files Changed Summary
+
+| File | Action | Description |
+|---|---|---|
+| `src/data/seo-pages-ru.js` | **NEW** | 31 Russian SEO page data (metadata + content sections) |
+| `src/app/[slug]/page.js` | **NEW** | Dynamic route for Russian SEO pages |
+| `src/data/seo-links.js` | Modified | Added 31 Russian internal links |
+| `src/app/sitemap.js` | Modified | Added 31 Russian slugs + /projects |
+| `src/app/projects/page.js` | Modified | Added metadata + canonical |
+| `src/app/*/layout.js` (×21) | Modified | Added `alternates.canonical` to all English SEO pages |
+
+---
+
 ## Session 12 — SEO Expansion & Content Update (March 29, 2026)
 
 ### 3 New Blog Posts

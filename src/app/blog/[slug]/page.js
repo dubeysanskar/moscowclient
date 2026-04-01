@@ -16,6 +16,9 @@ export async function generateMetadata({ params }) {
             description: post.excerpt_ru || post.excerpt || 'Статья блога Taha Airwaves.',
             url: `https://tahaairwaves.ru/blog/${slug}`,
         },
+        alternates: {
+            canonical: `https://tahaairwaves.ru/blog/${slug}`,
+        },
     }
 }
 

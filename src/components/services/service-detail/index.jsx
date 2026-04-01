@@ -158,7 +158,7 @@ export default function ServiceDetailContent({ service }) {
                             { number: '500+', label: ru ? 'Размещено работников' : 'Workers Deployed', icon: <FaGlobeAsia style={{ color: '#8E0935' }} /> },
                             { number: '95%', label: ru ? 'Трудоустройство' : 'Placement Rate', icon: <MdVerified style={{ color: '#8E0935' }} /> },
                             { number: '21+', label: ru ? 'Стран обслужено' : 'Countries Served', icon: <FaGlobeAsia style={{ color: '#BC264B' }} /> },
-                            { number: '100%', label: ru ? 'Соответствие' : 'Compliance Rate', icon: <MdVerified style={{ color: '#BC264B' }} /> },
+                            { number: '24/7', label: ru ? 'Постоянная поддержка' : 'Dedicated Support', icon: <MdVerified style={{ color: '#BC264B' }} /> },
                         ].map((stat, i) => (
                             <div key={i} className="text-center p-6 rounded-lg" style={{ background: '#fff', border: '1px solid rgba(142,9,53,0.1)' }}>
                                 <div className="text-3xl lg:text-4xl font-black mb-1" style={{ color: '#8E0935', fontFamily: 'var(--font-inter)' }}>{stat.number}</div>

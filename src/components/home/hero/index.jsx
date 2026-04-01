@@ -279,7 +279,7 @@ export default function Hero() {
                                 style={{ color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-poppins)" }}
                             >
                                 {lang === 'ru'
-                                    ? 'Государственно одобренное агентство по подбору персонала с местной поддержкой в Москве. Мы помогаем российским компаниям нанимать квалифицированных работников из Индии, Непала и Индонезии.'
+                                    ? 'Лицензированное кадровое агентство с офисом в Москве. Мы помогаем российским компаниям нанимать квалифицированных специалистов из Индии, Непала и Индонезии.'
                                     : 'Government Approved Recruitment Agency with Local Support in Moscow. We help Russian companies hire skilled manpower from India, Nepal & Indonesia.'
                                 }
                             </motion.p>

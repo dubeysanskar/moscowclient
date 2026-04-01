@@ -12,9 +12,9 @@ import { motion, useScroll, useTransform } from "framer-motion"
 const SERVICES = [
     {
         icon: FiCheckCircle,
-        titleEn: "Government Approved Agency", titleRu: "Государственно одобренное агентство",
+        titleEn: "Government Approved Agency", titleRu: "Одобренное государством агентство",
         descEn: "Fully licensed and compliant recruitment agency ensuring safe and legal hiring from India.",
-        descRu: "Полностью лицензированное и соответствующее требованиям рекрутинговое агентство, обеспечивающее безопасный и законный наём из Индии.",
+        descRu: "Лицензированное и полностью соответствующее требованиям рекрутинговое агентство, обеспечивающее безопасный и легальный найм из Индии.",
         bg: "#8A0029",
         gradient: "linear-gradient(135deg, #8A0029 0%, #5C001B 100%)",
         border: "rgba(211,47,47,0.3)",

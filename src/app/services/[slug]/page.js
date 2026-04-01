@@ -250,6 +250,9 @@ export async function generateMetadata({ params }) {
             description: service.metaDesc_ru || service.metaDesc || 'Услуги по подбору персонала от Taha Airwaves.',
             url: `https://tahaairwaves.ru/services/${slug}`,
         },
+        alternates: {
+            canonical: `https://tahaairwaves.ru/services/${slug}`,
+        },
     }
 }
 

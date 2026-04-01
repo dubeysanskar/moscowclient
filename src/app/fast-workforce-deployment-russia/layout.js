@@ -7,5 +7,8 @@ export const metadata = {
         description: "Размещение квалифицированных работников из Индии в России за 30–45 дней.",
         url: "https://tahaairwaves.ru/fast-workforce-deployment-russia",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/fast-workforce-deployment-russia",
+    },
 }
 export default function Layout({ children }) { return children }

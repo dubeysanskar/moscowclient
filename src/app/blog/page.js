@@ -10,6 +10,9 @@ export const metadata = {
         description: "Экспертные статьи о трудовой миграции, подборе персонала и размещении работников в России.",
         url: "https://tahaairwaves.ru/blog",
     },
+    alternates: {
+        canonical: "https://tahaairwaves.ru/blog",
+    },
 }
 
 export default function Blog() {
