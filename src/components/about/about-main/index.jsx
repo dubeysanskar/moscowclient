@@ -10,8 +10,8 @@ import { DotGrid, Crosshair, CornerOrnament, FlowLine, GlobeWireframe, CircuitLi
 const GLOBAL_STATS = [
     { value: "5000+", labelEn: "Workers Deployed Globally", labelRu: "Специалистов трудоустроено по всему миру", accent: "#8E0935" },
     { value: "11+", labelEn: "Countries Served", labelRu: "Стран обслужено", accent: "#BC264B" },
-    { value: "50+", labelEn: "Global Partners", labelRu: "Глобальных партнёров", accent: "#8E0935" },
-    { value: "24/7", labelEn: "Dedicated Support", labelRu: "Постоянная поддержка", accent: "#BC264B" },
+    { value: "120+", labelEn: "Global Partners", labelRu: "Глобальных партнёров", accent: "#8E0935" },
+    { value: "100%", labelEn: "Verified Candidates Through Screening", labelRu: "Проверенные кандидаты через наш скрининг", accent: "#BC264B" },
 ]
 
 const MISSION_VISION = [
