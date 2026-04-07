@@ -21,6 +21,8 @@ export default function ResumeBuilder() {
     const initialState = {
         profile: {
             firstname: "", lastname: "", phone: "", email: "", address: "",
+            applyingFor: [], photo: "",
+            passportNumber: "", passportExpiry: "", nationality: "", placeOfIssue: "",
             links: [], // { label, url }
         },
         professional: { summary: "", skills: "", work: [] },

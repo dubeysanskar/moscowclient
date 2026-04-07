@@ -4,6 +4,33 @@
 
 ---
 
+## Session 14 — CV Builder Enhancements & Why Choose Us Fix (April 7, 2026)
+
+### CV Builder — New Features
+- **File**: `src/components/cv-builder/basic-detail.jsx`
+  - **"Applying For" Multi-Select**: Replaced single dropdown with pill-style checkbox grid (11 service-based options + "Other" custom input).
+  - **Photo Upload**: Drag-and-drop with circular preview and hover-to-remove.
+  - **Passport Details**: Expandable optional section (Number, Nationality, Expiry, Place of Issue).
+- **File**: `src/components/cv-builder/index.jsx` — `applyingFor` changed from string to array.
+- **File**: `src/components/cv-builder/resume-template.jsx`
+  - 3 tabbed templates (Classic, Modern, Minimal) displaying photo, multiple positions, passport data.
+  - Print/download fix: single shared `contentRef`, only active template renders.
+
+### Why Choose Us Section — Responsiveness Fix
+- **File**: `src/components/home/what-we-do/index.jsx`
+  - Desktop (lg+): Horizontal scroll animation, 600vh section, 7th card fully visible.
+  - Mobile/Tablet: Responsive grid (1-col / 2-col).
+  - Request Service button: fully inline-styled for all screens.
+
+| File | Action | Description |
+|---|---|---|
+| `src/components/cv-builder/basic-detail.jsx` | Modified | Multi-select, photo, passport |
+| `src/components/cv-builder/index.jsx` | Modified | applyingFor → array |
+| `src/components/cv-builder/resume-template.jsx` | Modified | 3 templates, print fix |
+| `src/components/home/what-we-do/index.jsx` | Modified | Responsive layout fix |
+
+---
+
 ## Session 13 — Russian SEO Pages & Canonical URL Fixes (April 1, 2026)
 
 ### 31 New Russian-Language SEO Landing Pages
